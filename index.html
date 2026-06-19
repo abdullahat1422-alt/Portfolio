@@ -424,12 +424,12 @@ textarea.minput{resize:vertical;min-height:80px}
     </a>
     <div class="nav-links">
       <a href="#about" class="nav-link"><span class="inline-ar" style="display: inline;">من أنا</span><span class="inline-en" style="display: none;">About</span></a>
-      <a href="#experience" class="nav-link active"><span class="inline-ar" style="display: inline;">خبراتي</span><span class="inline-en" style="display: none;">Experience</span></a>
+      <a href="#experience" class="nav-link"><span class="inline-ar" style="display: inline;">خبراتي</span><span class="inline-en" style="display: none;">Experience</span></a>
       <a href="#projects" class="nav-link"><span class="inline-ar" style="display: inline;">أبحاثي</span><span class="inline-en" style="display: none;">Research</span></a>
       <a href="#inprogress" class="nav-link"><span class="inline-ar" style="display: inline;">قيد الدراسة</span><span class="inline-en" style="display: none;">In Progress</span></a>
       <a href="#skills" class="nav-link"><span class="inline-ar" style="display: inline;">مهاراتي</span><span class="inline-en" style="display: none;">Skills</span></a>
       <a href="#certifications" class="nav-link"><span class="inline-ar" style="display: inline;">شهاداتي</span><span class="inline-en" style="display: none;">Certs</span></a>
-      <a href="#contact" class="nav-link"><span class="inline-ar" style="display: inline;">تواصل</span><span class="inline-en" style="display: none;">Contact</span></a>
+      <a href="#contact" class="nav-link active"><span class="inline-ar" style="display: inline;">تواصل</span><span class="inline-en" style="display: none;">Contact</span></a>
       <a href="#opportunities" class="nav-link" style="color:var(--accent);font-weight:600"><span class="inline-ar" style="display: inline;">للتوظيف</span><span class="inline-en" style="display: none;">Hire Me</span></a>
     </div>
     <div style="display:flex;align-items:center;gap:10px">
@@ -440,11 +440,11 @@ textarea.minput{resize:vertical;min-height:80px}
 </nav>
 <div class="mobile-nav" id="mobileNav">
   <a href="#about" class="nav-link" onclick="closeMobile()"><span class="inline-ar" style="display: inline;">من أنا</span><span class="inline-en" style="display: none;">About</span></a>
-  <a href="#experience" class="nav-link active" onclick="closeMobile()"><span class="inline-ar" style="display: inline;">خبراتي</span><span class="inline-en" style="display: none;">Experience</span></a>
+  <a href="#experience" class="nav-link" onclick="closeMobile()"><span class="inline-ar" style="display: inline;">خبراتي</span><span class="inline-en" style="display: none;">Experience</span></a>
   <a href="#projects" class="nav-link" onclick="closeMobile()"><span class="inline-ar" style="display: inline;">أبحاثي</span><span class="inline-en" style="display: none;">Research</span></a>
   <a href="#skills" class="nav-link" onclick="closeMobile()"><span class="inline-ar" style="display: inline;">مهاراتي</span><span class="inline-en" style="display: none;">Skills</span></a>
   <a href="#certifications" class="nav-link" onclick="closeMobile()"><span class="inline-ar" style="display: inline;">شهاداتي</span><span class="inline-en" style="display: none;">Certs</span></a>
-  <a href="#contact" class="nav-link" onclick="closeMobile()"><span class="inline-ar" style="display: inline;">تواصل</span><span class="inline-en" style="display: none;">Contact</span></a>
+  <a href="#contact" class="nav-link active" onclick="closeMobile()"><span class="inline-ar" style="display: inline;">تواصل</span><span class="inline-en" style="display: none;">Contact</span></a>
   <a href="#opportunities" class="nav-link" onclick="closeMobile()" style="color:var(--accent);font-weight:600"><span class="inline-ar" style="display: inline;">للتوظيف</span><span class="inline-en" style="display: none;">Hire Me</span></a>
 </div>
 
@@ -1170,7 +1170,7 @@ textarea.minput{resize:vertical;min-height:80px}
 <div class="modal-overlay" id="expModal">
   <div class="modal">
     <div class="modal-header">
-      <span class="modal-title" id="expModalTitle"><span data-ar="" style="display: inline;">تعديل الخبرة</span><span data-en="" style="display: none;">Edit Experience</span></span>
+      <span class="modal-title" id="expModalTitle"><span data-ar="" style="display: inline;">إضافة خبرة</span><span data-en="" style="display: none;">Add Experience</span></span>
       <button class="modal-close" onclick="closeModal('expModal')">×</button>
     </div>
     <div class="modal-body">
@@ -1186,7 +1186,7 @@ textarea.minput{resize:vertical;min-height:80px}
       </div>
     </div>
     <div class="modal-footer">
-      <button class="mbtn danger" id="eDeleteBtn" onclick="deleteExperience()" style="display: block;"><span data-ar="" style="display: inline;">حذف</span><span data-en="" style="display: none;">Delete</span></button>
+      <button class="mbtn danger" id="eDeleteBtn" onclick="deleteExperience()" style="display:none"><span data-ar="" style="display: inline;">حذف</span><span data-en="" style="display: none;">Delete</span></button>
       <button class="mbtn" onclick="closeModal('expModal')"><span data-ar="" style="display: inline;">إلغاء</span><span data-en="" style="display: none;">Cancel</span></button>
       <button class="mbtn primary" onclick="saveExperience()"><span data-ar="" style="display: inline;">حفظ</span><span data-en="" style="display: none;">Save</span></button>
     </div>
@@ -1937,29 +1937,48 @@ function downloadCV(e) {
   e.preventDefault();
   const btn = document.getElementById('cvDownloadBtn');
   const dataURI = btn.href;
+  const isMobile = /iphone|ipad|ipod|android/i.test(navigator.userAgent);
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+
   try {
-    // Convert base64 to Blob — works reliably on iOS & Android
     const b64 = dataURI.split(',')[1];
-    const binary = atob(b64);
-    const bytes = new Uint8Array(binary.length);
-    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-    const blob = new Blob([bytes], { type: 'application/pdf' });
+    // Chunked atob to handle large files on mobile
+    const chunkSize = 512;
+    const byteArrays = [];
+    for (let i = 0; i < b64.length; i += chunkSize) {
+      const chunk = b64.slice(i, i + chunkSize);
+      const binary = atob(chunk);
+      const bytes = new Uint8Array(binary.length);
+      for (let j = 0; j < binary.length; j++) bytes[j] = binary.charCodeAt(j);
+      byteArrays.push(bytes);
+    }
+    const blob = new Blob(byteArrays, { type: 'application/pdf' });
     const url = URL.createObjectURL(blob);
-    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+
     if (isIOS) {
-      // iOS: open in new tab so user can save via share sheet
-      window.open(url, '_blank');
+      // iOS Safari: open in new tab → user can tap Share → Save to Files
+      const newTab = window.open('', '_blank');
+      if (newTab) {
+        newTab.location.href = url;
+      } else {
+        // popup blocked fallback
+        window.location.href = url;
+      }
     } else {
+      // Android + Desktop
       const a = document.createElement('a');
       a.href = url;
       a.download = 'ABDULLAH_ALSUMAIRI_CV.pdf';
+      a.style.display = 'none';
       document.body.appendChild(a);
       a.click();
-      document.body.removeChild(a);
-      setTimeout(() => URL.revokeObjectURL(url), 2000);
+      setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 3000);
     }
   } catch(err) {
-    // Fallback: open data URI directly
+    // Final fallback: open data URI in new tab
     window.open(dataURI, '_blank');
   }
 }

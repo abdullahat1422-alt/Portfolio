@@ -6,7 +6,7 @@
 export type Lang = "ar" | "en";
 type T = { ar: string; en: string };
 
-export const SITE_URL = "https://alsumairi.vercel.app";
+export const SITE_URL = "https://abdullah-alsumairi.vercel.app";
 
 export const contact = {
   email: "Abdullahat1422@gmail.com",

@@ -1,27 +1,4 @@
-import { IBM_Plex_Sans_Arabic, Gelasio, Noto_Naskh_Arabic } from "next/font/google";
-
-// Body text (Arabic + Latin)
-export const plex = IBM_Plex_Sans_Arabic({
-  weight: ["400", "500", "700"],
-  subsets: ["arabic", "latin"],
-  display: "swap",
-  variable: "--font-plex",
-});
-
-// Headings: Gelasio is metric-compatible with Georgia (the deck's title face)
-export const gelasio = Gelasio({
-  weight: ["600", "700"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-gelasio",
-});
-
-// Arabic serif headings to pair with Gelasio
-export const naskh = Noto_Naskh_Arabic({
-  weight: ["600", "700"],
-  subsets: ["arabic"],
-  display: "swap",
-  variable: "--font-naskh",
-});
-
-export const fontVars = `${plex.variable} ${gelasio.variable} ${naskh.variable}`;
+// Fonts load from Google Fonts via <link> in the layouts.
+// Body: IBM Plex Sans Arabic. Headings: Gelasio (Georgia-metric, as in the deck) + Noto Naskh Arabic.
+export const fontHref =
+  "https://fonts.googleapis.com/css2?family=Gelasio:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Noto+Naskh+Arabic:wght@600;700&display=swap";

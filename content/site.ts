@@ -34,7 +34,7 @@ export const person = {
   },
   stats: [
     { n: "+50", l: { ar: "خريطة منجزة ضمن مختارات من أعمالي", en: "maps produced across selected works" } },
-    { n: "4.81", l: { ar: "معدل الماجستير، جامعة الملك سعود", en: "M.Sc. GPA, King Saud University" } },
+    { n: { ar: "ماجستير", en: "M.Sc." }, l: { ar: "العلوم البيئية، جامعة الملك سعود", en: "Environmental Science, King Saud University" } },
     { n: { ar: "خبرة عملية وميدانية", en: "Hands-on field experience" }, l: { ar: "في المحميات والتنوع الأحيائي مع NCW وRed Sea Global ومكاتب الاستشارات البيئية", en: "in protected areas and biodiversity with NCW, Red Sea Global and environmental consultancies" } },
   ] as { n: string | T; l: T }[],
 };

@@ -29,8 +29,6 @@ export function buildMetadata(lang: Lang): Metadata {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbf7ec" },
-    { media: "(prefers-color-scheme: dark)", color: "#171b15" },
-  ],
+  themeColor: "#fbf7ec",
+  colorScheme: "light",
 };

@@ -150,7 +150,7 @@ export default function Site({ lang }: { lang: Lang }) {
             <h1 className="mt-6 text-[3.4rem] font-extrabold leading-[1.25]">{t(person.name)}</h1>
             <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink-soft">{t(person.lead)}</p>
             <div className="mt-9 flex gap-3">
-              <a href="#contact" className="rounded-full bg-copper px-7 py-3.5 font-semibold text-white no-underline shadow-lg shadow-copper/25 hover:bg-copper-strong dark:text-[#171b15]">
+              <a href="#contact" className="rounded-full bg-copper px-7 py-3.5 font-semibold text-white no-underline shadow-lg shadow-copper/25 hover:bg-copper-strong">
                 {t(ui.requestConsult)}
               </a>
               <a href="#maps" className="rounded-full border border-line px-7 py-3.5 font-semibold no-underline hover:bg-surface">

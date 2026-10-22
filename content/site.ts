@@ -106,6 +106,8 @@ export const projects: Project[] = [
       { src: "/maps/communities-t01.webp", w: 3000, h: 2123, caption: { ar: "غابات العرعر", en: "Juniper woodland" } },
       { src: "/maps/communities-t13.webp", w: 3000, h: 2123, caption: { ar: "المانجروف", en: "Mangrove" } },
       { src: "/maps/communities-t21.webp", w: 3000, h: 2123, caption: { ar: "الغضا", en: "Haloxylon shrubland" } },
+      { src: "/maps/communities-t04.webp", w: 3000, h: 2123, caption: { ar: "غابات السلم الجبلية", en: "Acacia asak woodland" } },
+      { src: "/maps/communities-t22.webp", w: 3000, h: 2123, caption: { ar: "نباتات السبخات", en: "Inland sabkha halophytes" } },
     ],
   },
   {
@@ -141,6 +143,22 @@ export const projects: Project[] = [
     link: { href: "https://doi.org/10.1186/s12862-026-02582-0", label: { ar: "البحث", en: "Paper" } },
     credit: { ar: "الشكل: Al-Hashimi وآخرون 2026، CC BY-NC-ND 4.0", en: "Figure: Al-Hashimi et al. 2026, CC BY-NC-ND 4.0" },
   },
+];
+
+// معرض الخرائط: خرائط إضافية من الأعمال
+export const mapGallery: { thumb: string; full: string; w: number; h: number; tw: number; th: number; caption: T; from: T }[] = [
+  { thumb: "/maps/g-catchment.webp", full: "/maps/tuwaiq-catchment.webp", w: 1344, h: 1080, tw: 720, th: 579, caption: { ar: "الحوض المغذي لمحمية طويق", en: "Catchment feeding the Tuwaiq Reserve" }, from: { ar: "طويق", en: "Tuwaiq" } },
+  { thumb: "/maps/g-t21.webp", full: "/maps/communities-t21.webp", w: 3000, h: 2123, tw: 720, th: 802, caption: { ar: "مجتمع الغضا في الكثبان", en: "Haloxylon persicum dune shrubland" }, from: { ar: "الأطلس", en: "Atlas" } },
+  { thumb: "/maps/g-sgichange.webp", full: "/maps/sgi-change.webp", w: 2100, h: 1800, tw: 720, th: 617, caption: { ar: "تغيّر NDVI بين الفترتين", en: "NDVI change between periods" }, from: { ar: "الاخضرار", en: "Greening" } },
+  { thumb: "/maps/g-lsw.webp", full: "/maps/landscape-sw-full.webp", w: 2600, h: 3020, tw: 720, th: 836, caption: { ar: "الحافات والحرات في الجنوب الغربي", en: "Southwest escarpments and harrat" }, from: { ar: "المشهد", en: "Landscape" } },
+  { thumb: "/maps/g-wadis.webp", full: "/maps/tuwaiq-wadis.webp", w: 1320, h: 1170, tw: 720, th: 638, caption: { ar: "الأودية والأحواض المغلقة قرب ضرما", en: "Wadis and closed basins near Duruma" }, from: { ar: "طويق", en: "Tuwaiq" } },
+  { thumb: "/maps/g-t04.webp", full: "/maps/communities-t04.webp", w: 3000, h: 2123, tw: 720, th: 802, caption: { ar: "غابات السلم على المنحدرات", en: "Acacia asak rocky-slope woodland" }, from: { ar: "الأطلس", en: "Atlas" } },
+  { thumb: "/maps/g-sgibase.webp", full: "/maps/sgi-baseline.webp", w: 1027, h: 880, tw: 720, th: 617, caption: { ar: "متوسط NDVI قبل المبادرة", en: "Mean NDVI before the initiative" }, from: { ar: "الاخضرار", en: "Greening" } },
+  { thumb: "/maps/g-greenness.webp", full: "/maps/tuwaiq-greenness.webp", w: 1582, h: 1402, tw: 720, th: 638, caption: { ar: "التعافي والتراجع في طويق", en: "Recovery and decline at Tuwaiq" }, from: { ar: "طويق", en: "Tuwaiq" } },
+  { thumb: "/maps/g-t22.webp", full: "/maps/communities-t22.webp", w: 3000, h: 2123, tw: 720, th: 802, caption: { ar: "نباتات السبخات الداخلية", en: "Inland sabkha halophytes" }, from: { ar: "الأطلس", en: "Atlas" } },
+  { thumb: "/maps/g-sgitheil.webp", full: "/maps/sgi-theilsen.webp", w: 2100, h: 1800, tw: 720, th: 617, caption: { ar: "ميل اتجاه الاخضرار", en: "Greening trend slope" }, from: { ar: "الاخضرار", en: "Greening" } },
+  { thumb: "/maps/g-summary.webp", full: "/maps/tuwaiq-summary.webp", w: 1582, h: 1402, tw: 720, th: 638, caption: { ar: "ملخص نتائج طويق", en: "Tuwaiq summary map" }, from: { ar: "طويق", en: "Tuwaiq" } },
+  { thumb: "/maps/g-t01.webp", full: "/maps/communities-t01.webp", w: 3000, h: 2123, tw: 720, th: 802, caption: { ar: "غابات العرعر الجبلية", en: "Juniper montane woodland" }, from: { ar: "الأطلس", en: "Atlas" } },
 ];
 
 export const services: { title: T; line: T; photo: string }[] = [
@@ -254,6 +272,8 @@ export const ui = {
   openMap: { ar: "تكبير", en: "Open" },
   maps: { ar: "الأعمال", en: "Selected work" },
   services: { ar: "مجالات التعاون", en: "Areas of collaboration" },
+  gallery: { ar: "معرض الخرائط", en: "Map gallery" },
+  featured: { ar: "عمل مميز", en: "Featured" },
   band: { ar: "من الميدان إلى الخريطة", en: "From the field to the map" },
   skills: { ar: "المهارات", en: "Skills" },
   research: { ar: "الأبحاث", en: "Research" },

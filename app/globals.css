@@ -119,3 +119,30 @@ details > summary::-webkit-details-marker {
 details[open] .chev {
   transform: rotate(180deg);
 }
+
+/* Map sheet frame: paper mat, sand edge, dark neatline, soft drop shadow */
+.map-frame {
+  background: #fffdf7;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 1px #d8c6a0,
+    0 1px 0 4px #fffdf7,
+    0 0 0 5px #e7d9bb,
+    0 26px 50px -26px rgba(74, 48, 18, 0.55);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.map-frame:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 1px #c9b080,
+    0 1px 0 4px #fffdf7,
+    0 0 0 5px #dcc89e,
+    0 34px 60px -26px rgba(74, 48, 18, 0.6);
+}
+.map-neatline {
+  background: #ffffff;
+  outline: 2px solid #2b3326;
+  outline-offset: -2px;
+  box-shadow: inset 0 0 0 5px #ffffff, inset 0 0 0 6px #b08a5a;
+}

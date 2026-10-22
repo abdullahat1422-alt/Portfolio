@@ -4,6 +4,7 @@ import {
   person,
   contact,
   projects,
+  mapGallery,
   services,
   skills,
   languages,
@@ -175,25 +176,21 @@ export default function Site({ lang }: { lang: Lang }) {
           </ul>
         </section>
 
-        {/* Maps */}
+        {/* Work */}
         <section id="maps" className="mx-auto max-w-6xl scroll-mt-16 px-4 py-16 sm:px-6 lg:py-24">
           <h2 className="text-3xl font-bold sm:text-4xl">{t(ui.maps)}</h2>
-          <div className="mt-10 grid gap-x-8 gap-y-12 md:grid-cols-2">
-            {projects.map((p) => (
-              <article key={p.id} id={p.id} className="scroll-mt-20">
-                <MapViewer
-                  dir={dir}
-                  title={t(p.title)}
-                  card={{ ...p.card, alt: t(p.card.alt) }}
-                  images={p.gallery.map((g) => ({ src: g.src, w: g.w, h: g.h, caption: t(g.caption) }))}
-                  labels={{ open: t(ui.openMap), close: t(ui.close), prev: t(ui.prev), next: t(ui.next), hint: t(ui.zoomHint), reset: t(ui.resetZoom) }}
-                />
-                <div className="mt-4 flex flex-wrap items-center gap-2">
+
+          {(() => {
+            const labels = { open: t(ui.openMap), close: t(ui.close), prev: t(ui.prev), next: t(ui.next), hint: t(ui.zoomHint), reset: t(ui.resetZoom) };
+            const Meta = ({ p, big }: { p: (typeof projects)[number]; big?: boolean }) => (
+              <>
+                <div className="flex flex-wrap items-center gap-2">
+                  {big && <span className="rounded-full bg-copper px-3 py-0.5 text-[13px] font-semibold text-white">{t(ui.featured)}</span>}
                   <span className={`rounded-full px-3 py-0.5 text-[13px] font-medium ${statusTone(p.status.en)}`}>{t(p.status)}</span>
-                  <span className="rounded-full bg-surface px-3 py-0.5 text-[13px] font-medium text-ink">{t(p.highlight)}</span>
+                  <span className="rounded-full bg-surface px-3 py-0.5 text-[13px] font-medium text-ink ring-1 ring-line">{t(p.highlight)}</span>
                 </div>
-                <h3 className="mt-3 text-xl font-semibold">{t(p.title)}</h3>
-                <p className="mt-1.5 text-ink-soft">{t(p.line)}</p>
+                <h3 className={`mt-3 font-bold ${big ? "text-2xl sm:text-3xl" : "text-xl"}`}>{t(p.title)}</h3>
+                <p className={`mt-2 text-ink-soft ${big ? "text-[17px] leading-relaxed" : ""}`}>{t(p.line)}</p>
                 <p className="mt-2 text-[13px] text-ink-soft/80" dir="ltr" style={{ textAlign: lang === "ar" ? "right" : "left" }}>
                   {p.tools.join("  ·  ")}
                 </p>
@@ -203,9 +200,72 @@ export default function Site({ lang }: { lang: Lang }) {
                   </a>
                 )}
                 {p.credit && <p className="mt-1 text-[11px] text-ink-soft/70">{t(p.credit)}</p>}
-              </article>
-            ))}
-          </div>
+              </>
+            );
+            const [first, ...rest] = projects;
+            return (
+              <>
+                <article id={first.id} className="mt-10 grid scroll-mt-20 items-center gap-8 lg:grid-cols-12 lg:gap-12">
+                  <div className="lg:col-span-7">
+                    <MapViewer
+                      dir={dir}
+                      title={t(first.title)}
+                      aspect="aspect-[5/4]"
+                      sizes="(min-width: 1024px) 680px, 100vw"
+                      card={{ ...first.card, alt: t(first.card.alt) }}
+                      images={first.gallery.map((g) => ({ src: g.src, w: g.w, h: g.h, caption: t(g.caption) }))}
+                      labels={labels}
+                    />
+                  </div>
+                  <div className="lg:col-span-5">
+                    <Meta p={first} big />
+                  </div>
+                </article>
+
+                <div className="mt-16 grid gap-x-10 gap-y-14 md:grid-cols-2">
+                  {rest.map((p) => (
+                    <article key={p.id} id={p.id} className="scroll-mt-20">
+                      <MapViewer
+                        dir={dir}
+                        title={t(p.title)}
+                        card={{ ...p.card, alt: t(p.card.alt) }}
+                        images={p.gallery.map((g) => ({ src: g.src, w: g.w, h: g.h, caption: t(g.caption) }))}
+                        labels={labels}
+                      />
+                      <div className="mt-5">
+                        <Meta p={p} />
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                {/* Map gallery */}
+                <div id="gallery" className="mt-24 scroll-mt-20">
+                  <h2 className="text-3xl font-bold sm:text-4xl">{t(ui.gallery)}</h2>
+                  <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-9 sm:gap-x-7 lg:grid-cols-4">
+                    {mapGallery.map((g) => (
+                      <figure key={g.thumb}>
+                        <MapViewer
+                          dir={dir}
+                          compact
+                          aspect="aspect-square"
+                          sizes="(min-width: 1024px) 270px, 50vw"
+                          title={t(g.caption)}
+                          card={{ src: g.thumb, src720: g.thumb, w: g.tw, h: g.th, alt: t(g.caption) }}
+                          images={[{ src: g.full, w: g.w, h: g.h, caption: t(g.caption) }]}
+                          labels={labels}
+                        />
+                        <figcaption className="mt-3.5">
+                          <span className="block text-[12px] font-semibold text-copper">{t(g.from)}</span>
+                          <span className="block text-[14px] font-medium leading-snug">{t(g.caption)}</span>
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                </div>
+              </>
+            );
+          })()}
         </section>
 
         {/* Photo band */}

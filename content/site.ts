@@ -33,9 +33,9 @@ export const person = {
     en: "Environmental specialist with an M.Sc. in Environmental Science (First-Class Honors) from King Saud University, with experience across environmental consulting, wildlife conservation and independent geospatial work. I have prepared EIA documents aligned with NCEC requirements, led biodiversity surveys and habitat suitability modeling at the National Center for Wildlife, and co-authored a peer-reviewed article in BMC Ecology and Evolution.",
   },
   stats: [
-    { n: "5", l: { ar: "أعمال ومشاريع وطنية", en: "national works and projects" } },
+    { n: "+50", l: { ar: "خريطة منجزة ضمن مختارات من أعمالي", en: "maps produced across selected works" } },
     { n: "4.81", l: { ar: "معدل الماجستير، جامعة الملك سعود", en: "M.Sc. GPA, King Saud University" } },
-    { n: { ar: "تعاون", en: "Open" }, l: { ar: "مع الجهات الحكومية والخاصة والبحثية", en: "to government, private and research partners" } },
+    { n: { ar: "خبرة ميدانية", en: "Field experience" }, l: { ar: "في المحميات والتنوع الأحيائي مع NCW وRed Sea Global ومكاتب الاستشارات البيئية", en: "in protected areas and biodiversity with NCW, Red Sea Global and environmental consultancies" } },
   ] as { n: string | T; l: T }[],
 };
 
@@ -270,7 +270,7 @@ export const ui = {
   email: { ar: "إيميل", en: "Email" },
   call: { ar: "اتصال", en: "Call" },
   openMap: { ar: "تكبير", en: "Open" },
-  maps: { ar: "الأعمال", en: "Selected work" },
+  maps: { ar: "مختارات من الأعمال", en: "Selected work" },
   services: { ar: "مجالات التعاون", en: "Areas of collaboration" },
   gallery: { ar: "معرض الخرائط", en: "Map gallery" },
   featured: { ar: "عمل مميز", en: "Featured" },

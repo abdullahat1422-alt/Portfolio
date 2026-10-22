@@ -166,11 +166,11 @@ export default function Site({ lang }: { lang: Lang }) {
 
         {/* Stats */}
         <section className="border-y border-line bg-surface">
-          <ul className="mx-auto grid max-w-6xl grid-cols-3 divide-x divide-line px-2 py-6 rtl:divide-x-reverse sm:px-6">
+          <ul className="mx-auto grid max-w-6xl divide-y divide-line px-5 py-2 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:px-6 sm:py-7 sm:rtl:divide-x-reverse">
             {person.stats.map((s, k) => (
-              <li key={k} className="px-3 text-center">
-                <p className="font-[family-name:var(--font-display)] text-2xl font-extrabold text-copper sm:text-3xl" dir="auto">{typeof s.n === "string" ? s.n : t(s.n)}</p>
-                <p className="mt-1 text-[12.5px] leading-snug text-ink-soft sm:text-sm">{t(s.l)}</p>
+              <li key={k} className="flex items-center gap-4 py-4 sm:block sm:px-4 sm:py-0 sm:text-center">
+                <p className="w-32 shrink-0 font-[family-name:var(--font-display)] text-2xl font-extrabold text-copper sm:w-auto sm:text-3xl">{typeof s.n === "string" ? s.n : t(s.n)}</p>
+                <p className="text-[14px] leading-snug text-ink-soft sm:mt-1.5 sm:text-sm">{t(s.l)}</p>
               </li>
             ))}
           </ul>

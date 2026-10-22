@@ -161,26 +161,6 @@ export const mapGallery: { thumb: string; full: string; w: number; h: number; tw
   { thumb: "/maps/g-t01.webp", full: "/maps/communities-t01.webp", w: 3000, h: 2123, tw: 720, th: 802, caption: { ar: "غابات العرعر الجبلية", en: "Juniper montane woodland" }, from: { ar: "الأطلس", en: "Atlas" } },
 ];
 
-// النباتات المتوطنة: صور ميدانية من عبدالله (بدون إحداثيات)
-export const endemics = {
-  title: { ar: "النباتات المتوطنة", en: "Endemic plants" },
-  lead: {
-    ar: "رسالتي للماجستير نمذجت الملاءمة الحالية والارتباطات البيئية لخمسة نباتات متوطنة ضيقة الانتشار في مرتفعات السروات والحجاز باستخدام MaxEnt، مدعومة بمسوحات ميدانية في مرتفعات الطائف، وكشفت انقساماً مناخياً بين الشمال والجنوب يحدد توزيعها. وامتد العمل إلى بحث منشور عن إعادة التوزيع المناخي لأربعة نباتات عصارية متوطنة.",
-    en: "My M.Sc. thesis modeled current habitat suitability and environmental associations of five narrow-range endemic plants in the Sarawat–Hejaz highlands using MaxEnt, supported by field surveys in the Taif highlands, and revealed a north–south climatic divide that shapes their distribution. The work extended into a published study on the climate-driven redistribution of four endemic succulents.",
-  },
-  photosNote: { ar: "الصور من مسوحاتي الميدانية، ولا تُنشر مواقعها حفاظاً على هذه الأنواع.", en: "Photos from my field surveys; locations are withheld to protect these species." },
-  floraLink: { href: "https://saudi-native-flora.netlify.app/", label: { ar: "دليل نباتات المملكة", en: "Saudi Native Flora guide" } },
-  paperLink: { href: "https://doi.org/10.1186/s12862-026-02582-0", label: { ar: "البحث المنشور", en: "Published paper" } },
-  species: [
-  { id: "aloe-armatissima", name: "Aloe armatissima", family: "Asphodelaceae", role: { ar: "رسالة الماجستير والبحث المنشور", en: "M.Sc. thesis and published paper" }, card: "/plants/aloe-armatissima-card.webp", photos: [{ src: "/plants/aloe-armatissima-1.webp", w: 1226, h: 1600 }, { src: "/plants/aloe-armatissima-2.webp", w: 1067, h: 1600 }, { src: "/plants/aloe-armatissima-3.webp", w: 595, h: 1280 }] },
-  { id: "euphorbia-madinahensis", name: "Euphorbia madinahensis", family: "Euphorbiaceae", role: { ar: "رسالة الماجستير", en: "M.Sc. thesis" }, card: "/plants/euphorbia-madinahensis-card.webp", photos: [{ src: "/plants/euphorbia-madinahensis-1.webp", w: 960, h: 1280 }, { src: "/plants/euphorbia-madinahensis-2.webp", w: 720, h: 1280 }, { src: "/plants/euphorbia-madinahensis-3.webp", w: 720, h: 1280 }, { src: "/plants/euphorbia-madinahensis-4.webp", w: 960, h: 1280 }, { src: "/plants/euphorbia-madinahensis-5.webp", w: 960, h: 1280 }] },
-  { id: "euphorbia-taifensis", name: "Euphorbia taifensis", family: "Euphorbiaceae", role: { ar: "رسالة الماجستير والبحث المنشور", en: "M.Sc. thesis and published paper" }, card: "/plants/euphorbia-taifensis-card.webp", photos: [{ src: "/plants/euphorbia-taifensis-1.webp", w: 720, h: 1280 }, { src: "/plants/euphorbia-taifensis-2.webp", w: 720, h: 1280 }, { src: "/plants/euphorbia-taifensis-3.webp", w: 720, h: 1280 }] },
-  { id: "euryops-jaberiana", name: "Euryops jaberiana", family: "Asteraceae", role: { ar: "رسالة الماجستير", en: "M.Sc. thesis" }, card: "/plants/euryops-jaberiana-card.webp", photos: [{ src: "/plants/euryops-jaberiana-1.webp", w: 1024, h: 768 }, { src: "/plants/euryops-jaberiana-2.webp", w: 720, h: 1280 }] },
-  { id: "nepeta-sheilae", name: "Nepeta sheilae", family: "Lamiaceae", role: { ar: "رسالة الماجستير", en: "M.Sc. thesis" }, card: "/plants/nepeta-sheilae-card.webp", photos: [{ src: "/plants/nepeta-sheilae-1.webp", w: 960, h: 1280 }] },
-  { id: "aloe-pseudorubroviolacea", name: "Aloe pseudorubroviolacea", family: "Asphodelaceae", role: { ar: "توثيق ميداني", en: "Field record" }, card: "/plants/aloe-pseudorubroviolacea-card.webp", photos: [{ src: "/plants/aloe-pseudorubroviolacea-1.webp", w: 963, h: 1280 }, { src: "/plants/aloe-pseudorubroviolacea-2.webp", w: 963, h: 1280 }, { src: "/plants/aloe-pseudorubroviolacea-3.webp", w: 966, h: 1280 }, { src: "/plants/aloe-pseudorubroviolacea-4.webp", w: 965, h: 1280 }] },
-  ] as { id: string; name: string; family: string; role: T; card: string; photos: { src: string; w: number; h: number }[] }[],
-};
-
 export const services: { title: T; line: T; photo: string }[] = [
   { title: { ar: "نمذجة توزيع الأنواع", en: "Species distribution modeling" }, line: { ar: "نماذج MaxEnt للملاءمة الحالية والمستقبلية تحت سيناريوهات CMIP6", en: "MaxEnt suitability models, current and future under CMIP6" }, photo: "a1" },
   { title: { ar: "رصد الغطاء النباتي", en: "Vegetation monitoring" }, line: { ar: "تحليل سلاسل Sentinel-2 وMODIS الزمنية لكشف التغيّر والاتجاهات", en: "Sentinel-2 and MODIS time series for change and trend detection" }, photo: "a2" },
@@ -276,10 +256,10 @@ export const certifications: { name: T; issuer: string }[] = [
   { name: { ar: "عضو جمعية مختصي الاستدامة", en: "Sustainability Professionals of Saudi Arabia" }, issuer: "Member" },
 ];
 
-export const photoCredits = "Unsplash: Rikaz Basyouni, Mustafa Ahmed, Satishaa Javali, Call Me Fred, Glenov Brankovic, M K, Ayman Mokhtar";
+export const photoCredits = "Plant photos: Abdullah Alsumairi. Landscapes: Unsplash (Rikaz Basyouni, Mustafa Ahmed, Satishaa Javali, Glenov Brankovic, M K, Ayman Mokhtar)";
 
 export const ui = {
-  nav: { maps: { ar: "الأعمال", en: "Work" }, endemics: { ar: "النباتات المتوطنة", en: "Endemic plants" }, services: { ar: "مجالات التعاون", en: "Collaboration" }, about: { ar: "عني", en: "About" }, contact: { ar: "تواصل", en: "Contact" } },
+  nav: { maps: { ar: "الأعمال", en: "Work" }, services: { ar: "مجالات التعاون", en: "Collaboration" }, about: { ar: "عني", en: "About" }, contact: { ar: "تواصل", en: "Contact" } },
   langSwitch: { ar: "English", en: "العربية" },
   langHref: { ar: "/en/", en: "/" },
   requestConsult: { ar: "فرص التعاون", en: "Collaborate with me" },
@@ -293,7 +273,6 @@ export const ui = {
   maps: { ar: "مختارات من الأعمال", en: "Selected work" },
   services: { ar: "مجالات التعاون", en: "Areas of collaboration" },
   gallery: { ar: "معرض الخرائط", en: "Map gallery" },
-  nav_endemics: { ar: "النباتات المتوطنة", en: "Endemic plants" },
   featured: { ar: "عمل مميز", en: "Featured" },
   band: { ar: "من الميدان إلى الخريطة", en: "From the field to the map" },
   skills: { ar: "المهارات", en: "Skills" },

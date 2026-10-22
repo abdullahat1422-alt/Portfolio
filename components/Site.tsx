@@ -5,7 +5,6 @@ import {
   contact,
   projects,
   mapGallery,
-  endemics,
   services,
   skills,
   languages,
@@ -106,7 +105,7 @@ export default function Site({ lang }: { lang: Lang }) {
             <span>{t(person.name)}</span>
           </a>
           <nav className="ms-auto hidden items-center gap-1 md:flex" aria-label={lang === "ar" ? "الأقسام" : "Sections"}>
-            {(["maps", "endemics", "services", "about", "contact"] as const).map((k) => (
+            {(["maps", "services", "about", "contact"] as const).map((k) => (
               <a key={k} href={`#${k}`} className="rounded-full px-4 py-1.5 text-[15px] text-ink-soft no-underline hover:bg-surface hover:text-ink">
                 {t(ui.nav[k])}
               </a>
@@ -269,53 +268,14 @@ export default function Site({ lang }: { lang: Lang }) {
           })()}
         </section>
 
-        {/* Endemic plants */}
-        <section id="endemics" className="scroll-mt-16 border-y border-line bg-surface">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
-            <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-8">
-                <h2 className="text-3xl font-bold sm:text-4xl">{t(endemics.title)}</h2>
-                <p className="mt-5 text-[17px] leading-loose text-ink-soft">{t(endemics.lead)}</p>
-              </div>
-              <div className="flex flex-wrap gap-3 lg:col-span-4 lg:justify-end">
-                <a href={endemics.floraLink.href} target="_blank" rel="noopener" className="rounded-full bg-sky px-5 py-2.5 font-semibold text-white no-underline hover:bg-sky-strong">
-                  {t(endemics.floraLink.label)} ↗
-                </a>
-                <a href={endemics.paperLink.href} target="_blank" rel="noopener" className="rounded-full border border-line bg-paper px-5 py-2.5 font-semibold no-underline hover:border-sand">
-                  {t(endemics.paperLink.label)} ↗
-                </a>
-              </div>
-            </div>
-
-            <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 sm:gap-x-8 lg:grid-cols-3">
-              {endemics.species.map((sp) => (
-                <figure key={sp.id}>
-                  <MapViewer
-                    dir={dir}
-                    compact
-                    aspect="aspect-[3/4]"
-                    sizes="(min-width: 1024px) 360px, 50vw"
-                    title={sp.name}
-                    card={{ src: sp.card, src720: sp.card, w: 600, h: 800, alt: sp.name }}
-                    images={sp.photos.map((ph) => ({ ...ph, caption: sp.name }))}
-                    labels={{ open: t(ui.openMap), close: t(ui.close), prev: t(ui.prev), next: t(ui.next), hint: t(ui.zoomHint), reset: t(ui.resetZoom) }}
-                  />
-                  <figcaption className="mt-4">
-                    <span className="block text-[17px] font-semibold italic leading-snug" dir="ltr" style={{ textAlign: lang === "ar" ? "right" : "left" }}>{sp.name}</span>
-                    <span className="mt-0.5 block text-[12.5px] text-ink-soft" dir="ltr" style={{ textAlign: lang === "ar" ? "right" : "left" }}>{sp.family}{sp.photos.length > 1 ? `  ·  ${sp.photos.length} photos` : ""}</span>
-                    <span className={`mt-2 inline-block rounded-full px-2.5 py-0.5 text-[12px] font-medium ${/Field/.test(sp.role.en) ? "bg-paper text-ink-soft ring-1 ring-line" : "bg-sky-soft text-sky"}`}>{t(sp.role)}</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-            <p className="mt-10 text-[13px] text-ink-soft">{t(endemics.photosNote)}</p>
+        {/* Photo band: three of Abdullah's own endemic-plant field photos */}
+        <section aria-label={t(ui.band)} className="relative isolate h-[48vh] min-h-[320px] overflow-hidden bg-night">
+          <div aria-hidden className="absolute inset-0 -z-10 grid grid-cols-3">
+            {["aloe-pseudorubroviolacea", "euphorbia-taifensis", "aloe-armatissima"].map((id) => (
+              <img key={id} src={`/plants/${id}-band.webp`} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+            ))}
           </div>
-        </section>
-
-        {/* Photo band */}
-        <section aria-label={t(ui.band)} className="relative isolate h-[46vh] min-h-[300px] overflow-hidden">
-          <Photo id="e4" alt="" sizes="100vw" className="absolute inset-0 -z-10 h-full w-full object-cover" />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#1b2318]/75 via-[#1b2318]/15 to-transparent" />
           <div className="mx-auto flex h-full max-w-6xl items-end px-4 pb-10 sm:px-6">
             <p className="text-3xl font-bold text-white [text-shadow:0_2px_16px_rgba(0,0,0,.35)] sm:text-5xl">{t(ui.band)}</p>
           </div>

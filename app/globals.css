@@ -1,38 +1,42 @@
 @import "tailwindcss";
 
-/* Bright palette taken from the field photo: open sky, warm rock, a little green */
+/* Palette taken from the ALSUMAIRI logo: cream paper, olive tree, sand line, copper title */
 :root {
-  --paper: #ffffff;
-  --surface: #f3f7fa;
-  --ink: #132029;
-  --ink-soft: #5a6872;
-  --line: #e1e8ed;
-  --sea: #eef3f6;
-  --sky: #2273c3;
-  --sky-strong: #185c9f;
-  --sky-soft: #e4f0fb;
-  --sand: #e8a54b;
-  --leaf: #2f8f5b;
-  --night: #0f1b24;
-  --on-night: #f2f6f8;
+  --paper: #fbf7ec;
+  --surface: #f2ead9;
+  --ink: #1f281d;
+  --ink-soft: #5d6555;
+  --line: #e2d6be;
+  --sea: #f4eedf;
+  --sky: #556b46;
+  --sky-strong: #435636;
+  --sky-soft: #e5e9d8;
+  --copper: #a5521f;
+  --copper-strong: #8a4318;
+  --sand: #b08a5a;
+  --leaf: #4f7a35;
+  --night: #232c20;
+  --on-night: #f6f1e4;
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #0f171d;
-    --surface: #16222a;
-    --ink: #e8eef2;
-    --ink-soft: #9fb0bb;
-    --line: #24333d;
-    --sea: #1a2730;
-    --sky: #6cb2ee;
-    --sky-strong: #93c7f3;
-    --sky-soft: #183044;
-    --sand: #f0b766;
-    --leaf: #6cc495;
-    --night: #0a1116;
-    --on-night: #f2f6f8;
+    --paper: #171b15;
+    --surface: #1f251c;
+    --ink: #efe8d8;
+    --ink-soft: #b3b29f;
+    --line: #333a2d;
+    --sea: #232a20;
+    --sky: #a3b88f;
+    --sky-strong: #bccda9;
+    --sky-soft: #2a3324;
+    --copper: #e08a55;
+    --copper-strong: #eaa274;
+    --sand: #cfae7f;
+    --leaf: #9cc47f;
+    --night: #10140e;
+    --on-night: #f6f1e4;
     color-scheme: dark;
   }
 }
@@ -49,12 +53,15 @@
   --color-sky-soft: var(--sky-soft);
   --color-sand: var(--sand);
   --color-leaf: var(--leaf);
+  --color-copper: var(--copper);
+  --color-copper-strong: var(--copper-strong);
   --color-night: var(--night);
   --color-on-night: var(--on-night);
   /* aliases used by the map viewer */
   --color-basalt: var(--night);
   --color-on-basalt: var(--on-night);
-  --font-sans: "Readex Pro", system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-display: "Noto Kufi Arabic", "IBM Plex Sans Arabic", sans-serif;
 }
 
 @layer base {
@@ -75,13 +82,15 @@ body {
 h1,
 h2,
 h3 {
-  line-height: 1.25;
-  font-weight: 600;
+  font-family: var(--font-display);
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 ::selection {
   background: var(--sand);
-  color: #132029;
+  color: #1f281d;
 }
 
 :focus-visible {
@@ -106,7 +115,7 @@ h3 {
 
 /* Hero text sits on the sky of the field photo */
 .hero-veil {
-  background: linear-gradient(to bottom, rgba(10, 30, 50, 0.35) 0%, rgba(10, 30, 50, 0) 45%, rgba(10, 20, 28, 0) 70%, rgba(10, 20, 28, 0.55) 100%);
+  background: linear-gradient(to bottom, rgba(25, 34, 22, 0.40) 0%, rgba(25, 34, 22, 0) 45%, rgba(25, 34, 22, 0) 68%, rgba(25, 34, 22, 0.6) 100%);
 }
 
 .viewer-enter {

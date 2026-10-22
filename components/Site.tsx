@@ -92,7 +92,7 @@ export default function Site({ lang }: { lang: Lang }) {
   const sep = lang === "ar" ? "، " : ", ";
 
   const statusTone = (s: string) =>
-    /Published/.test(s) ? "bg-leaf/12 text-leaf" : /prep/.test(s) ? "bg-sand/20 text-[#9a5b12] dark:text-sand" : "bg-sky-soft text-sky";
+    /Published/.test(s) ? "bg-leaf/12 text-leaf" : /prep/.test(s) ? "bg-copper/12 text-copper" : "bg-sky-soft text-sky";
 
   return (
     <div className="pb-20 lg:pb-0">
@@ -129,11 +129,11 @@ export default function Site({ lang }: { lang: Lang }) {
           <div className="flex min-h-[calc(100svh-8.5rem)] flex-col justify-between px-5 pb-8 pt-10 text-white">
             <div className="[text-shadow:0_1px_12px_rgba(0,30,60,.35)]">
               <p className="text-[15px] font-medium text-white/90">{t(person.title)}</p>
-              <h1 className="mt-2 text-[2.6rem] font-bold leading-[1.15]">{t(person.name)}</h1>
+              <h1 className="mt-2 text-[2.3rem] font-extrabold leading-[1.3]">{t(person.name)}</h1>
               <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-white/90">{t(person.lead)}</p>
             </div>
             <div className="flex gap-3">
-              <a href="#contact" className="flex-1 rounded-full bg-white py-3 text-center font-semibold text-[#132029] no-underline shadow-lg shadow-black/10">
+              <a href="#contact" className="flex-1 rounded-full bg-copper py-3 text-center font-semibold text-white no-underline shadow-lg shadow-black/15">
                 {t(ui.requestConsult)}
               </a>
               <a href="#maps" className="flex-1 rounded-full border border-white/70 bg-white/10 py-3 text-center font-semibold text-white no-underline backdrop-blur">
@@ -147,10 +147,10 @@ export default function Site({ lang }: { lang: Lang }) {
         <section className="mx-auto hidden max-w-6xl grid-cols-12 items-center gap-12 px-6 py-16 lg:grid">
           <div className="col-span-6">
             <p className="inline-flex rounded-full bg-sky-soft px-4 py-1.5 text-[15px] font-medium text-sky">{t(person.title)}</p>
-            <h1 className="mt-6 text-6xl font-bold leading-[1.1] tracking-tight">{t(person.name)}</h1>
+            <h1 className="mt-6 text-[3.4rem] font-extrabold leading-[1.25]">{t(person.name)}</h1>
             <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink-soft">{t(person.lead)}</p>
             <div className="mt-9 flex gap-3">
-              <a href="#contact" className="rounded-full bg-sky px-7 py-3.5 font-semibold text-white no-underline shadow-lg shadow-sky/25 hover:bg-sky-strong dark:text-[#0f171d]">
+              <a href="#contact" className="rounded-full bg-copper px-7 py-3.5 font-semibold text-white no-underline shadow-lg shadow-copper/25 hover:bg-copper-strong dark:text-[#171b15]">
                 {t(ui.requestConsult)}
               </a>
               <a href="#maps" className="rounded-full border border-line px-7 py-3.5 font-semibold no-underline hover:bg-surface">
@@ -168,7 +168,7 @@ export default function Site({ lang }: { lang: Lang }) {
           <ul className="mx-auto grid max-w-6xl grid-cols-3 divide-x divide-line px-2 py-6 rtl:divide-x-reverse sm:px-6">
             {person.stats.map((s, k) => (
               <li key={k} className="px-3 text-center">
-                <p className="text-2xl font-bold text-sky sm:text-3xl" dir="ltr">{s.n}</p>
+                <p className="font-[family-name:var(--font-display)] text-2xl font-extrabold text-copper sm:text-3xl" dir="ltr">{s.n}</p>
                 <p className="mt-1 text-[12.5px] leading-snug text-ink-soft sm:text-sm">{t(s.l)}</p>
               </li>
             ))}
@@ -223,7 +223,7 @@ export default function Site({ lang }: { lang: Lang }) {
           <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-3 lg:gap-x-8">
             {services.map((s) => (
               <div key={s.photo}>
-                <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-sea">
+                <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-sea ring-1 ring-line">
                   <Photo id={s.photo} alt="" sizes="(min-width:1024px) 360px, 50vw" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
                 </div>
                 <h3 className="mt-3 text-[17px] font-semibold sm:text-lg">{t(s.title)}</h3>
@@ -261,8 +261,8 @@ export default function Site({ lang }: { lang: Lang }) {
                 ))}
               </ol>
 
-              <a href={award.href} target="_blank" rel="noopener" className="mt-8 flex items-center gap-4 rounded-2xl bg-paper p-4 no-underline ring-1 ring-line hover:ring-sand">
-                <span aria-hidden className="grid size-11 shrink-0 place-items-center rounded-full bg-sand/20 text-xl">🏆</span>
+              <a href={award.href} target="_blank" rel="noopener" className="mt-8 flex items-center gap-4 rounded-2xl bg-paper p-4 no-underline ring-1 ring-line hover:ring-copper">
+                <span aria-hidden className="grid size-11 shrink-0 place-items-center rounded-full bg-copper/12 text-xl">🏆</span>
                 <span>
                   <span className="block font-semibold">{t(award.title)}</span>
                   <span className="block text-sm text-ink-soft">{t(award.org)}</span>
@@ -364,14 +364,14 @@ export default function Site({ lang }: { lang: Lang }) {
         {/* Contact */}
         <section id="contact" className="relative isolate scroll-mt-16 overflow-hidden text-white">
           <Photo id="a1" alt="" sizes="100vw" className="absolute inset-0 -z-20 h-full w-full object-cover" />
-          <div aria-hidden className="absolute inset-0 -z-10 bg-[#0d2233]/75" />
+          <div aria-hidden className="absolute inset-0 -z-10 bg-[#232c20]/80" />
           <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
             <h2 className="text-3xl font-bold sm:text-5xl">{t(ui.contactTitle)}</h2>
             <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
-              <a href={contact.whatsapp} target="_blank" rel="noopener" className="flex items-center gap-3 rounded-2xl bg-white px-5 py-4 font-semibold text-[#132029] no-underline hover:bg-white/90">
+              <a href={contact.whatsapp} target="_blank" rel="noopener" className="flex items-center gap-3 rounded-2xl bg-[#fbf7ec] px-5 py-4 font-semibold text-[#1f281d] no-underline hover:bg-white">
                 <span className="text-leaf"><Icon name="wa" size={22} /></span>
                 {t(ui.whatsapp)}
-                <span dir="ltr" className="ms-auto text-sm font-normal text-[#5a6872]">{contact.phoneDisplay}</span>
+                <span dir="ltr" className="ms-auto text-sm font-normal text-[#5d6555]">{contact.phoneDisplay}</span>
               </a>
               <a href={`mailto:${contact.email}`} className="flex items-center gap-3 rounded-2xl bg-white/12 px-5 py-4 font-semibold no-underline ring-1 ring-white/25 backdrop-blur hover:bg-white/20">
                 <Icon name="mail" size={22} />
@@ -395,11 +395,11 @@ export default function Site({ lang }: { lang: Lang }) {
         </section>
       </main>
 
-      <footer className="bg-[#fbf7ec] text-[#5f6b5a]">
+      <footer className="bg-[#e8dcc4] text-[#4f5a45]">
         <div className="mx-auto flex max-w-6xl flex-col items-center px-4 pb-8 pt-12 text-center sm:px-6">
           <img src="/img/logo-full.webp" alt="ALSUMAIRI" width={640} height={654} loading="lazy" className="h-auto w-36 sm:w-44" />
           <p className="mt-4 text-sm">{t(person.name)}{sep}{t(ui.footer)}</p>
-          <p className="mt-6 text-[11px] text-[#8a8f80]" dir="ltr">Photos: {photoCredits}</p>
+          <p className="mt-6 text-[11px] text-[#7a7a66]" dir="ltr">Photos: {photoCredits}</p>
         </div>
       </footer>
 

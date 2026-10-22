@@ -100,7 +100,7 @@ export default function Site({ lang }: { lang: Lang }) {
       <header className="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 sm:px-6">
           <a href="#top" className="flex items-center gap-2.5 font-semibold no-underline">
-            <img src="/img/profile.webp" alt="" width={36} height={36} className="size-9 rounded-full object-cover" />
+            <img src="/img/logo-mark.webp" alt="" width={240} height={214} className="h-11 w-auto" />
             <span>{t(person.name)}</span>
           </a>
           <nav className="ms-auto hidden items-center gap-1 md:flex" aria-label={lang === "ar" ? "الأقسام" : "Sections"}>
@@ -395,10 +395,11 @@ export default function Site({ lang }: { lang: Lang }) {
         </section>
       </main>
 
-      <footer className="bg-night text-[#9fb0bb]">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-4 py-6 text-sm sm:px-6">
-          <span className="text-on-night">{t(person.name)}{sep}{t(ui.footer)}</span>
-          <span className="text-[11px]" dir="ltr">Photos: {photoCredits}</span>
+      <footer className="bg-[#fbf7ec] text-[#5f6b5a]">
+        <div className="mx-auto flex max-w-6xl flex-col items-center px-4 pb-8 pt-12 text-center sm:px-6">
+          <img src="/img/logo-full.webp" alt="ALSUMAIRI" width={640} height={654} loading="lazy" className="h-auto w-36 sm:w-44" />
+          <p className="mt-4 text-sm">{t(person.name)}{sep}{t(ui.footer)}</p>
+          <p className="mt-6 text-[11px] text-[#8a8f80]" dir="ltr">Photos: {photoCredits}</p>
         </div>
       </footer>
 

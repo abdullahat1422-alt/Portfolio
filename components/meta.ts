@@ -22,7 +22,7 @@ export function buildMetadata(lang: Lang): Metadata {
       images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     },
     twitter: { card: "summary_large_image", title, description, images: ["/og.jpg"] },
-    icons: { icon: "/icon.svg", apple: "/img/profile-256.jpg" },
+    icons: { icon: "/icon-64.png", apple: "/apple-icon.png" },
   };
 }
 

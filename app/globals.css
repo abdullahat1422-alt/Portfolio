@@ -1,43 +1,38 @@
 @import "tailwindcss";
 
-/* Theme taken from the Tuwaiq Reserve deck: green-black overlay, cream type,
-   copper eyebrow, warm paper slides, map blue and green */
+/* Bright palette taken from the field photo: open sky, warm rock, a little green */
 :root {
-  --paper: #f4f0e7;
-  --surface: #fbf8f2;
-  --ink: #1f2622;
-  --ink-soft: #5c625c;
-  --line: #e2d9c8;
-  --sea: #ece6da;
-  --wadi: #2b6690;
-  --wadi-strong: #1f4f71;
-  --copper: #a85a26;
-  --copper-strong: #8c4a1d;
-  --escarp: #8c4a1d;
-  --rawdha: #3f7a3a;
-  --sand: #d9a066;
-  --basalt: #1b241f;
-  --on-basalt: #f3efe6;
+  --paper: #ffffff;
+  --surface: #f3f7fa;
+  --ink: #132029;
+  --ink-soft: #5a6872;
+  --line: #e1e8ed;
+  --sea: #eef3f6;
+  --sky: #2273c3;
+  --sky-strong: #185c9f;
+  --sky-soft: #e4f0fb;
+  --sand: #e8a54b;
+  --leaf: #2f8f5b;
+  --night: #0f1b24;
+  --on-night: #f2f6f8;
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #161d19;
-    --surface: #1e2722;
-    --ink: #ede7da;
-    --ink-soft: #aeb0a6;
-    --line: #333d36;
-    --sea: #232c27;
-    --wadi: #8cbbe0;
-    --wadi-strong: #b3d3ec;
-    --copper: #e0a26a;
-    --copper-strong: #ecb98a;
-    --escarp: #e0a26a;
-    --rawdha: #93c47f;
-    --sand: #d9a066;
-    --basalt: #111713;
-    --on-basalt: #f3efe6;
+    --paper: #0f171d;
+    --surface: #16222a;
+    --ink: #e8eef2;
+    --ink-soft: #9fb0bb;
+    --line: #24333d;
+    --sea: #1a2730;
+    --sky: #6cb2ee;
+    --sky-strong: #93c7f3;
+    --sky-soft: #183044;
+    --sand: #f0b766;
+    --leaf: #6cc495;
+    --night: #0a1116;
+    --on-night: #f2f6f8;
     color-scheme: dark;
   }
 }
@@ -49,19 +44,20 @@
   --color-ink-soft: var(--ink-soft);
   --color-line: var(--line);
   --color-sea: var(--sea);
-  --color-wadi: var(--wadi);
-  --color-wadi-strong: var(--wadi-strong);
-  --color-escarp: var(--escarp);
-  --color-copper: var(--copper);
-  --color-copper-strong: var(--copper-strong);
-  --font-serif: "Gelasio", "Noto Naskh Arabic", Georgia, "Times New Roman", serif;
-  --color-rawdha: var(--rawdha);
+  --color-sky: var(--sky);
+  --color-sky-strong: var(--sky-strong);
+  --color-sky-soft: var(--sky-soft);
   --color-sand: var(--sand);
-  --color-basalt: var(--basalt);
-  --color-on-basalt: var(--on-basalt);
-  --font-sans: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --color-leaf: var(--leaf);
+  --color-night: var(--night);
+  --color-on-night: var(--on-night);
+  /* aliases used by the map viewer */
+  --color-basalt: var(--night);
+  --color-on-basalt: var(--on-night);
+  --font-sans: "Readex Pro", system-ui, sans-serif;
 }
 
+@layer base {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 4.5rem;
@@ -72,48 +68,26 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
-  line-height: 1.75;
+  line-height: 1.7;
   text-rendering: optimizeLegibility;
-}
-
-:lang(en) body,
-body:lang(en) {
-  line-height: 1.6;
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--font-serif);
-  font-weight: 700;
-}
-
-/* Hero: satellite scene with the deck's dark overlay on the text side */
-.hero-shade {
-  background: linear-gradient(to top, rgba(27, 36, 31, 0.97) 0%, rgba(27, 36, 31, 0.86) 45%, rgba(27, 36, 31, 0.25) 100%);
-}
-@media (min-width: 1024px) {
-  .hero-shade {
-    background: linear-gradient(to right, rgba(27, 36, 31, 0.97) 0%, rgba(27, 36, 31, 0.88) 34%, rgba(27, 36, 31, 0.35) 62%, rgba(27, 36, 31, 0) 85%);
-  }
-  [dir="rtl"] .hero-shade {
-    background: linear-gradient(to left, rgba(27, 36, 31, 0.97) 0%, rgba(27, 36, 31, 0.88) 34%, rgba(27, 36, 31, 0.35) 62%, rgba(27, 36, 31, 0) 85%);
-  }
+  line-height: 1.25;
+  font-weight: 600;
 }
 
 ::selection {
   background: var(--sand);
-  color: #23292b;
-}
-
-a {
-  color: inherit;
+  color: #132029;
 }
 
 :focus-visible {
-  outline: 2px solid var(--wadi);
+  outline: 2px solid var(--sky);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -128,7 +102,13 @@ a {
   }
 }
 
-/* map viewer */
+}
+
+/* Hero text sits on the sky of the field photo */
+.hero-veil {
+  background: linear-gradient(to bottom, rgba(10, 30, 50, 0.35) 0%, rgba(10, 30, 50, 0) 45%, rgba(10, 20, 28, 0) 70%, rgba(10, 20, 28, 0.55) 100%);
+}
+
 .viewer-enter {
   animation: viewer-in 180ms ease-out;
 }

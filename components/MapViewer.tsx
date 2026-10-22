@@ -66,21 +66,21 @@ export default function MapViewer({ images, title, labels, dir, card }: Props) {
           setI(0);
           setOpen(true);
         }}
-        className="group relative block w-full overflow-hidden rounded-lg bg-sea text-start"
+        className="group relative block aspect-[4/3] w-full overflow-hidden rounded-2xl bg-sea text-start"
         aria-label={`${labels.open}: ${title}`}
       >
         <img
           src={card.src720}
           srcSet={`${card.src720} 720w, ${card.src} 1400w`}
-          sizes="(min-width: 1024px) 640px, 100vw"
+          sizes="(min-width: 1024px) 560px, 100vw"
           width={card.w}
           height={card.h}
           alt={card.alt}
           loading="lazy"
           decoding="async"
-          className="block h-auto w-full transition-transform duration-500 group-hover:scale-[1.015]"
+          className="h-full w-full object-contain p-3 transition-transform duration-500 group-hover:scale-[1.03]"
         />
-        <span className="absolute bottom-3 start-3 inline-flex items-center gap-2 rounded-md bg-basalt/90 px-3 py-1.5 text-sm font-medium text-on-basalt">
+        <span className="absolute bottom-3 end-3 inline-flex items-center gap-1.5 rounded-full bg-night/85 px-3 py-1.5 text-[13px] font-medium text-on-night backdrop-blur">
           <svg aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="11" cy="11" r="7" />
             <path d="M20 20l-3.5-3.5M11 8v6M8 11h6" />

@@ -25,18 +25,18 @@ export const person = {
     en: "Environmental Specialist and GIS & Spatial Modeling Consultant",
   },
   lead: {
-    ar: "استشارات مستقلة في نظم المعلومات الجغرافية والاستشعار عن بعد والنمذجة المكانية، تربط متطلبات الامتثال البيئي بتحليل مبني على البيانات.",
-    en: "Independent GIS, remote sensing and spatial modeling consultancy that bridges environmental compliance with data-driven analysis.",
+    ar: "أتعاون مع الجهات الحكومية والخاصة والبحثية في نظم المعلومات الجغرافية والاستشعار عن بعد والنمذجة المكانية، وأربط متطلبات الامتثال البيئي بتحليل مبني على البيانات.",
+    en: "I collaborate with government, private and research organizations on GIS, remote sensing and spatial modeling, bridging environmental compliance with data-driven analysis.",
   },
   profile: {
     ar: "أخصائي بيئي حاصل على ماجستير العلوم البيئية بمرتبة الشرف الأولى من جامعة الملك سعود، بخبرة في الاستشارات البيئية وحماية الحياة الفطرية والعمل الجيومكاني المستقل. أعددت وثائق تقييم الأثر البيئي وفق متطلبات المركز الوطني للرقابة على الالتزام البيئي، وقدت مسوحات التنوع الحيوي ونمذجة ملاءمة الموائل في المركز الوطني لتنمية الحياة الفطرية، وشاركت في تأليف بحث محكّم نُشر في مجلة BMC Ecology and Evolution عام 2026.",
     en: "Environmental specialist with an M.Sc. in Environmental Science (First-Class Honors) from King Saud University, with experience across environmental consulting, wildlife conservation and independent geospatial work. I have prepared EIA documents aligned with NCEC requirements, led biodiversity surveys and habitat suitability modeling at the National Center for Wildlife, and co-authored a peer-reviewed article in BMC Ecology and Evolution.",
   },
   stats: [
-    { n: "5", l: { ar: "خرائط ودراسات وطنية", en: "national maps and studies" } },
+    { n: "5", l: { ar: "أعمال ومشاريع وطنية", en: "national works and projects" } },
     { n: "4.81", l: { ar: "معدل الماجستير، جامعة الملك سعود", en: "M.Sc. GPA, King Saud University" } },
-    { n: "NCW", l: { ar: "خبرة في المركز الوطني للحياة الفطرية", en: "National Center for Wildlife" } },
-  ] as { n: string; l: T }[],
+    { n: { ar: "تعاون", en: "Open" }, l: { ar: "مع الجهات الحكومية والخاصة والبحثية", en: "to government, private and research partners" } },
+  ] as { n: string | T; l: T }[],
 };
 
 export type MapImage = { src: string; caption: T; w: number; h: number };
@@ -241,19 +241,19 @@ export const certifications: { name: T; issuer: string }[] = [
 export const photoCredits = "Unsplash: Rikaz Basyouni, Mustafa Ahmed, Satishaa Javali, Call Me Fred, Glenov Brankovic, M K, Ayman Mokhtar";
 
 export const ui = {
-  nav: { maps: { ar: "الخرائط", en: "Maps" }, services: { ar: "الخدمات", en: "Services" }, about: { ar: "عني", en: "About" }, contact: { ar: "تواصل", en: "Contact" } },
+  nav: { maps: { ar: "الأعمال", en: "Work" }, services: { ar: "مجالات التعاون", en: "Collaboration" }, about: { ar: "عني", en: "About" }, contact: { ar: "تواصل", en: "Contact" } },
   langSwitch: { ar: "English", en: "العربية" },
   langHref: { ar: "/en/", en: "/" },
-  requestConsult: { ar: "اطلب استشارة", en: "Request a consultation" },
-  viewMaps: { ar: "شاهد الخرائط", en: "See the maps" },
+  requestConsult: { ar: "فرص التعاون", en: "Collaborate with me" },
+  viewMaps: { ar: "شاهد الأعمال", en: "See the work" },
   saveContact: { ar: "حفظ الرقم", en: "Save contact" },
   downloadCv: { ar: "السيرة الذاتية", en: "CV" },
   whatsapp: { ar: "واتساب", en: "WhatsApp" },
   email: { ar: "إيميل", en: "Email" },
   call: { ar: "اتصال", en: "Call" },
   openMap: { ar: "تكبير", en: "Open" },
-  maps: { ar: "خرائط ومشاريع", en: "Maps and projects" },
-  services: { ar: "الخدمات", en: "Services" },
+  maps: { ar: "الأعمال", en: "Selected work" },
+  services: { ar: "مجالات التعاون", en: "Areas of collaboration" },
   band: { ar: "من الميدان إلى الخريطة", en: "From the field to the map" },
   skills: { ar: "المهارات", en: "Skills" },
   research: { ar: "الأبحاث", en: "Research" },
@@ -263,7 +263,8 @@ export const ui = {
   certs: { ar: "الشهادات", en: "Certifications" },
   allCerts: { ar: "الكل", en: "All" },
   langs: { ar: "اللغات", en: "Languages" },
-  contactTitle: { ar: "خلنا نشتغل على مشروعك", en: "Let's work on your project" },
+  contactTitle: { ar: "خلنا نتعاون", en: "Let's collaborate" },
+  contactLine: { ar: "مفتوح للتعاون في مشاريع الخرائط والدراسات البيئية والأبحاث المشتركة.", en: "Open to collaboration on mapping projects, environmental studies and joint research." },
   close: { ar: "إغلاق", en: "Close" },
   prev: { ar: "السابقة", en: "Previous" },
   next: { ar: "التالية", en: "Next" },

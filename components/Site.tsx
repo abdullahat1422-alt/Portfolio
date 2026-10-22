@@ -168,7 +168,7 @@ export default function Site({ lang }: { lang: Lang }) {
           <ul className="mx-auto grid max-w-6xl grid-cols-3 divide-x divide-line px-2 py-6 rtl:divide-x-reverse sm:px-6">
             {person.stats.map((s, k) => (
               <li key={k} className="px-3 text-center">
-                <p className="font-[family-name:var(--font-display)] text-2xl font-extrabold text-copper sm:text-3xl" dir="ltr">{s.n}</p>
+                <p className="font-[family-name:var(--font-display)] text-2xl font-extrabold text-copper sm:text-3xl" dir="auto">{typeof s.n === "string" ? s.n : t(s.n)}</p>
                 <p className="mt-1 text-[12.5px] leading-snug text-ink-soft sm:text-sm">{t(s.l)}</p>
               </li>
             ))}
@@ -367,6 +367,7 @@ export default function Site({ lang }: { lang: Lang }) {
           <div aria-hidden className="absolute inset-0 -z-10 bg-[#232c20]/80" />
           <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
             <h2 className="text-3xl font-bold sm:text-5xl">{t(ui.contactTitle)}</h2>
+            <p className="mt-4 max-w-xl text-lg text-white/85">{t(ui.contactLine)}</p>
             <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
               <a href={contact.whatsapp} target="_blank" rel="noopener" className="flex items-center gap-3 rounded-2xl bg-[#fbf7ec] px-5 py-4 font-semibold text-[#1f281d] no-underline hover:bg-white">
                 <span className="text-leaf"><Icon name="wa" size={22} /></span>

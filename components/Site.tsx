@@ -271,7 +271,7 @@ export default function Site({ lang }: { lang: Lang }) {
         {/* Photo band: three of Abdullah's own endemic-plant field photos */}
         <section aria-label={t(ui.band)} className="relative isolate h-[48vh] min-h-[320px] overflow-hidden bg-night">
           <div aria-hidden className="absolute inset-0 -z-10 grid grid-cols-3">
-            {["aloe-pseudorubroviolacea", "euphorbia-taifensis", "aloe-armatissima"].map((id) => (
+            {["euphorbia-tower", "euphorbia-cliff", "euphorbia-boulders"].map((id) => (
               <img key={id} src={`/plants/${id}-band.webp`} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
             ))}
           </div>

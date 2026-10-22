@@ -25,8 +25,12 @@ export const person = {
     en: "Environmental Specialist and GIS & Spatial Modeling Consultant",
   },
   lead: {
-    ar: "خرائط ونماذج مكانية تدعم قرارات الحماية والتخطيط وتقييم الأثر البيئي.",
-    en: "Maps and spatial models for conservation, planning and environmental impact assessment.",
+    ar: "استشارات مستقلة في نظم المعلومات الجغرافية والاستشعار عن بعد والنمذجة المكانية، تربط متطلبات الامتثال البيئي بتحليل مبني على البيانات.",
+    en: "Independent GIS, remote sensing and spatial modeling consultancy that bridges environmental compliance with data-driven analysis.",
+  },
+  profile: {
+    ar: "أخصائي بيئي حاصل على ماجستير العلوم البيئية بمرتبة الشرف الأولى من جامعة الملك سعود، بخبرة في الاستشارات البيئية وحماية الحياة الفطرية والعمل الجيومكاني المستقل. أعددت وثائق تقييم الأثر البيئي وفق متطلبات المركز الوطني للرقابة على الالتزام البيئي، وقدت مسوحات التنوع الحيوي ونمذجة ملاءمة الموائل في المركز الوطني لتنمية الحياة الفطرية، وشاركت في تأليف بحث محكّم نُشر في مجلة BMC Ecology and Evolution عام 2026.",
+    en: "Environmental specialist with an M.Sc. in Environmental Science (First-Class Honors) from King Saud University, with experience across environmental consulting, wildlife conservation and independent geospatial work. I have prepared EIA documents aligned with NCEC requirements, led biodiversity surveys and habitat suitability modeling at the National Center for Wildlife, and co-authored a peer-reviewed article in BMC Ecology and Evolution.",
   },
   stats: [
     { n: "5", l: { ar: "خرائط ودراسات وطنية", en: "national maps and studies" } },
@@ -55,8 +59,8 @@ export const projects: Project[] = [
     title: { ar: "دراسة محمية طويق", en: "Tuwaiq Reserve Study" },
     status: { ar: "2026", en: "2026" },
     line: {
-      ar: "الأحواض والأمطار والغطاء النباتي والسجلات الحيوية، وانتهت بمقترح تقسيم للمحمية.",
-      en: "Catchments, rainfall, vegetation and species records, ending in a zoning proposal.",
+      ar: "دراسة مكانية لمنطقة غرب الرياض شملت الأحواض المائية والمناخ والغطاء النباتي وسجلات التنوع الحيوي، وانتهت بمقترح تقسيم متوافق مع إرشادات IUCN.",
+      en: "A spatial study west of Riyadh covering catchments, climate, vegetation and biodiversity records, concluding with an IUCN-aligned zoning proposal.",
     },
     highlight: { ar: "3,941 كم² و27 خريطة", en: "3,941 km², 27 maps" },
     tools: ["Sentinel-2", "MODIS", "R", "QGIS"],
@@ -75,8 +79,8 @@ export const projects: Project[] = [
     title: { ar: "وحدات المشهد الطبيعي في المملكة", en: "National Landscape Units" },
     status: { ar: "2026", en: "2026" },
     line: {
-      ar: "المملكة كاملة مقسّمة إلى 11 وحدة: جبال، حرات، أودية، روضات، رمال، سبخات وغيرها.",
-      en: "The whole Kingdom in 11 units: mountains, harrat, wadis, rawdhat, sand, sabkha and more.",
+      ar: "خريطة على مستوى المملكة لـ 11 وحدة مشهد طبيعي، بمعالجة نموذج ارتفاع Copernicus عبر 870 مربعاً باستخدام geomorphons وTPI متعدد المقاييس.",
+      en: "A Kingdom-wide map of 11 landscape units, processing the Copernicus DEM across 870 tiles with geomorphon and multiscale TPI analysis.",
     },
     highlight: { ar: "تغطية وطنية بدقة 30 م", en: "National, 30 m terrain" },
     tools: ["R", "QGIS", "Copernicus DEM"],
@@ -91,8 +95,8 @@ export const projects: Project[] = [
     title: { ar: "أطلس المجتمعات النباتية", en: "Plant Communities Atlas" },
     status: { ar: "2026", en: "2026" },
     line: {
-      ar: "30 دراسة نباتية منشورة تحوّلت إلى خريطة وطنية لـ 26 مجتمعاً نباتياً.",
-      en: "30 published vegetation studies turned into a national map of 26 plant communities.",
+      ar: "تجميع 30 دراسة نباتية سعودية منشورة (240 مجتمعاً مصدرياً) في 26 نوع مجتمع مصنّف حسب قوة الدليل، مع خريطة لفجوات المعرفة.",
+      en: "30 published Saudi vegetation studies (240 source communities) synthesized into 26 evidence-graded community types, with a knowledge-gap map.",
     },
     highlight: { ar: "26 مجتمعاً بدقة 250 م", en: "26 communities, 250 m" },
     tools: ["R", "QGIS", "CHELSA", "SoilGrids"],
@@ -109,8 +113,8 @@ export const projects: Project[] = [
     title: { ar: "رصد الاخضرار الوطني", en: "National Greening Monitor" },
     status: { ar: "قيد النشر", en: "In preparation" },
     line: {
-      ar: "تغيّر الغطاء النباتي 2016–2025 قبل وبعد مبادرة السعودية الخضراء، بعد عزل أثر الأمطار.",
-      en: "Vegetation change 2016–2025 around the Saudi Green Initiative, with rainfall effects removed.",
+      ar: "تقييم وطني لتغيّر الاخضرار 2016–2025 حول مبادرة السعودية الخضراء من أرشيف MODIS NDVI وأمطار ERA5، مع فصل أثر الأمطار بتحليل RESTREND.",
+      en: "A national assessment of greenness change 2016–2025 around the Saudi Green Initiative from MODIS NDVI and ERA5, separating rainfall effects with RESTREND.",
     },
     highlight: { ar: "الاخضرار يفوق التراجع 4.3 مرة", en: "Greening outpaces browning 4.3×" },
     tools: ["MODIS NDVI", "ERA5", "R"],
@@ -127,8 +131,8 @@ export const projects: Project[] = [
     title: { ar: "ملاجئ الحافات تحت التهديد", en: "Escarpment Refugia Under Threat" },
     status: { ar: "منشور", en: "Published" },
     line: {
-      ar: "أين تعيش أربعة نباتات متوطنة اليوم، وكيف ستتغير موائلها مع تغيّر المناخ.",
-      en: "Where four endemic plants live today, and how their habitat shifts with climate change.",
+      ar: "نمذجة إعادة التوزيع المناخي لأربعة نباتات عصارية متوطنة في الحافات الجنوبية الغربية باستخدام MaxEnt وسيناريوهات CMIP6.",
+      en: "Climate-driven redistribution modeling of four endemic succulents on the southwestern escarpment using MaxEnt and CMIP6 scenarios.",
     },
     highlight: { ar: "BMC Ecology and Evolution", en: "BMC Ecology and Evolution" },
     tools: ["MaxEnt", "CMIP6", "QGIS"],
@@ -140,12 +144,12 @@ export const projects: Project[] = [
 ];
 
 export const services: { title: T; line: T; photo: string }[] = [
-  { title: { ar: "نمذجة توزيع الأنواع", en: "Species distribution modeling" }, line: { ar: "الموائل اليوم ومع تغيّر المناخ", en: "Habitat today and under climate change" }, photo: "a1" },
-  { title: { ar: "رصد الغطاء النباتي", en: "Vegetation monitoring" }, line: { ar: "سلاسل زمنية من الأقمار الصناعية", en: "Satellite time series" }, photo: "a2" },
-  { title: { ar: "خرائط وطنية وإقليمية", en: "National and regional maps" }, line: { ar: "مشهد، نبات، نظم بيئية", en: "Landscape, vegetation, ecosystems" }, photo: "u9" },
-  { title: { ar: "دراسات المحميات", en: "Protected-area studies" }, line: { ar: "أحواض، موائل، ومقترحات تقسيم", en: "Catchments, habitats, zoning" }, photo: "e1" },
-  { title: { ar: "خط أساس لتقييم الأثر", en: "EIA baselines" }, line: { ar: "مسح ميداني وتحليل مكاني", en: "Field survey and spatial analysis" }, photo: "u4" },
-  { title: { ar: "خرائط ويب تفاعلية", en: "Interactive web maps" }, line: { ar: "نتائجك على الجوال والكمبيوتر", en: "Your results on any screen" }, photo: "u12" },
+  { title: { ar: "نمذجة توزيع الأنواع", en: "Species distribution modeling" }, line: { ar: "نماذج MaxEnt للملاءمة الحالية والمستقبلية تحت سيناريوهات CMIP6", en: "MaxEnt suitability models, current and future under CMIP6" }, photo: "a1" },
+  { title: { ar: "رصد الغطاء النباتي", en: "Vegetation monitoring" }, line: { ar: "تحليل سلاسل Sentinel-2 وMODIS الزمنية لكشف التغيّر والاتجاهات", en: "Sentinel-2 and MODIS time series for change and trend detection" }, photo: "a2" },
+  { title: { ar: "خرائط وطنية وإقليمية", en: "National and regional maps" }, line: { ar: "طبقات وطنية بدقة 30 م وخرائط جاهزة للنشر والتقارير", en: "National 30 m datasets and publication-quality maps" }, photo: "u9" },
+  { title: { ar: "دراسات المحميات", en: "Protected-area studies" }, line: { ar: "تحليل الأحواض والموائل وفجوات البيانات وصولاً إلى مقترح تقسيم", en: "Catchment, habitat and data-gap analysis through to a zoning proposal" }, photo: "e1" },
+  { title: { ar: "خط أساس لتقييم الأثر", en: "EIA baselines" }, line: { ar: "مسوحات ميدانية وتقارير متوافقة مع متطلبات المركز الوطني للرقابة على الالتزام البيئي", en: "Field surveys and reporting aligned with NCEC requirements" }, photo: "u4" },
+  { title: { ar: "خرائط ويب تفاعلية", en: "Interactive web maps" }, line: { ar: "عرض النتائج في منصات وخرائط تفاعلية لصاحب القرار", en: "Results delivered as interactive maps and platforms" }, photo: "u12" },
 ];
 
 export const skills: { group: T; tools: string[]; usedIn: T }[] = [
@@ -173,10 +177,33 @@ export const publications: { status: T; title: string; venue: string; href?: str
 
 export const nameNote: T = { ar: "منشوراتي باسم Al-Otaibi, A.", en: "Published as Al-Otaibi, A." };
 
-export const experience: { period: T; role: T; org: T }[] = [
-  { period: { ar: "2026 – الآن", en: "2026 – now" }, role: { ar: "استشاري مستقل في GIS والنمذجة البيئية", en: "Independent GIS & Environmental Modeling Consultant" }, org: { ar: "عمل حر", en: "Freelance" } },
-  { period: { ar: "2025 – 2026", en: "2025 – 2026" }, role: { ar: "أخصائي بيئي", en: "Environmental Specialist" }, org: { ar: "المركز الوطني لتنمية الحياة الفطرية", en: "National Center for Wildlife" } },
-  { period: { ar: "2025", en: "2025" }, role: { ar: "أخصائي بيئي", en: "Environmental Specialist" }, org: { ar: "Environmental Way للاستشارات البيئية", en: "Environmental Way Consulting" } },
+export const experience: { period: T; role: T; org: T; points: T[] }[] = [
+  {
+    period: { ar: "يوليو 2026 – الآن", en: "Jul 2026 – present" },
+    role: { ar: "استشاري مستقل في GIS والنمذجة البيئية", en: "Independent GIS & Environmental Modeling Consultant" },
+    org: { ar: "عمل حر، الرياض", en: "Freelance, Riyadh" },
+    points: [
+      { ar: "استشارات في GIS والاستشعار عن بعد والنمذجة المكانية لعدة جهات في مشاريع الخرائط والتحليل البيئي.", en: "GIS, remote sensing and spatial modeling consultancy for multiple organizations." },
+      { ar: "بناء طبقات بيانات وطنية بدقة 30 م وسير عمل قابل للتكرار في R وPython.", en: "National 30 m datasets and reproducible R/Python workflows." },
+    ],
+  },
+  {
+    period: { ar: "سبتمبر 2025 – مارس 2026", en: "Sep 2025 – Mar 2026" },
+    role: { ar: "أخصائي بيئي", en: "Environmental Specialist" },
+    org: { ar: "المركز الوطني لتنمية الحياة الفطرية", en: "National Center for Wildlife (NCW)" },
+    points: [
+      { ar: "قيادة مسوحات التنوع الحيوي وتصنيف النظم البيئية في المناطق المحمية.", en: "Led biodiversity surveys and ecosystem classification in protected areas." },
+      { ar: "نماذج ملاءمة موائل بـ MaxEnt وخرائط QGIS، والمشاركة في تأليف البحث المحكّم الناتج.", en: "Built MaxEnt habitat models and QGIS maps; co-authored the resulting peer-reviewed study." },
+    ],
+  },
+  {
+    period: { ar: "أبريل – أغسطس 2025", en: "Apr – Aug 2025" },
+    role: { ar: "أخصائي بيئي", en: "Environmental Specialist" },
+    org: { ar: "مكتب Environmental Way للاستشارات البيئية", en: "Environmental Way Consulting Office" },
+    points: [
+      { ar: "إعداد وثائق تقييم الأثر البيئي وتقارير التقييم الميداني وفق متطلبات المركز الوطني للرقابة على الالتزام البيئي.", en: "Prepared EIA documents and site assessment reports in line with NCEC requirements." },
+    ],
+  },
 ];
 
 export const award = {
@@ -231,6 +258,7 @@ export const ui = {
   skills: { ar: "المهارات", en: "Skills" },
   research: { ar: "الأبحاث", en: "Research" },
   experience: { ar: "الخبرة", en: "Experience" },
+  aboutTitle: { ar: "نبذة", en: "Profile" },
   education: { ar: "التعليم", en: "Education" },
   certs: { ar: "الشهادات", en: "Certifications" },
   allCerts: { ar: "الكل", en: "All" },

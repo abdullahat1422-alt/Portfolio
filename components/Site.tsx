@@ -130,7 +130,7 @@ export default function Site({ lang }: { lang: Lang }) {
             <div className="[text-shadow:0_1px_12px_rgba(0,30,60,.35)]">
               <p className="text-[15px] font-medium text-white/90">{t(person.title)}</p>
               <h1 className="mt-2 text-[2.6rem] font-bold leading-[1.15]">{t(person.name)}</h1>
-              <p className="mt-3 max-w-xs text-[16px] text-white/90">{t(person.lead)}</p>
+              <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-white/90">{t(person.lead)}</p>
             </div>
             <div className="flex gap-3">
               <a href="#contact" className="flex-1 rounded-full bg-white py-3 text-center font-semibold text-[#132029] no-underline shadow-lg shadow-black/10">
@@ -148,7 +148,7 @@ export default function Site({ lang }: { lang: Lang }) {
           <div className="col-span-6">
             <p className="inline-flex rounded-full bg-sky-soft px-4 py-1.5 text-[15px] font-medium text-sky">{t(person.title)}</p>
             <h1 className="mt-6 text-6xl font-bold leading-[1.1] tracking-tight">{t(person.name)}</h1>
-            <p className="mt-5 max-w-md text-xl text-ink-soft">{t(person.lead)}</p>
+            <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink-soft">{t(person.lead)}</p>
             <div className="mt-9 flex gap-3">
               <a href="#contact" className="rounded-full bg-sky px-7 py-3.5 font-semibold text-white no-underline shadow-lg shadow-sky/25 hover:bg-sky-strong dark:text-[#0f171d]">
                 {t(ui.requestConsult)}
@@ -236,6 +236,10 @@ export default function Site({ lang }: { lang: Lang }) {
         {/* About: experience, skills, research, certificates */}
         <section id="about" className="scroll-mt-16 bg-surface">
           <div className="mx-auto grid max-w-6xl gap-14 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
+            <div className="lg:col-span-2">
+              <h2 className="text-3xl font-bold sm:text-4xl">{t(ui.aboutTitle)}</h2>
+              <p className="mt-5 max-w-3xl text-[17px] leading-loose text-ink-soft">{t(person.profile)}</p>
+            </div>
             <div>
               <h2 className="text-3xl font-bold sm:text-4xl">{t(ui.experience)}</h2>
               <ol className="mt-8 space-y-6 border-s-2 border-sky/30 ps-6">
@@ -245,6 +249,14 @@ export default function Site({ lang }: { lang: Lang }) {
                     <p className="text-sm text-ink-soft">{t(e.period)}</p>
                     <p className="text-lg font-semibold">{t(e.role)}</p>
                     <p className="text-ink-soft">{t(e.org)}</p>
+                    <ul className="mt-2 space-y-1 text-[15px]">
+                      {e.points.map((pt, j) => (
+                        <li key={j} className="flex gap-2">
+                          <span aria-hidden className="mt-[0.7em] size-1.5 shrink-0 rounded-full bg-sky/60" />
+                          <span>{t(pt)}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 ))}
               </ol>

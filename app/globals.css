@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* Theme taken from the Tuwaiq Reserve deck: green-black overlay, cream type,
+   copper eyebrow, warm paper slides, map blue and green */
+:root {
+  --paper: #f4f0e7;
+  --surface: #fbf8f2;
+  --ink: #1f2622;
+  --ink-soft: #5c625c;
+  --line: #e2d9c8;
+  --sea: #ece6da;
+  --wadi: #2b6690;
+  --wadi-strong: #1f4f71;
+  --copper: #a85a26;
+  --copper-strong: #8c4a1d;
+  --escarp: #8c4a1d;
+  --rawdha: #3f7a3a;
+  --sand: #d9a066;
+  --basalt: #1b241f;
+  --on-basalt: #f3efe6;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #161d19;
+    --surface: #1e2722;
+    --ink: #ede7da;
+    --ink-soft: #aeb0a6;
+    --line: #333d36;
+    --sea: #232c27;
+    --wadi: #8cbbe0;
+    --wadi-strong: #b3d3ec;
+    --copper: #e0a26a;
+    --copper-strong: #ecb98a;
+    --escarp: #e0a26a;
+    --rawdha: #93c47f;
+    --sand: #d9a066;
+    --basalt: #111713;
+    --on-basalt: #f3efe6;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-sea: var(--sea);
+  --color-wadi: var(--wadi);
+  --color-wadi-strong: var(--wadi-strong);
+  --color-escarp: var(--escarp);
+  --color-copper: var(--copper);
+  --color-copper-strong: var(--copper-strong);
+  --font-serif: var(--font-gelasio), var(--font-naskh), Georgia, "Times New Roman", serif;
+  --color-rawdha: var(--rawdha);
+  --color-sand: var(--sand);
+  --color-basalt: var(--basalt);
+  --color-on-basalt: var(--on-basalt);
+  --font-sans: var(--font-plex), "IBM Plex Sans Arabic", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.75;
+  text-rendering: optimizeLegibility;
+}
+
+:lang(en) body,
+body:lang(en) {
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+/* Hero: satellite scene with the deck's dark overlay on the text side */
+.hero-shade {
+  background: linear-gradient(to top, rgba(27, 36, 31, 0.97) 0%, rgba(27, 36, 31, 0.86) 45%, rgba(27, 36, 31, 0.25) 100%);
+}
+@media (min-width: 1024px) {
+  .hero-shade {
+    background: linear-gradient(to right, rgba(27, 36, 31, 0.97) 0%, rgba(27, 36, 31, 0.88) 34%, rgba(27, 36, 31, 0.35) 62%, rgba(27, 36, 31, 0) 85%);
+  }
+  [dir="rtl"] .hero-shade {
+    background: linear-gradient(to left, rgba(27, 36, 31, 0.97) 0%, rgba(27, 36, 31, 0.88) 34%, rgba(27, 36, 31, 0.35) 62%, rgba(27, 36, 31, 0) 85%);
+  }
+}
+
+::selection {
+  background: var(--sand);
+  color: #23292b;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--wadi);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* map viewer */
+.viewer-enter {
+  animation: viewer-in 180ms ease-out;
+}
+@keyframes viewer-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .chev {
+  transform: rotate(180deg);
+}

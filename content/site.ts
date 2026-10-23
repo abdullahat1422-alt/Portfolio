@@ -29,8 +29,8 @@ export const person = {
     en: "I collaborate with government, private and research organizations on GIS, remote sensing and spatial modeling, bridging environmental compliance with data-driven analysis.",
   },
   profile: {
-    ar: "أخصائي بيئي حاصل على ماجستير العلوم البيئية بمرتبة الشرف الأولى من جامعة الملك سعود، بخبرة في الاستشارات البيئية وحماية الحياة الفطرية والعمل الجيومكاني المستقل. أعددت وثائق تقييم الأثر البيئي وفق متطلبات المركز الوطني للرقابة على الالتزام البيئي، وقدت مسوحات التنوع الحيوي ونمذجة ملاءمة الموائل في المركز الوطني لتنمية الحياة الفطرية، وشاركت في تأليف بحث محكّم نُشر في مجلة BMC Ecology and Evolution عام 2026.",
-    en: "Environmental specialist with an M.Sc. in Environmental Science (First-Class Honors) from King Saud University, with experience across environmental consulting, wildlife conservation and independent geospatial work. I have prepared EIA documents aligned with NCEC requirements, led biodiversity surveys and habitat suitability modeling at the National Center for Wildlife, and co-authored a peer-reviewed article in BMC Ecology and Evolution.",
+    ar: "أخصائي بيئي حاصل على ماجستير العلوم البيئية بتقدير امتياز من جامعة الملك سعود، بخبرة في الاستشارات البيئية وحماية الحياة الفطرية والعمل الجيومكاني المستقل. أعددت وثائق تقييم الأثر البيئي وفق متطلبات المركز الوطني للرقابة على الالتزام البيئي، وقدت مسوحات التنوع الحيوي ونمذجة ملاءمة الموائل في المركز الوطني لتنمية الحياة الفطرية، وشاركت في تأليف بحث محكّم نُشر في مجلة BMC Ecology and Evolution عام 2026.",
+    en: "Environmental specialist with an M.Sc. in Environmental Science with Distinction from King Saud University, with experience across environmental consulting, wildlife conservation and independent geospatial work. I have prepared EIA documents aligned with NCEC requirements, led biodiversity surveys and habitat suitability modeling at the National Center for Wildlife, and co-authored a peer-reviewed article in BMC Ecology and Evolution.",
   },
   stats: [
     { n: "+50", l: { ar: "خريطة منجزة ضمن مختارات من أعمالي", en: "maps produced across selected works" } },
@@ -185,8 +185,8 @@ export const languages: { name: T; level: T }[] = [
   { name: { ar: "الإنجليزية", en: "English" }, level: { ar: "IELTS 5.5، STEP 79", en: "IELTS 5.5, STEP 79" } },
 ];
 
-export const publications: { status: T; title: string; venue: string; href?: string }[] = [
-  { status: { ar: "منشور", en: "Published" }, title: "Escarpment refugia under threat: climate-driven redistribution modeling of four endemic succulent species in Saudi Arabia", venue: "BMC Ecology and Evolution, 2026", href: "https://doi.org/10.1186/s12862-026-02582-0" },
+export const publications: { status: T; title: string; venue: string; href?: string; authors?: string; orgs?: T }[] = [
+  { status: { ar: "منشور", en: "Published" }, title: "Escarpment refugia under threat: climate-driven redistribution modeling of four endemic succulent species in Saudi Arabia", venue: "BMC Ecology and Evolution, 2026", href: "https://doi.org/10.1186/s12862-026-02582-0", authors: "Al-Hashimi A, Darwish M, Al-farraj NS, Al-otaibi N, Al-otaibi A, Al-majed M, Al-amri SS, Boug A", orgs: { ar: "بالشراكة بين جامعة الملك سعود (قسم النبات والأحياء الدقيقة) والمركز الوطني لتنمية الحياة الفطرية", en: "A collaboration between King Saud University (Botany and Microbiology) and the National Center for Wildlife (NCW)" } },
   { status: { ar: "ماجستير", en: "M.Sc. thesis" }, title: "MaxEnt-based habitat suitability of five narrow-range endemic plants in Saudi Arabia", venue: "King Saud University, 2026" },
   { status: { ar: "قيد النشر", en: "In preparation" }, title: "National-scale vegetation greenness dynamics in Saudi Arabia, 2016–2025", venue: "MODIS NDVI and ERA5" },
   { status: { ar: "قيد العمل", en: "In progress" }, title: "Climate change and habitat suitability of the genus Verbascum in the Arabian Peninsula", venue: "CMIP6" },
@@ -211,7 +211,9 @@ export const experience: { period: T; role: T; org: T; points: T[] }[] = [
     org: { ar: "المركز الوطني لتنمية الحياة الفطرية", en: "National Center for Wildlife (NCW)" },
     points: [
       { ar: "قيادة مسوحات التنوع الحيوي وتصنيف النظم البيئية في المناطق المحمية.", en: "Led biodiversity surveys and ecosystem classification in protected areas." },
-      { ar: "نماذج ملاءمة موائل بـ MaxEnt وخرائط QGIS، والمشاركة في تأليف البحث المحكّم الناتج.", en: "Built MaxEnt habitat models and QGIS maps; co-authored the resulting peer-reviewed study." },
+      { ar: "نماذج ملاءمة موائل بـ MaxEnt وخرائط QGIS، ونُشرت نتائجها في بحث محكّم عام 2026.", en: "Built MaxEnt habitat models and QGIS maps, published as a peer-reviewed article in BMC Ecology and Evolution (2026)." },
+      { ar: "إعداد تقارير التنوع الأحيائي.", en: "Prepared biodiversity reports." },
+      { ar: "العمل على مقترح محمية شمال غرب المدينة المنورة.", en: "Worked on a proposed protected area northwest of Madinah." },
     ],
   },
   {
@@ -231,7 +233,7 @@ export const award = {
 };
 
 export const education: { degree: T; place: T }[] = [
-  { degree: { ar: "ماجستير العلوم البيئية", en: "M.Sc. Environmental Science" }, place: { ar: "جامعة الملك سعود، مرتبة الشرف الأولى", en: "King Saud University, First-Class Honors" } },
+  { degree: { ar: "ماجستير العلوم البيئية", en: "M.Sc. Environmental Science" }, place: { ar: "جامعة الملك سعود، بتقدير امتياز", en: "King Saud University, with Distinction" } },
   { degree: { ar: "بكالوريوس الأحياء", en: "B.Sc. Biology" }, place: { ar: "جامعة شقراء", en: "Shaqra University" } },
 ];
 

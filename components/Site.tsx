@@ -392,7 +392,22 @@ export default function Site({ lang }: { lang: Lang }) {
                       ) : (
                         <span className="font-medium">{p.title}</span>
                       )}
+                      {p.authors && (
+                        <span className="mt-1 block text-[13px] text-ink">
+                          {p.authors.split(", ").map((au, j, arr) => (
+                            <span key={j} className={au === "Al-otaibi A" ? "font-semibold text-copper" : ""}>
+                              {au}
+                              {j < arr.length - 1 ? ", " : ""}
+                            </span>
+                          ))}
+                        </span>
+                      )}
                       <span className="block text-[13px] text-ink-soft">{p.venue}</span>
+                      {p.orgs && (
+                        <span dir={dir} lang={lang} className="mt-1 block text-[13px] text-sky">
+                          {t(p.orgs)}
+                        </span>
+                      )}
                     </span>
                   </li>
                 ))}

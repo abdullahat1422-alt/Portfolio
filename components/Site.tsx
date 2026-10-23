@@ -223,8 +223,12 @@ export default function Site({ lang }: { lang: Lang }) {
                 </article>
 
                 <div className="mt-16 grid gap-x-10 gap-y-14 md:grid-cols-2">
-                  {rest.map((p) => (
-                    <article key={p.id} id={p.id} className="scroll-mt-20">
+                  {rest.map((p, idx) => (
+                    <article
+                      key={p.id}
+                      id={p.id}
+                      className={`scroll-mt-20 ${rest.length % 2 === 1 && idx === rest.length - 1 ? "md:col-span-2 md:mx-auto md:w-[calc(50%-1.25rem)]" : ""}`}
+                    >
                       <MapViewer
                         dir={dir}
                         title={t(p.title)}

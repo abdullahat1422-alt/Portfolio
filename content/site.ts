@@ -62,7 +62,7 @@ export const projects: Project[] = [
       ar: "دراسة مكانية لمنطقة غرب الرياض شملت الأحواض المائية والمناخ والغطاء النباتي وسجلات التنوع الحيوي، وانتهت بمقترح تقسيم متوافق مع إرشادات IUCN.",
       en: "A spatial study west of Riyadh covering catchments, climate, vegetation and biodiversity records, concluding with an IUCN-aligned zoning proposal.",
     },
-    highlight: { ar: "3,941 كم² و27 خريطة", en: "3,941 km², 27 maps" },
+    highlight: { ar: "3,941 كم² و+30 خريطة", en: "3,941 km², 30+ maps" },
     tools: ["Sentinel-2", "MODIS", "R", "QGIS"],
     card: { src: "/maps/tuwaiq-card.webp", src720: "/maps/tuwaiq-card-720.webp", w: 1277, h: 1037, alt: { ar: "مقترح تقسيم محمية طويق", en: "Zoning proposal for the Tuwaiq Reserve" } },
     gallery: [
@@ -72,6 +72,34 @@ export const projects: Project[] = [
       { src: "/maps/tuwaiq-wadis.webp", w: 1320, h: 1170, caption: { ar: "الأودية والأحواض المغلقة", en: "Wadis and closed basins" } },
       { src: "/maps/tuwaiq-greenness.webp", w: 1582, h: 1402, caption: { ar: "مناطق التعافي والتراجع", en: "Recovery and decline" } },
       { src: "/maps/tuwaiq-records.webp", w: 1582, h: 1402, caption: { ar: "السجلات النباتية", en: "Plant records" } },
+      { src: "/maps/tuwaiq-e01.webp", w: 3000, h: 2120, caption: { ar: "وحدات الموائل المحتملة والسجلات النباتية", en: "Potential habitat units and plant records" } },
+      { src: "/maps/tuwaiq-e03.webp", w: 3000, h: 2120, caption: { ar: "فجوات بيانات التنوع الحيوي وأولويات المسح الميداني", en: "Biodiversity evidence gaps and field-survey priorities" } },
+      { src: "/maps/tuwaiq-h02.webp", w: 3000, h: 2120, caption: { ar: "شبكة الأودية ورتب Strahler", en: "Wadi network and Strahler order" } },
+      { src: "/maps/tuwaiq-h03.webp", w: 3000, h: 2120, caption: { ar: "تركّز الجريان السطحي", en: "Topographic flow concentration" } },
+      { src: "/maps/tuwaiq-h04.webp", w: 3000, h: 2120, caption: { ar: "تقاطعات الأودية مع الطرق والسدود والمخارج", en: "Wadi-road crossings, dams and outlets" } },
+      { src: "/maps/tuwaiq-h05.webp", w: 3000, h: 2120, caption: { ar: "مورفومترية الأحواض", en: "Basin morphometry" } },
+      { src: "/maps/tuwaiq-v01.webp", w: 3000, h: 2120, caption: { ar: "الاخضرار الموسمي، ربيع 2026", en: "Seasonal greenness, spring 2026" } },
+      { src: "/maps/tuwaiq-v03.webp", w: 3000, h: 2120, caption: { ar: "تغيّر الغطاء النباتي بين ربيعين متقاربي الأمطار", en: "Vegetation change between rain-matched springs" } },
+      { src: "/maps/tuwaiq-v03b.webp", w: 3000, h: 2120, caption: { ar: "اتجاه الاخضرار طويل المدى 2001–2026 بعد عزل أثر المطر", en: "Long-term rain-adjusted greenness trend, 2001–2026" } },
+    ],
+  },
+  {
+    id: "jabal-shada",
+    title: { ar: "محمية جبل شدا الأعلى", en: "Jabal Shada al-A'la Protected Area" },
+    status: { ar: "2026", en: "2026" },
+    line: {
+      ar: "تحليل نباتي مكاني لمحمية جبلية في منطقة الباحة: أحزمة الارتفاع، واستجابة الاخضرار عبر المواسم، ووحدات نباتية استكشافية، وخريطة مجتمعات نباتية محتملة مبنية على الأدبيات مع مستوى الثقة.",
+      en: "A spatial vegetation analysis of a mountain reserve in Al Baha: elevation strata, seasonal greenness response, exploratory vegetation units, and a literature-informed community map with confidence levels.",
+    },
+    highlight: { ar: "5 خرائط بدقة 20 م", en: "5 maps at 20 m" },
+    tools: ["Sentinel-2", "R", "QGIS", "Copernicus DEM"],
+    card: { src: "/maps/shada-card.webp", src720: "/maps/shada-card-720.webp", w: 1400, h: 1386, alt: { ar: "خريطة المجتمعات النباتية المحتملة في محمية جبل شدا الأعلى", en: "Potential vegetation communities of Jabal Shada al-A'la" } },
+    gallery: [
+      { src: "/maps/shada-communities.webp", w: 3000, h: 2357, caption: { ar: "المجتمعات النباتية المحتملة", en: "Potential vegetation communities" } },
+      { src: "/maps/shada-confidence.webp", w: 3000, h: 2057, caption: { ar: "مستوى الثقة في خريطة المجتمعات", en: "Confidence of the community map" } },
+      { src: "/maps/shada-units.webp", w: 3000, h: 2250, caption: { ar: "وحدات نباتية استكشافية", en: "Exploratory vegetation units" } },
+      { src: "/maps/shada-ndvi.webp", w: 3000, h: 2057, caption: { ar: "الاخضرار حسب الارتفاع والموسم", en: "Greenness by elevation and season" } },
+      { src: "/maps/shada-elevation.webp", w: 1826, h: 2420, caption: { ar: "أحزمة الارتفاع على الظل التضاريسي", en: "Elevation strata on hillshade" } },
     ],
   },
   {
@@ -147,6 +175,14 @@ export const projects: Project[] = [
 
 // معرض الخرائط: خرائط إضافية من الأعمال
 export const mapGallery: { thumb: string; full: string; w: number; h: number; tw: number; th: number; caption: T; from: T }[] = [
+  { thumb: "/maps/g-tuwaiq-h02.webp", full: "/maps/tuwaiq-h02.webp", w: 3000, h: 2120, tw: 720, th: 673, caption: { ar: "شبكة الأودية ورتب Strahler", en: "Wadi network and Strahler order" }, from: { ar: "طويق", en: "Tuwaiq" } },
+  { thumb: "/maps/g-shada-conf.webp", full: "/maps/shada-confidence.webp", w: 3000, h: 2057, tw: 720, th: 741, caption: { ar: "الثقة في خريطة المجتمعات النباتية", en: "Confidence of the community map" }, from: { ar: "جبل شدا", en: "Jabal Shada" } },
+  { thumb: "/maps/g-tuwaiq-e01.webp", full: "/maps/tuwaiq-e01.webp", w: 3000, h: 2120, tw: 720, th: 673, caption: { ar: "وحدات الموائل المحتملة", en: "Potential habitat units" }, from: { ar: "طويق", en: "Tuwaiq" } },
+  { thumb: "/maps/g-tuwaiq-v03b.webp", full: "/maps/tuwaiq-v03b.webp", w: 3000, h: 2120, tw: 720, th: 673, caption: { ar: "اتجاه الاخضرار 2001–2026", en: "Greenness trend 2001–2026" }, from: { ar: "طويق", en: "Tuwaiq" } },
+  { thumb: "/maps/g-shada-elev.webp", full: "/maps/shada-elevation.webp", w: 1826, h: 2420, tw: 720, th: 716, caption: { ar: "أحزمة الارتفاع في جبل شدا", en: "Jabal Shada elevation strata" }, from: { ar: "جبل شدا", en: "Jabal Shada" } },
+  { thumb: "/maps/g-tuwaiq-h05.webp", full: "/maps/tuwaiq-h05.webp", w: 3000, h: 2120, tw: 720, th: 673, caption: { ar: "مورفومترية الأحواض", en: "Basin morphometry" }, from: { ar: "طويق", en: "Tuwaiq" } },
+  { thumb: "/maps/g-shada-units.webp", full: "/maps/shada-units.webp", w: 3000, h: 2250, tw: 720, th: 581, caption: { ar: "وحدات نباتية استكشافية", en: "Exploratory vegetation units" }, from: { ar: "جبل شدا", en: "Jabal Shada" } },
+  { thumb: "/maps/g-tuwaiq-h04.webp", full: "/maps/tuwaiq-h04.webp", w: 3000, h: 2120, tw: 720, th: 673, caption: { ar: "تقاطعات الأودية مع الطرق", en: "Wadi-road crossings and dams" }, from: { ar: "طويق", en: "Tuwaiq" } },
   { thumb: "/maps/g-catchment.webp", full: "/maps/tuwaiq-catchment.webp", w: 1344, h: 1080, tw: 720, th: 579, caption: { ar: "الحوض المغذي لمحمية طويق", en: "Catchment feeding the Tuwaiq Reserve" }, from: { ar: "طويق", en: "Tuwaiq" } },
   { thumb: "/maps/g-t21.webp", full: "/maps/communities-t21.webp", w: 3000, h: 2123, tw: 720, th: 802, caption: { ar: "مجتمع الغضا في الكثبان", en: "Haloxylon persicum dune shrubland" }, from: { ar: "الأطلس", en: "Atlas" } },
   { thumb: "/maps/g-sgichange.webp", full: "/maps/sgi-change.webp", w: 2100, h: 1800, tw: 720, th: 617, caption: { ar: "تغيّر NDVI بين الفترتين", en: "NDVI change between periods" }, from: { ar: "الاخضرار", en: "Greening" } },

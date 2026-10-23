@@ -270,7 +270,7 @@ export const award = {
 
 export const education: { degree: T; place: T }[] = [
   { degree: { ar: "ماجستير العلوم البيئية", en: "M.Sc. Environmental Science" }, place: { ar: "جامعة الملك سعود، بتقدير امتياز", en: "King Saud University, with Distinction" } },
-  { degree: { ar: "بكالوريوس الأحياء", en: "B.Sc. Biology" }, place: { ar: "جامعة شقراء", en: "Shaqra University" } },
+  { degree: { ar: "بكالوريوس الأحياء", en: "B.Sc. Biology" }, place: { ar: "جامعة شقراء، مرتبة الشرف الثانية", en: "Shaqra University, Second-Class Honors" } },
 ];
 
 // أول 6 تظهر مباشرة، والباقي تحت "الكل"

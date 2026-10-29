@@ -25,8 +25,8 @@ export const person = {
     en: "Environmental Specialist and GIS & Spatial Modeling Consultant",
   },
   lead: {
-    ar: "أتعاون مع الجهات الحكومية والخاصة والبحثية في نظم المعلومات الجغرافية والاستشعار عن بعد والنمذجة المكانية، وأربط متطلبات الامتثال البيئي بتحليل مبني على البيانات.",
-    en: "I collaborate with government, private and research organizations on GIS, remote sensing and spatial modeling, bridging environmental compliance with data-driven analysis.",
+    ar: "أتعاون مع الجهات الحكومية والخاصة والبحثية في مسوحات التنوع الأحيائي ونظم المعلومات الجغرافية والاستشعار عن بعد والنمذجة المكانية، وأربط متطلبات الامتثال البيئي بتحليل مبني على البيانات.",
+    en: "I collaborate with government, private and research organizations on biodiversity surveys, GIS, remote sensing and spatial modeling, bridging environmental compliance with data-driven analysis.",
   },
   profile: {
     ar: "أخصائي بيئي حاصل على ماجستير العلوم البيئية بتقدير امتياز من جامعة الملك سعود، بخبرة في الاستشارات البيئية وحماية الحياة الفطرية والعمل الجيومكاني المستقل. أعددت وثائق تقييم الأثر البيئي وفق متطلبات المركز الوطني للرقابة على الالتزام البيئي، وقدت مسوحات التنوع الحيوي ونمذجة ملاءمة الموائل في المركز الوطني لتنمية الحياة الفطرية، وشاركت في تأليف بحث محكّم نُشر في مجلة BMC Ecology and Evolution عام 2026.",

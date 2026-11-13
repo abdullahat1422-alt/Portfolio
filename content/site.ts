@@ -84,6 +84,21 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "native-by-region",
+    title: { ar: "محلي في محله", en: "Native by Region" },
+    status: { ar: "مقترح تحت الدراسة", en: "Proposal under review" },
+    line: {
+      ar: "مرجع لاختيار النباتات المحلية المناسبة لكل منطقة، مبني على وحدات المشهد الطبيعي والمجتمعات النباتية، يغني مشاريع التشجير والتنسيق وإعادة التأهيل عن تكرار دراسات اختيار النباتات لكل مشروع.",
+      en: "A reference for choosing the right native plants for each region, built on landscape units and plant communities, so greening, landscaping and rehabilitation projects no longer repeat plant-selection studies each time.",
+    },
+    highlight: { ar: "مقدَّم للمركز الوطني لتنمية الغطاء النباتي", en: "Submitted to NCVC" },
+    tools: ["Landscape units", "Plant communities", "R", "QGIS"],
+    card: { src: "/maps/native-card.webp", src720: "/maps/native-card-720.webp", w: 1400, h: 1390, alt: { ar: "وحدات المشهد الطبيعي في منطقة الرياض", en: "Landscape units of the Riyadh region" } },
+    gallery: [
+      { src: "/maps/native-riyadh-full.webp", w: 2417, h: 2400, caption: { ar: "منطقة الرياض: وحدات المشهد الطبيعي", en: "Riyadh region: landscape units" } },
+    ],
+  },
+  {
     id: "jabal-shada",
     title: { ar: "محمية جبل شدا الأعلى", en: "Jabal Shada al-A'la Protected Area" },
     status: { ar: "2026", en: "2026" },
@@ -239,7 +254,6 @@ export const experience: { period: T; role: T; org: T; points: T[] }[] = [
       { ar: "تطوير لوحة تفاعلية لإدارة البيانات النباتية وعرضها واستكشافها.", en: "Developed an interactive dashboard for managing, visualizing and exploring botanical data." },
       { ar: "معالجة البيانات النباتية وتنقيحها وتوحيدها، ومطابقة الأسماء العلمية مع المراجع التصنيفية المعتمدة.", en: "Processed, cleaned and standardized botanical datasets, aligning scientific names with recognized taxonomic references." },
       { ar: "مراجعة المراجع والكتب والأوصاف التاريخية للأنواع ورقمنتها، وتحويل مواقع النباتات الموثقة إلى بيانات مكانية للتحليل ورسم الخرائط.", en: "Reviewed and digitized botanical literature and historical species descriptions, turning documented plant locations into geospatial data." },
-      { ar: "تقديم مقترح مشروع «محلي في محله» لاختيار النباتات المحلية حسب المنطقة، وهو تحت الدراسة.", en: "Proposed the “Native by Region” project for selecting native plants by region, currently under review." },
     ],
   },
   {

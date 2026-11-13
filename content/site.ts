@@ -98,9 +98,9 @@ export const projects: Project[] = [
       en: "A reference for choosing the right native plants for each region, built on landscape units and plant communities, so greening, landscaping and rehabilitation projects no longer repeat plant-selection studies each time.",
     },
     tools: ["Landscape units", "Plant communities", "R", "QGIS"],
-    card: { src: "/maps/native-cover.webp", src720: "/maps/native-cover-720.webp", w: 476, h: 597, alt: { ar: "شعار المشروع ونبات الصبار في موطنه", en: "Project identity with aloe in its native habitat" } },
+    card: { src: "/maps/native-cover.webp", src720: "/maps/native-cover-720.webp", w: 924, h: 693, alt: { ar: "شعار المشروع ونبات الصبار في موطنه", en: "Project identity with aloe in its native habitat" } },
     gallery: [
-      { src: "/maps/native-cover.webp", w: 476, h: 597, caption: { ar: "هوية المشروع", en: "Project identity" } },
+      { src: "/maps/native-cover.webp", w: 924, h: 693, caption: { ar: "هوية المشروع", en: "Project identity" } },
       { src: "/maps/native-riyadh-full.webp", w: 2417, h: 2400, caption: { ar: "منطقة الرياض: وحدات المشهد الطبيعي", en: "Riyadh region: landscape units" } },
     ],
   },

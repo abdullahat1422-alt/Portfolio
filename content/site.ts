@@ -35,7 +35,7 @@ export const person = {
   stats: [
     { n: "+50", l: { ar: "خريطة منجزة ضمن مختارات من أعمالي", en: "maps produced across selected works" } },
     { n: { ar: "ماجستير", en: "M.Sc." }, l: { ar: "العلوم البيئية، جامعة الملك سعود", en: "Environmental Science, King Saud University" } },
-    { n: { ar: "خبرة عملية وميدانية", en: "Hands-on field experience" }, l: { ar: "في المحميات والتنوع الأحيائي مع NCW وRed Sea Global ومكاتب الاستشارات البيئية", en: "in protected areas and biodiversity with NCW, Red Sea Global and environmental consultancies" } },
+    { n: { ar: "خبرة عملية وميدانية", en: "Hands-on field experience" }, l: { ar: "في المحميات والتنوع الأحيائي مع NCW وNCVC وRed Sea Global ومكاتب الاستشارات البيئية", en: "in protected areas and biodiversity with NCW, NCVC, Red Sea Global and environmental consultancies" } },
   ] as { n: string | T; l: T }[],
 };
 
@@ -231,6 +231,17 @@ export const publications: { status: T; title: string; venue: string; href?: str
 export const nameNote: T = { ar: "منشوراتي باسم Al-Otaibi, A.", en: "Published as Al-Otaibi, A." };
 
 export const experience: { period: T; role: T; org: T; points: T[] }[] = [
+  {
+    period: { ar: "نوفمبر 2026 – الآن", en: "Nov 2026 – present" },
+    role: { ar: "مطوّر قاعدة بيانات نباتية (تطوعي)", en: "Botanical Database Developer (Volunteer)" },
+    org: { ar: "المركز الوطني لتنمية الغطاء النباتي ومكافحة التصحر، الرياض", en: "National Center for Vegetation Cover Development and Combating Desertification (NCVC), Riyadh" },
+    points: [
+      { ar: "تطوير لوحة تفاعلية لإدارة البيانات النباتية وعرضها واستكشافها.", en: "Developed an interactive dashboard for managing, visualizing and exploring botanical data." },
+      { ar: "معالجة البيانات النباتية وتنقيحها وتوحيدها، ومطابقة الأسماء العلمية مع المراجع التصنيفية المعتمدة.", en: "Processed, cleaned and standardized botanical datasets, aligning scientific names with recognized taxonomic references." },
+      { ar: "مراجعة المراجع والكتب والأوصاف التاريخية للأنواع ورقمنتها، وتحويل مواقع النباتات الموثقة إلى بيانات مكانية للتحليل ورسم الخرائط.", en: "Reviewed and digitized botanical literature and historical species descriptions, turning documented plant locations into geospatial data." },
+      { ar: "تقديم مقترح مشروع «محلي في محله» لاختيار النباتات المحلية حسب المنطقة، وهو تحت الدراسة.", en: "Proposed the “Native by Region” project for selecting native plants by region, currently under review." },
+    ],
+  },
   {
     period: { ar: "يوليو 2026 – الآن", en: "Jul 2026 – present" },
     role: { ar: "استشاري مستقل في GIS والنمذجة البيئية", en: "Independent GIS & Environmental Modeling Consultant" },

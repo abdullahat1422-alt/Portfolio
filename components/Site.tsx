@@ -188,7 +188,6 @@ export default function Site({ lang }: { lang: Lang }) {
                 <p className="text-[12px] font-semibold text-leaf">{t(ui.paperBadge)}</p>
                 <p className="text-[13px] font-medium" dir="ltr">BMC Ecology &amp; Evolution</p>
               </div>
-              <p className="glass absolute bottom-5 end-5 rounded-full px-3 py-1 text-[11px] font-medium text-ink-soft" dir="ltr">20.2°N · 41.3°E</p>
             </div>
           </div>
         </section>

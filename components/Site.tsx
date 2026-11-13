@@ -130,6 +130,7 @@ export default function Site({ lang }: { lang: Lang }) {
           <div className="flex min-h-[calc(100svh-8.5rem)] flex-col justify-between px-5 pb-8 pt-10 text-white">
             <div className="[text-shadow:0_1px_12px_rgba(0,30,60,.35)]">
               <p className="text-[15px] font-medium text-white/90">{t(person.title)}</p>
+              <p className="mt-1 text-[13px] text-white/85">{person.tags.map((g) => t(g)).join("  ·  ")}</p>
               <h1 className="mt-2 text-[2.3rem] font-extrabold leading-[1.3]">{t(person.name)}</h1>
               <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-white/90">{t(person.lead)}</p>
             </div>
@@ -147,7 +148,12 @@ export default function Site({ lang }: { lang: Lang }) {
         {/* Hero, desktop: split */}
         <section className="mx-auto hidden max-w-6xl grid-cols-12 items-center gap-12 px-6 py-16 lg:grid">
           <div className="col-span-6">
-            <p className="inline-flex rounded-full bg-sky-soft px-4 py-1.5 text-[15px] font-medium text-sky">{t(person.title)}</p>
+            <ul className="flex flex-wrap gap-2">
+              <li className="rounded-full bg-sky-soft px-4 py-1.5 text-[15px] font-medium text-sky">{t(person.title)}</li>
+              {person.tags.map((g, k) => (
+                <li key={k} className="rounded-full border border-line bg-paper px-3.5 py-1.5 text-[14px] font-medium text-ink-soft">{t(g)}</li>
+              ))}
+            </ul>
             <h1 className="mt-6 text-[3.4rem] font-extrabold leading-[1.25]">{t(person.name)}</h1>
             <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink-soft">{t(person.lead)}</p>
             <div className="mt-9 flex gap-3">

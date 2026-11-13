@@ -21,9 +21,15 @@ export const contact = {
 export const person = {
   name: { ar: "عبدالله السميري", en: "Abdullah Alsumairi" },
   title: {
-    ar: "محلل بيانات بيئية | علم البيئة النباتية | مبتكر",
-    en: "Environmental Data Analyst | Plant Ecology | Innovator",
+    ar: "أخصائي بيئي واستشاري GIS ونمذجة مكانية",
+    en: "Environmental Specialist and GIS & Spatial Modeling Consultant",
   },
+  tags: [
+    { ar: "محلل بيانات بيئية", en: "Environmental Data Analyst" },
+    { ar: "علم البيئة النباتية", en: "Plant Ecology" },
+    { ar: "استشعار عن بعد", en: "Remote Sensing" },
+    { ar: "مبتكر", en: "Innovator" },
+  ] as T[],
   lead: {
     ar: "أتعاون مع الجهات الحكومية والخاصة والبحثية في مسوحات التنوع الأحيائي ونظم المعلومات الجغرافية والاستشعار عن بعد والنمذجة المكانية، وأربط متطلبات الامتثال البيئي بتحليل مبني على البيانات.",
     en: "I collaborate with government, private and research organizations on biodiversity surveys, GIS, remote sensing and spatial modeling, bridging environmental compliance with data-driven analysis.",

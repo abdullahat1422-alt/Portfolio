@@ -21,8 +21,8 @@ export const contact = {
 export const person = {
   name: { ar: "عبدالله السميري", en: "Abdullah Alsumairi" },
   title: {
-    ar: "أخصائي بيئي واستشاري GIS ونمذجة مكانية",
-    en: "Environmental Specialist and GIS & Spatial Modeling Consultant",
+    ar: "محلل بيانات بيئية | علم البيئة النباتية | مبتكر",
+    en: "Environmental Data Analyst | Plant Ecology | Innovator",
   },
   lead: {
     ar: "أتعاون مع الجهات الحكومية والخاصة والبحثية في مسوحات التنوع الأحيائي ونظم المعلومات الجغرافية والاستشعار عن بعد والنمذجة المكانية، وأربط متطلبات الامتثال البيئي بتحليل مبني على البيانات.",
@@ -45,7 +45,7 @@ export type Project = {
   title: T;
   status: T;
   line: T;
-  highlight: T;
+  highlight?: T;
   tools: string[];
   card: { src: string; src720: string; w: number; h: number; alt: T };
   gallery: MapImage[];
@@ -91,7 +91,6 @@ export const projects: Project[] = [
       ar: "مرجع لاختيار النباتات المحلية المناسبة لكل منطقة، مبني على وحدات المشهد الطبيعي والمجتمعات النباتية، يغني مشاريع التشجير والتنسيق وإعادة التأهيل عن تكرار دراسات اختيار النباتات لكل مشروع.",
       en: "A reference for choosing the right native plants for each region, built on landscape units and plant communities, so greening, landscaping and rehabilitation projects no longer repeat plant-selection studies each time.",
     },
-    highlight: { ar: "مقدَّم للمركز الوطني لتنمية الغطاء النباتي", en: "Submitted to NCVC" },
     tools: ["Landscape units", "Plant communities", "R", "QGIS"],
     card: { src: "/maps/native-card.webp", src720: "/maps/native-card-720.webp", w: 1400, h: 1390, alt: { ar: "وحدات المشهد الطبيعي في منطقة الرياض", en: "Landscape units of the Riyadh region" } },
     gallery: [

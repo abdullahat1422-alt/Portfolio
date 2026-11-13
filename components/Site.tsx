@@ -187,7 +187,7 @@ export default function Site({ lang }: { lang: Lang }) {
                 <div className="flex flex-wrap items-center gap-2">
                   {big && <span className="rounded-full bg-copper px-3 py-0.5 text-[13px] font-semibold text-white">{t(ui.featured)}</span>}
                   <span className={`rounded-full px-3 py-0.5 text-[13px] font-medium ${statusTone(p.status.en)}`}>{t(p.status)}</span>
-                  <span className="rounded-full bg-surface px-3 py-0.5 text-[13px] font-medium text-ink ring-1 ring-line">{t(p.highlight)}</span>
+                  {p.highlight && <span className="rounded-full bg-surface px-3 py-0.5 text-[13px] font-medium text-ink ring-1 ring-line">{t(p.highlight)}</span>}
                 </div>
                 <h3 className={`mt-3 font-bold ${big ? "text-2xl sm:text-3xl" : "text-xl"}`}>{t(p.title)}</h3>
                 <p className={`mt-2 text-ink-soft ${big ? "text-[17px] leading-relaxed" : ""}`}>{t(p.line)}</p>

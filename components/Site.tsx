@@ -1,4 +1,5 @@
 import MapViewer from "./MapViewer";
+import Effects from "./Effects";
 import {
   type Lang,
   person,
@@ -97,16 +98,17 @@ export default function Site({ lang }: { lang: Lang }) {
 
   return (
     <div className="pb-20 lg:pb-0">
-      {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 sm:px-6">
+      <Effects />
+      {/* Header: floating glass pill */}
+      <header className="sticky top-0 z-40 px-3 pt-3 sm:px-6">
+        <div className="glass mx-auto flex max-w-6xl items-center gap-3 rounded-full py-2 pe-2 ps-3 sm:ps-4">
           <a href="#top" className="flex items-center gap-2.5 font-semibold no-underline">
-            <img src="/img/logo-mark.webp" alt="" width={240} height={214} className="h-11 w-auto" />
+            <img src="/img/logo-mark.webp" alt="" width={240} height={214} className="h-9 w-auto" />
             <span>{t(person.name)}</span>
           </a>
           <nav className="ms-auto hidden items-center gap-1 md:flex" aria-label={lang === "ar" ? "الأقسام" : "Sections"}>
             {(["maps", "services", "about", "contact"] as const).map((k) => (
-              <a key={k} href={`#${k}`} className="rounded-full px-4 py-1.5 text-[15px] text-ink-soft no-underline hover:bg-surface hover:text-ink">
+              <a key={k} href={`#${k}`} className="rounded-full px-4 py-1.5 text-[15px] text-ink-soft no-underline transition-colors hover:bg-surface hover:text-ink">
                 {t(ui.nav[k])}
               </a>
             ))}
@@ -115,7 +117,7 @@ export default function Site({ lang }: { lang: Lang }) {
             href={t(ui.langHref)}
             hrefLang={lang === "ar" ? "en" : "ar"}
             lang={lang === "ar" ? "en" : "ar"}
-            className="ms-auto rounded-full border border-line px-4 py-1.5 text-sm font-medium no-underline hover:bg-surface md:ms-2"
+            className="ms-auto rounded-full bg-ink px-4 py-1.5 text-sm font-medium text-paper no-underline transition-transform hover:scale-[1.04] md:ms-2"
           >
             {t(ui.langSwitch)}
           </a>
@@ -129,6 +131,10 @@ export default function Site({ lang }: { lang: Lang }) {
           <div aria-hidden className="hero-veil absolute inset-0 -z-10" />
           <div className="flex min-h-[calc(100svh-8.5rem)] flex-col justify-between px-5 pb-8 pt-10 text-white">
             <div className="[text-shadow:0_1px_12px_rgba(0,30,60,.35)]">
+              <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[13px] font-semibold text-white backdrop-blur">
+                <span aria-hidden className="pulse-dot size-1.5 rounded-full bg-[#9fe08a] text-[#9fe08a]" />
+                {t(ui.available)}
+              </p>
               <p className="text-[15px] font-medium text-white/90">{t(person.title)}</p>
               <p className="mt-1 text-[13px] text-white/85">{person.tags.map((g) => t(g)).join("  ·  ")}</p>
               <h1 className="mt-2 text-[2.3rem] font-extrabold leading-[1.3]">{t(person.name)}</h1>
@@ -145,38 +151,75 @@ export default function Site({ lang }: { lang: Lang }) {
           </div>
         </section>
 
-        {/* Hero, desktop: split */}
-        <section className="mx-auto hidden max-w-6xl grid-cols-12 items-center gap-12 px-6 py-16 lg:grid">
-          <div className="col-span-6">
-            <ul className="flex flex-wrap gap-2">
-              <li className="rounded-full bg-sky-soft px-4 py-1.5 text-[15px] font-medium text-sky">{t(person.title)}</li>
-              {person.tags.map((g, k) => (
-                <li key={k} className="rounded-full border border-line bg-paper px-3.5 py-1.5 text-[14px] font-medium text-ink-soft">{t(g)}</li>
-              ))}
-            </ul>
-            <h1 className="mt-6 text-[3.4rem] font-extrabold leading-[1.25]">{t(person.name)}</h1>
-            <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink-soft">{t(person.lead)}</p>
-            <div className="mt-9 flex gap-3">
-              <a href="#contact" className="rounded-full bg-copper px-7 py-3.5 font-semibold text-white no-underline shadow-lg shadow-copper/25 hover:bg-copper-strong">
-                {t(ui.requestConsult)}
-              </a>
-              <a href="#maps" className="rounded-full border border-line px-7 py-3.5 font-semibold no-underline hover:bg-surface">
-                {t(ui.viewMaps)}
-              </a>
+        {/* Hero, desktop: split with topographic backdrop */}
+        <section className="relative isolate hidden overflow-hidden lg:block">
+          <div aria-hidden className="topo pointer-events-none absolute -inset-10 -z-10" />
+          <div className="mx-auto grid max-w-6xl grid-cols-12 items-center gap-12 px-6 pb-20 pt-14">
+            <div className="col-span-6">
+              <p className="reveal inline-flex items-center gap-2.5 rounded-full border border-leaf/25 bg-leaf/10 px-4 py-1.5 text-[14px] font-semibold text-leaf">
+                <span aria-hidden className="pulse-dot size-2 rounded-full bg-leaf" />
+                {t(ui.available)}
+              </p>
+              <h1 className="reveal d1 ink-grad mt-6 pb-2 text-[3.8rem] font-extrabold leading-[1.2]">{t(person.name)}</h1>
+              <ul className="reveal d1 mt-4 flex flex-wrap gap-2">
+                <li className="rounded-full bg-sky-soft px-4 py-1.5 text-[15px] font-medium text-sky">{t(person.title)}</li>
+                {person.tags.map((g, k) => (
+                  <li key={k} className="rounded-full border border-line bg-paper/70 px-3.5 py-1.5 text-[14px] font-medium text-ink-soft">{t(g)}</li>
+                ))}
+              </ul>
+              <p className="reveal d2 mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">{t(person.lead)}</p>
+              <div className="reveal d3 mt-9 flex gap-3">
+                <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-copper px-7 py-3.5 font-semibold text-white no-underline shadow-lg shadow-copper/30 transition-all hover:-translate-y-0.5 hover:bg-copper-strong hover:shadow-xl hover:shadow-copper/35">
+                  {t(ui.requestConsult)}
+                  <span aria-hidden className="transition-transform group-hover:-translate-x-1 ltr:group-hover:translate-x-1">{lang === "ar" ? "←" : "→"}</span>
+                </a>
+                <a href="#maps" className="rounded-full border border-line bg-paper/70 px-7 py-3.5 font-semibold no-underline transition-colors hover:bg-surface">
+                  {t(ui.viewMaps)}
+                </a>
+              </div>
+            </div>
+            <div className="reveal d2 relative col-span-6">
+              <img src="/img/field.webp" alt={lang === "ar" ? "عبدالله في مسح ميداني" : "Abdullah on a field survey"} width={720} height={1280} fetchPriority="high" className="ms-auto h-[580px] w-[430px] rounded-[2.25rem] object-cover object-[50%_60%] shadow-2xl shadow-[#5a3712]/25 ring-1 ring-black/5" />
+              <div className="glass float-a absolute bottom-16 start-6 rounded-2xl px-5 py-3.5">
+                <p className="font-[family-name:var(--font-display)] text-3xl font-extrabold text-copper" data-count="50" data-prefix="+">+50</p>
+                <p className="text-[13px] font-medium text-ink-soft">{t(ui.mapsBadge)}</p>
+              </div>
+              <div className="glass float-b absolute end-[-10px] top-14 rounded-2xl px-4 py-3">
+                <p className="text-[12px] font-semibold text-leaf">{t(ui.paperBadge)}</p>
+                <p className="text-[13px] font-medium" dir="ltr">BMC Ecology &amp; Evolution</p>
+              </div>
+              <p className="glass absolute bottom-5 end-5 rounded-full px-3 py-1 text-[11px] font-medium text-ink-soft" dir="ltr">20.2°N · 41.3°E</p>
             </div>
           </div>
-          <div className="col-span-6">
-            <img src="/img/field.webp" alt={lang === "ar" ? "عبدالله في مسح ميداني" : "Abdullah on a field survey"} width={720} height={1280} fetchPriority="high" className="ms-auto h-[600px] w-[440px] rounded-[2rem] object-cover object-[50%_60%] shadow-2xl shadow-sky/15" />
+        </section>
+
+        {/* Tools marquee */}
+        <section aria-label={lang === "ar" ? "الأدوات" : "Tools"} className="marquee overflow-hidden border-y border-line bg-paper py-4">
+          <div className="marquee-track gap-3" dir="ltr">
+            {[0, 1].map((rep) => (
+              <ul key={rep} className="flex shrink-0 gap-3 pe-3" aria-hidden={rep === 1}>
+                {Array.from(new Set(skills.flatMap((sk) => sk.tools.map((tool) => pick(tool, "en"))))).map((tool) => (
+                  <li key={tool} className="whitespace-nowrap rounded-full border border-line bg-surface px-4 py-1.5 text-[14px] font-medium text-ink-soft">
+                    {tool}
+                  </li>
+                ))}
+              </ul>
+            ))}
           </div>
         </section>
 
         {/* Stats */}
-        <section className="border-y border-line bg-surface">
-          <ul className="mx-auto grid max-w-6xl divide-y divide-line px-5 py-2 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:px-6 sm:py-7 sm:rtl:divide-x-reverse">
+        <section className="mx-auto max-w-6xl px-4 pt-12 sm:px-6">
+          <ul className="grid gap-3 sm:grid-cols-3">
             {person.stats.map((s, k) => (
-              <li key={k} className="flex items-center gap-4 py-4 sm:block sm:px-4 sm:py-0 sm:text-center">
-                <p className="w-32 shrink-0 font-[family-name:var(--font-display)] text-2xl font-extrabold text-copper sm:w-auto sm:text-3xl">{typeof s.n === "string" ? s.n : t(s.n)}</p>
-                <p className="text-[14px] leading-snug text-ink-soft sm:mt-1.5 sm:text-sm">{t(s.l)}</p>
+              <li key={k} className={`spot reveal d${k + 1} px-6 py-5`}>
+                <p
+                  className="font-[family-name:var(--font-display)] text-3xl font-extrabold text-copper"
+                  {...(typeof s.n === "string" && /^\+\d+$/.test(s.n) ? { "data-count": s.n.slice(1), "data-prefix": "+" } : {})}
+                >
+                  {typeof s.n === "string" ? s.n : t(s.n)}
+                </p>
+                <p className="mt-1.5 text-[14px] leading-snug text-ink-soft">{t(s.l)}</p>
               </li>
             ))}
           </ul>
@@ -184,7 +227,7 @@ export default function Site({ lang }: { lang: Lang }) {
 
         {/* Work */}
         <section id="maps" className="mx-auto max-w-6xl scroll-mt-16 px-4 py-16 sm:px-6 lg:py-24">
-          <h2 className="text-3xl font-bold sm:text-4xl">{t(ui.maps)}</h2>
+          <h2 className="reveal text-3xl font-bold sm:text-5xl">{t(ui.maps)}</h2>
 
           {(() => {
             const labels = { open: t(ui.openMap), close: t(ui.close), prev: t(ui.prev), next: t(ui.next), hint: t(ui.zoomHint), reset: t(ui.resetZoom) };
@@ -211,7 +254,7 @@ export default function Site({ lang }: { lang: Lang }) {
             const [first, ...rest] = projects;
             return (
               <>
-                <article id={first.id} className="mt-10 grid scroll-mt-20 items-center gap-8 lg:grid-cols-12 lg:gap-12">
+                <article id={first.id} className="spot reveal mt-10 grid scroll-mt-24 items-center gap-8 p-4 sm:p-6 lg:grid-cols-12 lg:gap-12 lg:p-8">
                   <div className="lg:col-span-7">
                     <MapViewer
                       dir={dir}
@@ -228,12 +271,12 @@ export default function Site({ lang }: { lang: Lang }) {
                   </div>
                 </article>
 
-                <div className="mt-16 grid gap-x-10 gap-y-14 md:grid-cols-2">
+                <div className="mt-6 grid gap-6 md:grid-cols-2">
                   {rest.map((p, idx) => (
                     <article
                       key={p.id}
                       id={p.id}
-                      className={`scroll-mt-20 ${rest.length % 2 === 1 && idx === rest.length - 1 ? "md:col-span-2 md:mx-auto md:w-[calc(50%-1.25rem)]" : ""}`}
+                      className={`spot reveal ${idx % 2 ? "d1" : ""} scroll-mt-24 p-4 sm:p-5 ${rest.length % 2 === 1 && idx === rest.length - 1 ? "md:col-span-2 md:mx-auto md:w-[calc(50%-0.75rem)]" : ""}`}
                     >
                       <MapViewer
                         dir={dir}
@@ -242,7 +285,7 @@ export default function Site({ lang }: { lang: Lang }) {
                         images={p.gallery.map((g) => ({ src: g.src, w: g.w, h: g.h, caption: t(g.caption) }))}
                         labels={labels}
                       />
-                      <div className="mt-5">
+                      <div className="mt-5 px-1 pb-1">
                         <Meta p={p} />
                       </div>
                     </article>
@@ -251,10 +294,10 @@ export default function Site({ lang }: { lang: Lang }) {
 
                 {/* Map gallery */}
                 <div id="gallery" className="mt-24 scroll-mt-20">
-                  <h2 className="text-3xl font-bold sm:text-4xl">{t(ui.gallery)}</h2>
+                  <h2 className="reveal text-3xl font-bold sm:text-5xl">{t(ui.gallery)}</h2>
                   <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-9 sm:gap-x-7 lg:grid-cols-4">
                     {mapGallery.map((g) => (
-                      <figure key={g.thumb}>
+                      <figure key={g.thumb} className="reveal">
                         <MapViewer
                           dir={dir}
                           compact
@@ -292,30 +335,31 @@ export default function Site({ lang }: { lang: Lang }) {
         </section>
 
         {/* Services */}
-        <section id="services" className="mx-auto max-w-6xl scroll-mt-16 px-4 py-16 sm:px-6 lg:py-24">
-          <h2 className="text-3xl font-bold sm:text-4xl">{t(ui.services)}</h2>
-          <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-3 lg:gap-x-8">
-            {services.map((s) => (
-              <div key={s.photo}>
-                <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-sea ring-1 ring-line">
-                  <Photo id={s.photo} alt="" sizes="(min-width:1024px) 360px, 50vw" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+        <section id="services" className="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6 lg:py-24">
+          <h2 className="reveal text-3xl font-bold sm:text-5xl">{t(ui.services)}</h2>
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+            {services.map((s, k) => (
+              <div key={s.photo} className={`reveal ${k % 3 === 1 ? "d1" : k % 3 === 2 ? "d2" : ""} group relative isolate aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-night sm:aspect-[4/3]`}>
+                <Photo id={s.photo} alt="" sizes="(min-width:1024px) 380px, 50vw" className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-110" />
+                <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141a12]/90 via-[#141a12]/35 to-transparent" />
+                <div className="flex h-full flex-col justify-end p-4 text-white sm:p-6">
+                  <h3 className="text-[16px] font-bold leading-snug sm:text-xl">{t(s.title)}</h3>
+                  <p className="mt-1 max-h-0 overflow-hidden text-[13px] leading-snug text-white/85 opacity-0 transition-all duration-500 group-hover:max-h-24 group-hover:opacity-100 sm:text-[14.5px] max-lg:max-h-24 max-lg:opacity-100">{t(s.line)}</p>
                 </div>
-                <h3 className="mt-3 text-[17px] font-semibold sm:text-lg">{t(s.title)}</h3>
-                <p className="mt-0.5 text-[14px] text-ink-soft sm:text-[15px]">{t(s.line)}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* About: experience, skills, research, certificates */}
-        <section id="about" className="scroll-mt-16 bg-surface">
-          <div className="mx-auto grid max-w-6xl gap-14 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
-            <div className="lg:col-span-2">
-              <h2 className="text-3xl font-bold sm:text-4xl">{t(ui.aboutTitle)}</h2>
+        <section id="about" className="scroll-mt-24">
+          <div className="mx-auto grid max-w-6xl gap-4 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
+            <div className="reveal mb-4 lg:col-span-2">
+              <h2 className="text-3xl font-bold sm:text-5xl">{t(ui.aboutTitle)}</h2>
               <p className="mt-5 max-w-3xl text-[17px] leading-loose text-ink-soft">{t(person.profile)}</p>
             </div>
-            <div>
-              <h2 className="text-3xl font-bold sm:text-4xl">{t(ui.experience)}</h2>
+            <div className="spot reveal p-6 sm:p-8">
+              <h2 className="text-2xl font-bold sm:text-3xl">{t(ui.experience)}</h2>
               <ol className="mt-8 space-y-6 border-s-2 border-sky/30 ps-6">
                 {experience.map((e, k) => (
                   <li key={k} className="relative">
@@ -354,8 +398,8 @@ export default function Site({ lang }: { lang: Lang }) {
               </ul>
             </div>
 
-            <div>
-              <h2 className="text-3xl font-bold sm:text-4xl">{t(ui.skills)}</h2>
+            <div className="spot reveal p-6 sm:p-8">
+              <h2 className="text-2xl font-bold sm:text-3xl">{t(ui.skills)}</h2>
               <ul className="mt-8 space-y-5">
                 {skills.map((s, k) => (
                   <li key={k}>
@@ -385,8 +429,8 @@ export default function Site({ lang }: { lang: Lang }) {
               </ul>
             </div>
 
-            <div>
-              <h2 className="text-3xl font-bold sm:text-4xl">{t(ui.research)}</h2>
+            <div className="spot reveal p-6 sm:p-8">
+              <h2 className="text-2xl font-bold sm:text-3xl">{t(ui.research)}</h2>
               <p className="mt-2 text-sm text-ink-soft" dir="auto">{t(nameNote)}</p>
               <ul className="mt-6 space-y-4">
                 {publications.map((p, k) => (
@@ -424,8 +468,8 @@ export default function Site({ lang }: { lang: Lang }) {
               </ul>
             </div>
 
-            <div>
-              <h2 className="text-3xl font-bold sm:text-4xl">{t(ui.certs)}</h2>
+            <div className="spot reveal p-6 sm:p-8">
+              <h2 className="text-2xl font-bold sm:text-3xl">{t(ui.certs)}</h2>
               <ul className="mt-8 grid gap-2 sm:grid-cols-2">
                 {certifications.slice(0, 6).map((c, k) => (
                   <li key={k} className="rounded-xl bg-paper px-4 py-3 ring-1 ring-line">
@@ -455,11 +499,11 @@ export default function Site({ lang }: { lang: Lang }) {
         </section>
 
         {/* Contact */}
-        <section id="contact" className="relative isolate scroll-mt-16 overflow-hidden text-white">
+        <section id="contact" className="reveal relative isolate mx-3 mb-6 scroll-mt-24 overflow-hidden rounded-[2.25rem] text-white sm:mx-6 lg:mx-auto lg:max-w-6xl">
           <Photo id="a1" alt="" sizes="100vw" className="absolute inset-0 -z-20 h-full w-full object-cover" />
           <div aria-hidden className="absolute inset-0 -z-10 bg-[#232c20]/80" />
-          <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
-            <h2 className="text-3xl font-bold sm:text-5xl">{t(ui.contactTitle)}</h2>
+          <div className="px-6 py-16 sm:px-12 lg:py-24">
+            <h2 className="text-4xl font-extrabold sm:text-6xl">{t(ui.contactTitle)}</h2>
             <p className="mt-4 max-w-xl text-lg text-white/85">{t(ui.contactLine)}</p>
             <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
               <a href={contact.whatsapp} target="_blank" rel="noopener" className="flex items-center gap-3 rounded-2xl bg-[#fbf7ec] px-5 py-4 font-semibold text-[#1f281d] no-underline hover:bg-white">
@@ -467,20 +511,20 @@ export default function Site({ lang }: { lang: Lang }) {
                 {t(ui.whatsapp)}
                 <span dir="ltr" className="ms-auto text-sm font-normal text-[#5d6555]">{contact.phoneDisplay}</span>
               </a>
-              <a href={`mailto:${contact.email}`} className="flex items-center gap-3 rounded-2xl bg-white/12 px-5 py-4 font-semibold no-underline ring-1 ring-white/25 backdrop-blur hover:bg-white/20">
+              <a href={`mailto:${contact.email}`} className="flex items-center gap-3 rounded-2xl bg-white/12 px-5 py-4 font-semibold no-underline ring-1 ring-white/25 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/20">
                 <Icon name="mail" size={22} />
                 <span dir="ltr" className="truncate text-[15px]">{contact.email}</span>
               </a>
-              <a href={contact.vcard} download className="flex items-center gap-3 rounded-2xl bg-white/12 px-5 py-4 font-semibold no-underline ring-1 ring-white/25 backdrop-blur hover:bg-white/20">
+              <a href={contact.vcard} download className="flex items-center gap-3 rounded-2xl bg-white/12 px-5 py-4 font-semibold no-underline ring-1 ring-white/25 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/20">
                 <Icon name="card" size={22} />
                 {t(ui.saveContact)}
               </a>
               <div className="flex gap-3">
-                <a href={contact.cv} target="_blank" rel="noopener" className="flex flex-1 items-center gap-3 rounded-2xl bg-white/12 px-5 py-4 font-semibold no-underline ring-1 ring-white/25 backdrop-blur hover:bg-white/20">
+                <a href={contact.cv} target="_blank" rel="noopener" className="flex flex-1 items-center gap-3 rounded-2xl bg-white/12 px-5 py-4 font-semibold no-underline ring-1 ring-white/25 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/20">
                   <Icon name="doc" size={22} />
                   {t(ui.downloadCv)}
                 </a>
-                <a href={contact.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" className="grid place-items-center rounded-2xl bg-white/12 px-5 ring-1 ring-white/25 backdrop-blur hover:bg-white/20">
+                <a href={contact.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" className="grid place-items-center rounded-2xl bg-white/12 px-5 ring-1 ring-white/25 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/20">
                   <Icon name="in" size={22} />
                 </a>
               </div>

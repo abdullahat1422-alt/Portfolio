@@ -146,3 +146,109 @@ details[open] .chev {
   outline-offset: -2px;
   box-shadow: inset 0 0 0 5px #ffffff, inset 0 0 0 6px #b08a5a;
 }
+
+/* ---------- v3 motion & surfaces ---------- */
+
+/* scroll reveal (only hides content once JS has loaded, so nothing is lost without it) */
+.fx .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1);
+}
+.fx .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+.fx .reveal.d1 { transition-delay: 80ms; }
+.fx .reveal.d2 { transition-delay: 160ms; }
+.fx .reveal.d3 { transition-delay: 240ms; }
+
+/* topographic contour backdrop */
+.topo {
+  background-image: url("/img/contours.svg");
+  background-size: cover;
+  background-position: center;
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 40%, #000 35%, transparent 80%);
+  mask-image: radial-gradient(120% 90% at 50% 40%, #000 35%, transparent 80%);
+  animation: topo-drift 38s ease-in-out infinite alternate;
+}
+@keyframes topo-drift {
+  from { transform: scale(1.06) translate3d(-1.5%, -1%, 0); }
+  to   { transform: scale(1.12) translate3d(1.5%, 1.2%, 0); }
+}
+
+/* glass pill */
+.glass {
+  background: color-mix(in srgb, var(--paper) 72%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.3);
+  border: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+  box-shadow: 0 10px 30px -18px rgba(60, 45, 20, .35);
+}
+
+/* bento card with pointer-following glow */
+.spot {
+  position: relative;
+  isolation: isolate;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1.75rem;
+  transition: transform 350ms cubic-bezier(.2,.7,.2,1), box-shadow 350ms ease, border-color 350ms ease;
+}
+.spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--copper) 13%, transparent), transparent 60%);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+.spot:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--copper) 35%, var(--line));
+  box-shadow: 0 30px 60px -32px rgba(90, 55, 20, .45);
+}
+.spot:hover::before { opacity: 1; }
+
+/* floating badges on the hero photo */
+.float-a { animation: floaty 6s ease-in-out infinite; }
+.float-b { animation: floaty 7s ease-in-out -2s infinite; }
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+/* "available" pulse */
+.pulse-dot { position: relative; }
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: .35;
+  animation: ping 1.8s cubic-bezier(0,0,.2,1) infinite;
+}
+@keyframes ping { 75%, 100% { transform: scale(2.1); opacity: 0; } }
+
+/* tools marquee */
+.marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee-track { display: flex; width: max-content; animation: marquee 42s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+[dir="rtl"] .marquee-track { animation-name: marquee-rtl; }
+@keyframes marquee-rtl { from { transform: translateX(0); } to { transform: translateX(50%); } }
+
+/* gradient headline ink, from olive to copper */
+.ink-grad {
+  background: linear-gradient(100deg, #1f281d 10%, #435636 45%, #a5521f 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topo, .float-a, .float-b, .marquee-track, .pulse-dot::after { animation: none !important; }
+}

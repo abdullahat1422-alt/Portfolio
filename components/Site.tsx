@@ -141,7 +141,7 @@ export default function Site({ lang }: { lang: Lang }) {
       <p className={`flex items-center gap-4 text-[12px] font-semibold tracking-[0.22em] ${dark ? "text-sand" : "text-copper"}`}>
         <span className="font-[family-name:Anton] text-[1.35rem] tracking-normal">{n}</span>
         <span aria-hidden className={`h-px flex-1 ${dark ? "bg-on-night/20" : "bg-ink/15"}`} />
-        <span dir="ltr" className={dark ? "text-on-night/50" : "text-ink-soft/70"}>ALSUMAIRI · ATLAS</span>
+        <span dir="ltr" className={dark ? "text-on-night/50" : "text-ink-soft/70"}>ALSUMAIRI · PORTFOLIO</span>
       </p>
       <h2 className={`mt-5 text-[2.35rem] font-extrabold leading-[1.15] sm:text-6xl ${dark ? "text-on-night" : ""}`}>{o[lang]}</h2>
       <p lang={other} dir={other === "ar" ? "rtl" : "ltr"} style={{ textAlign: lang === "ar" ? "right" : "left" }} className={`mt-2 text-[15px] font-semibold sm:text-lg ${dark ? "text-sand" : "text-copper"}`}>
@@ -203,10 +203,10 @@ export default function Site({ lang }: { lang: Lang }) {
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             {/* Phone */}
             <div className="flex flex-col pb-10 pt-24 lg:hidden">
-              <p className={`word-up pt-[0.12em] text-center leading-[1] ${lang === "ar" ? "atlas-ar text-[31vw]" : "atlas-en text-[34vw]"}`} aria-hidden>
+              <p className={`word-up pt-[0.12em] text-center leading-[1] atlas-en text-[22.5vw]`} aria-hidden>
                 {t(ui.atlas)}
               </p>
-              <div className="relative mx-auto -mt-[18vw] w-[92%] max-w-[460px]">
+              <div className="relative mx-auto -mt-[7vw] w-[92%] max-w-[460px]">
                 <Rings className="absolute left-1/2 top-[40%] -z-0 w-[175%] max-w-none -translate-x-1/2 -translate-y-1/2" />
                 <img src="/img/portrait-760.webp" alt={t(person.name)} width={760} height={760} fetchPriority="high" className="rise relative w-full" />
               </div>
@@ -236,11 +236,11 @@ export default function Site({ lang }: { lang: Lang }) {
 
             {/* Desktop */}
             <div className="relative hidden h-[100svh] min-h-[720px] max-h-[1000px] lg:block">
-              <p aria-hidden className={`word-up pointer-events-none absolute inset-x-0 top-[8%] select-none pt-[0.18em] text-center leading-[1] ${lang === "ar" ? "atlas-ar text-[min(21vw,19rem)]" : "atlas-en text-[min(19vw,17.5rem)]"}`}>
+              <p aria-hidden className={`word-up pointer-events-none absolute inset-x-0 top-[5%] select-none pt-[0.18em] text-center leading-[1] atlas-en text-[min(18vw,16rem)]`}>
                 {t(ui.atlas)}
               </p>
               <div className="absolute inset-0 grid grid-cols-[1fr_min(42vw,74svh,660px)_1fr] items-end gap-6">
-                <div className="relative z-10 pb-20 [text-shadow:0_2px_18px_rgba(20,26,18,.7)]">
+                <div className="relative z-10 pb-14 [text-shadow:0_2px_18px_rgba(20,26,18,.7)]">
                   <p className="fade-in inline-flex items-center gap-2.5 rounded-full bg-leaf/25 px-4 py-1.5 text-[14px] font-semibold text-[#bfe3a6] ring-1 ring-[#bfe3a6]/25">
                     <span aria-hidden className="pulse-dot size-2 rounded-full bg-[#9fe08a] text-[#9fe08a]" />
                     {t(ui.available)}
@@ -277,10 +277,10 @@ export default function Site({ lang }: { lang: Lang }) {
                   </div>
                 </div>
               </div>
-              <p className="absolute inset-x-0 bottom-6 flex items-center gap-4 text-[12px] font-semibold tracking-[0.22em] text-on-night/45">
+              <p className="absolute inset-x-0 bottom-3 flex items-center gap-4 text-[12px] font-semibold tracking-[0.22em] text-on-night/45">
                 <span className="font-[family-name:Anton] text-[1.2rem] tracking-normal text-sand">01</span>
                 <span aria-hidden className="h-px flex-1 bg-on-night/15" />
-                <span dir="ltr">ALSUMAIRI · ATLAS</span>
+                <span dir="ltr">ALSUMAIRI · PORTFOLIO</span>
               </p>
             </div>
           </div>
@@ -566,7 +566,7 @@ export default function Site({ lang }: { lang: Lang }) {
             <p className="reveal flex items-center gap-4 text-[12px] font-semibold tracking-[0.22em] text-on-night/45">
               <span className="font-[family-name:Anton] text-[1.35rem] tracking-normal text-sand">07</span>
               <span aria-hidden className="h-px flex-1 bg-on-night/15" />
-              <span dir="ltr">ALSUMAIRI · ATLAS</span>
+              <span dir="ltr">ALSUMAIRI · PORTFOLIO</span>
             </p>
             <h2 className={`reveal mt-8 leading-[0.95] ${lang === "ar" ? "atlas-ar text-[26vw] sm:text-[11rem]" : "atlas-en text-[24vw] sm:text-[11rem]"}`}>{t(ui.thanks)}</h2>
             <p lang={other} className="reveal mt-3 text-lg font-semibold text-sand">{ui.thanks[other]}</p>

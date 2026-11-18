@@ -363,7 +363,7 @@ export const ui = {
   zoomHint: { ar: "قرّب بإصبعين", en: "Pinch to zoom" },
   resetZoom: { ar: "إعادة", en: "Reset" },
   footer: { ar: "الرياض", en: "Riyadh" },
-  atlas: { ar: "أطلس", en: "ATLAS" },
+  atlas: { ar: "PORTFOLIO", en: "PORTFOLIO" },
   layers: { ar: "الطبقات", en: "Layers" },
   mapsWord: { ar: "خرائط", en: "maps" },
   expSkills: { ar: "الخبرة والمهارات", en: "Experience & skills" },

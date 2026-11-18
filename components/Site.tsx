@@ -143,7 +143,7 @@ export default function Site({ lang }: { lang: Lang }) {
         <span aria-hidden className={`h-px flex-1 ${dark ? "bg-on-night/20" : "bg-ink/15"}`} />
         <span dir="ltr" className={dark ? "text-on-night/50" : "text-ink-soft/70"}>ALSUMAIRI · PORTFOLIO</span>
       </p>
-      <h2 className={`mt-5 text-[2.35rem] font-extrabold leading-[1.15] sm:text-6xl ${dark ? "text-on-night" : ""}`}>{o[lang]}</h2>
+      <h2 className={`mt-5 text-[2.35rem] font-extrabold leading-[1.15] sm:text-6xl ${dark ? "text-on-night" : "h-depth"}`}>{o[lang]}</h2>
       <p lang={other} dir={other === "ar" ? "rtl" : "ltr"} style={{ textAlign: lang === "ar" ? "right" : "left" }} className={`mt-2 text-[15px] font-semibold sm:text-lg ${dark ? "text-sand" : "text-copper"}`}>
         {o[other]}
       </p>
@@ -166,7 +166,7 @@ export default function Site({ lang }: { lang: Lang }) {
     images: p.gallery.map((g) => ({ src: g.src, w: g.w, h: g.h, caption: t(g.caption) })),
   }));
 
-  const btnGhostDark = "flex items-center gap-3 rounded-2xl bg-white/8 px-5 py-4 font-semibold no-underline ring-1 ring-white/20 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/15";
+  const btnGhostDark = "glass-dark flex items-center gap-3 rounded-2xl px-5 py-4 font-semibold no-underline transition-all hover:-translate-y-0.5 hover:bg-white/15";
 
   return (
     <div className="bg-paper">
@@ -200,15 +200,17 @@ export default function Site({ lang }: { lang: Lang }) {
         {/* 01 Cover (dark): portrait over the giant word, contour rings behind */}
         <section className="cover-bg relative isolate overflow-hidden text-on-night">
           <div aria-hidden className="graticule-dark absolute inset-0 -z-10" />
+          <div aria-hidden className="cover-vignette pointer-events-none absolute inset-0 -z-10" />
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             {/* Phone */}
             <div className="flex flex-col pb-10 pt-24 lg:hidden">
-              <p className={`word-up pt-[0.12em] text-center leading-[1] atlas-en text-[22.5vw]`} aria-hidden>
+              <p className={`word-up depth-word pt-[0.12em] text-center leading-[1] atlas-en text-[22.5vw]`} aria-hidden>
                 {t(ui.atlas)}
               </p>
               <div className="relative mx-auto -mt-[7vw] w-[92%] max-w-[460px]">
                 <Rings className="absolute left-1/2 top-[40%] -z-0 w-[175%] max-w-none -translate-x-1/2 -translate-y-1/2" />
-                <img src="/img/portrait-760.webp" alt={t(person.name)} width={760} height={760} fetchPriority="high" className="rise relative w-full" />
+                <div aria-hidden className="portrait-glow absolute left-1/2 top-[40%] size-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full" />
+                <img src="/img/portrait-760.webp" alt={t(person.name)} width={760} height={760} fetchPriority="high" className="rise depth-portrait relative w-full" />
               </div>
               <div className="relative -mt-14 text-center">
                 <p className="fade-in inline-flex items-center gap-2 rounded-full bg-leaf/25 px-3.5 py-1 text-[13px] font-semibold text-[#bfe3a6] ring-1 ring-[#bfe3a6]/25">
@@ -219,7 +221,7 @@ export default function Site({ lang }: { lang: Lang }) {
                 <p className="fade-in mt-2 text-[15.5px] font-semibold text-sand">{t(person.title)}</p>
                 <p className="fade-in mt-2 text-[13px] text-on-night/70">{person.tags.map((g) => t(g)).join("  ·  ")}</p>
                 <div className="fade-in mt-7 flex gap-3">
-                  <a href="#contact" className="flex-1 rounded-full bg-copper py-3 text-center font-semibold text-white no-underline shadow-lg shadow-black/30">
+                  <a href="#contact" className="btn-copper flex-1 rounded-full bg-copper py-3 text-center font-semibold text-white no-underline">
                     {t(ui.requestConsult)}
                   </a>
                   <a href="#maps" className="flex-1 rounded-full bg-white/8 py-3 text-center font-semibold text-on-night no-underline ring-1 ring-white/30">
@@ -236,9 +238,9 @@ export default function Site({ lang }: { lang: Lang }) {
 
             {/* Desktop */}
             <div className="relative hidden h-[100svh] min-h-[720px] max-h-[1000px] lg:block">
-              <p aria-hidden className={`word-up pointer-events-none absolute inset-x-0 top-[5%] select-none pt-[0.18em] text-center leading-[1] atlas-en text-[min(18vw,16rem)]`}>
-                {t(ui.atlas)}
-              </p>
+              <div aria-hidden className="par-word pointer-events-none absolute inset-x-0 top-[5%]">
+                <p className="word-up depth-word select-none pt-[0.18em] text-center leading-[1] atlas-en text-[min(18vw,16rem)]">{t(ui.atlas)}</p>
+              </div>
               <div className="absolute inset-0 grid grid-cols-[1fr_min(42vw,74svh,660px)_1fr] items-end gap-6">
                 <div className="relative z-10 pb-14 [text-shadow:0_2px_18px_rgba(20,26,18,.7)]">
                   <p className="fade-in inline-flex items-center gap-2.5 rounded-full bg-leaf/25 px-4 py-1.5 text-[14px] font-semibold text-[#bfe3a6] ring-1 ring-[#bfe3a6]/25">
@@ -253,7 +255,7 @@ export default function Site({ lang }: { lang: Lang }) {
                     ))}
                   </ul>
                   <div className="fade-in mt-8 flex flex-wrap gap-3">
-                    <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-copper px-6 py-3.5 font-semibold text-white no-underline shadow-lg shadow-black/30 transition-all hover:-translate-y-0.5 hover:bg-copper-strong">
+                    <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-copper px-6 py-3.5 font-semibold text-white no-underline btn-copper transition-all hover:-translate-y-0.5 hover:bg-copper-strong">
                       {t(ui.requestConsult)}
                       <span aria-hidden className="transition-transform group-hover:-translate-x-1 ltr:group-hover:translate-x-1">{lang === "ar" ? "←" : "→"}</span>
                     </a>
@@ -263,15 +265,20 @@ export default function Site({ lang }: { lang: Lang }) {
                   </div>
                 </div>
                 <div className="relative">
-                  <Rings className="absolute left-1/2 top-[42%] w-[140%] max-w-none opacity-80 -translate-x-1/2 -translate-y-1/2" />
-                  <img src="/img/portrait.webp" alt={t(person.name)} width={1254} height={1254} fetchPriority="high" className="rise relative w-full" />
+                  <div aria-hidden className="par-rings absolute inset-0">
+                    <Rings className="absolute left-1/2 top-[42%] w-[140%] max-w-none opacity-80 -translate-x-1/2 -translate-y-1/2" />
+                  </div>
+                  <div aria-hidden className="portrait-glow absolute left-1/2 top-[38%] size-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full" />
+                  <div className="par-portrait relative">
+                    <img src="/img/portrait.webp" alt={t(person.name)} width={1254} height={1254} fetchPriority="high" className="rise depth-portrait relative w-full" />
+                  </div>
                 </div>
                 <div className="flex flex-col items-end gap-4 pb-24 rtl:items-start">
-                  <div className="fade-in float-a rounded-2xl bg-white/8 px-5 py-4 ring-1 ring-white/15 backdrop-blur">
+                  <div className="fade-in float-a glass-dark rounded-2xl px-5 py-4">
                     <p className="font-[family-name:var(--font-display)] text-4xl font-extrabold text-sand" data-count="50" data-prefix="+">+50</p>
                     <p className="text-[13px] font-medium text-on-night/75">{t(ui.mapsBadge)}</p>
                   </div>
-                  <div className="fade-in float-b rounded-2xl bg-white/8 px-5 py-4 ring-1 ring-white/15 backdrop-blur">
+                  <div className="fade-in float-b glass-dark rounded-2xl px-5 py-4">
                     <p className="text-[12px] font-semibold text-[#bfe3a6]">{t(ui.paperBadge)}</p>
                     <p className="text-[14px] font-medium" dir="ltr">BMC Ecology &amp; Evolution</p>
                   </div>
@@ -293,8 +300,8 @@ export default function Site({ lang }: { lang: Lang }) {
             <Head n="02" o={ui.aboutTitle} />
             <div className="mt-10 grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
               <figure className="reveal relative lg:col-span-5">
-                <img src="/img/field-v4.webp" alt={lang === "ar" ? "عبدالله في مسح ميداني" : "Abdullah on a field survey"} width={720} height={1280} loading="lazy" className="aspect-[4/5] w-full rounded-[1.75rem] object-cover object-[50%_66%] shadow-2xl shadow-[#5a3712]/20 ring-1 ring-black/5" />
-                <img src="/img/mount-a.webp" alt="" width={720} height={1280} loading="lazy" className="absolute -bottom-8 end-[-0.75rem] hidden aspect-[3/4] w-[38%] rounded-2xl border-4 border-paper object-cover shadow-xl shadow-[#5a3712]/25 sm:block lg:end-[-2rem]" />
+                <img src="/img/field-v4.webp" alt={lang === "ar" ? "عبدالله في مسح ميداني" : "Abdullah on a field survey"} width={720} height={1280} loading="lazy" className="aspect-[4/5] w-full rounded-[1.75rem] object-cover object-[50%_66%] photo-depth ring-1 ring-black/5" />
+                <img src="/img/mount-a.webp" alt="" width={720} height={1280} loading="lazy" className="tilt-card absolute -bottom-8 end-[-0.75rem] hidden aspect-[3/4] w-[38%] rounded-2xl border-4 border-paper object-cover sm:block lg:end-[-2rem]" />
                 <figcaption className="mt-4 flex items-center gap-3 text-[13px] font-semibold text-ink-soft">
                   <span aria-hidden className="h-px w-8 bg-copper" />
                   {t(ui.band)}
@@ -339,7 +346,7 @@ export default function Site({ lang }: { lang: Lang }) {
               {[0, 1].map((rep) => (
                 <ul key={rep} className="flex shrink-0 gap-3 pe-3" aria-hidden={rep === 1}>
                   {Array.from(new Set(skills.flatMap((sk) => sk.tools.map((tool) => pick(tool, "en"))))).map((tool) => (
-                    <li key={tool} className="whitespace-nowrap rounded-full border border-line bg-surface px-4 py-1.5 text-[14px] font-medium text-ink-soft">
+                    <li key={tool} className="pill-raised whitespace-nowrap rounded-full border border-line bg-surface px-4 py-1.5 text-[14px] font-medium text-ink-soft">
                       {tool}
                     </li>
                   ))}
@@ -401,7 +408,7 @@ export default function Site({ lang }: { lang: Lang }) {
             <Head n="04" o={ui.services} />
             <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
               {services.map((s, k) => (
-                <div key={s.photo} className={`reveal ${k % 3 === 1 ? "d1" : k % 3 === 2 ? "d2" : ""} group relative isolate aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-night sm:aspect-[4/3]`}>
+                <div key={s.photo} className={`reveal ${k % 3 === 1 ? "d1" : k % 3 === 2 ? "d2" : ""} photo-card group relative isolate aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-night sm:aspect-[4/3]`}>
                   <Photo id={s.photo} alt="" sizes="(min-width:1024px) 380px, 50vw" className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-110" />
                   <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141a12]/90 via-[#141a12]/35 to-transparent" />
                   <span aria-hidden className="absolute start-4 top-4 font-[family-name:Anton] text-lg text-white/70 sm:start-6 sm:top-5">{String(k + 1).padStart(2, "0")}</span>
@@ -568,11 +575,11 @@ export default function Site({ lang }: { lang: Lang }) {
               <span aria-hidden className="h-px flex-1 bg-on-night/15" />
               <span dir="ltr">ALSUMAIRI · PORTFOLIO</span>
             </p>
-            <h2 className={`reveal mt-8 leading-[0.95] ${lang === "ar" ? "atlas-ar text-[26vw] sm:text-[11rem]" : "atlas-en text-[24vw] sm:text-[11rem]"}`}>{t(ui.thanks)}</h2>
+            <h2 className={`reveal depth-word mt-8 leading-[0.95] ${lang === "ar" ? "atlas-ar text-[26vw] sm:text-[11rem]" : "atlas-en text-[24vw] sm:text-[11rem]"}`}>{t(ui.thanks)}</h2>
             <p lang={other} className="reveal mt-3 text-lg font-semibold text-sand">{ui.thanks[other]}</p>
             <p className="reveal mt-6 max-w-xl text-lg text-on-night/85">{t(ui.contactLine)}</p>
             <div className="reveal mt-10 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
-              <a href={contact.whatsapp} target="_blank" rel="noopener" className="flex items-center gap-3 rounded-2xl bg-[#fbf7ec] px-5 py-4 font-semibold text-[#1f281d] no-underline transition-all hover:-translate-y-0.5 hover:bg-white">
+              <a href={contact.whatsapp} target="_blank" rel="noopener" className="btn-cream flex items-center gap-3 rounded-2xl bg-[#fbf7ec] px-5 py-4 font-semibold text-[#1f281d] no-underline transition-all hover:-translate-y-0.5 hover:bg-white">
                 <span className="text-leaf"><Icon name="wa" size={22} /></span>
                 {t(ui.whatsapp)}
                 <span dir="ltr" className="ms-auto text-sm font-normal text-[#5d6555]">{contact.phoneDisplay}</span>
@@ -590,7 +597,7 @@ export default function Site({ lang }: { lang: Lang }) {
                   <Icon name="doc" size={22} />
                   {t(ui.downloadCv)}
                 </a>
-                <a href={contact.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" className="grid place-items-center rounded-2xl bg-white/8 px-5 ring-1 ring-white/20 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/15">
+                <a href={contact.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" className="glass-dark grid place-items-center rounded-2xl px-5 transition-all hover:-translate-y-0.5 hover:bg-white/15">
                   <Icon name="in" size={22} />
                 </a>
               </div>

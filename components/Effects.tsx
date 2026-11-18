@@ -52,8 +52,32 @@ export default function Effects() {
       card.style.setProperty("--mx", `${ev.clientX - r.left}px`);
       card.style.setProperty("--my", `${ev.clientY - r.top}px`);
     };
-    if (!reduce) document.addEventListener("pointermove", onMove, { passive: true });
-    return () => document.removeEventListener("pointermove", onMove);
+    // cover parallax: pointer position and scroll drive CSS variables
+    const cover = document.querySelector<HTMLElement>(".cover-bg");
+    const onCover = (ev: PointerEvent) => {
+      if (!cover || ev.pointerType !== "mouse") return;
+      const r = cover.getBoundingClientRect();
+      cover.style.setProperty("--px", (((ev.clientX - r.left) / r.width) * 2 - 1).toFixed(3));
+      cover.style.setProperty("--py", (((ev.clientY - r.top) / r.height) * 2 - 1).toFixed(3));
+    };
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        cover?.style.setProperty("--sy", String(Math.min(window.scrollY, 1100)));
+      });
+    };
+    if (!reduce) {
+      document.addEventListener("pointermove", onMove, { passive: true });
+      cover?.addEventListener("pointermove", onCover, { passive: true });
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }
+    return () => {
+      document.removeEventListener("pointermove", onMove);
+      cover?.removeEventListener("pointermove", onCover);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return null;

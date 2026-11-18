@@ -82,7 +82,7 @@ export default function Layers({
         }}
         aria-expanded={on}
         aria-controls={`layer-${p.id}`}
-        className={`layer-tab group flex w-full items-center gap-3 rounded-2xl px-3.5 py-3 text-start transition-all ${on ? "bg-ink text-paper shadow-lg shadow-ink/20" : "bg-paper/80 text-ink ring-1 ring-line hover:bg-surface"}`}
+        className={`layer-tab group flex w-full items-center gap-3 rounded-2xl px-3.5 py-3 text-start transition-all ${on ? "tab-on bg-ink text-paper" : "tab-off bg-paper text-ink ring-1 ring-line hover:-translate-y-px hover:bg-white"}`}
       >
         <span aria-hidden className={`grid size-6 shrink-0 place-items-center rounded-md ring-1 ${on ? "ring-paper/40" : "ring-line"}`}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={on ? "opacity-100" : "opacity-35"}>
@@ -106,7 +106,7 @@ export default function Layers({
       {/* Desktop: layers panel + sheet */}
       <div className="hidden gap-8 lg:grid lg:grid-cols-12">
         <div className="col-span-4">
-          <div className="sticky top-24 rounded-[1.75rem] bg-surface p-3 ring-1 ring-line">
+          <div className="panel-inset sticky top-24 rounded-[1.75rem] bg-surface p-3 ring-1 ring-line">
             <p className="flex items-center justify-between px-2 pb-3 pt-1 text-[12px] font-semibold uppercase tracking-[0.18em] text-ink-soft">
               <span>{panelLabel}</span>
               <span className="tabular-nums">{items.length}</span>

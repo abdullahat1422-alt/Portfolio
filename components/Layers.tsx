@@ -37,7 +37,7 @@ export default function Layers({
   panelLabel: string;
 }) {
   const [active, setActive] = useState(0);
-  const swatches = ["#a5521f", "#556b46", "#b08a5a", "#4f7a35", "#8a4318", "#435636", "#c9a370"];
+  const swatches = ["#d6a548", "#a9bbd3", "#e3c27a", "#9fd0ae", "#c9963a", "#7f93b0", "#f0d89a"];
 
   const Panel = ({ p, k, big }: { p: LayerItem; k: number; big?: boolean }) => (
     <div key={p.id} className="layer-in">
@@ -52,7 +52,7 @@ export default function Layers({
       />
       <div className="mt-6 px-1">
         <div className="flex flex-wrap items-center gap-2">
-          {k === 0 && <span className="rounded-full bg-copper px-3 py-0.5 text-[13px] font-semibold text-white">{featured}</span>}
+          {k === 0 && <span className="rounded-full bg-copper px-3 py-0.5 text-[13px] font-bold text-[#14110a]">{featured}</span>}
           <span className={`rounded-full px-3 py-0.5 text-[13px] font-medium ${p.statusTone}`}>{p.status}</span>
           {p.highlight && <span className="rounded-full bg-paper px-3 py-0.5 text-[13px] font-medium text-ink ring-1 ring-line">{p.highlight}</span>}
         </div>

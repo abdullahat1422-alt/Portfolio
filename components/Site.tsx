@@ -117,7 +117,7 @@ function Rings({ className }: { className?: string }) {
           pathLength={1}
           className="ring"
           style={{ animationDelay: `${300 + i * 110}ms` }}
-          stroke={i % 4 === 3 ? "#c4662c" : "#c9a370"}
+          stroke={i % 4 === 3 ? "#d6a548" : "#e3c27a"}
           strokeWidth={i % 4 === 3 ? 2.2 : 1.1}
           strokeOpacity={i % 4 === 3 ? 0.75 : 0.42 - i * 0.025}
         />
@@ -221,7 +221,7 @@ export default function Site({ lang }: { lang: Lang }) {
                 <p className="fade-in mt-2 text-[15.5px] font-semibold text-sand">{t(person.title)}</p>
                 <p className="fade-in mt-2 text-[13px] text-on-night/70">{person.tags.map((g) => t(g)).join("  ·  ")}</p>
                 <div className="fade-in mt-7 flex gap-3">
-                  <a href="#contact" className="btn-copper flex-1 rounded-full bg-copper py-3 text-center font-semibold text-white no-underline">
+                  <a href="#contact" className="btn-copper flex-1 rounded-full bg-copper py-3 text-center font-bold text-[#14110a] no-underline">
                     {t(ui.requestConsult)}
                   </a>
                   <a href="#maps" className="flex-1 rounded-full bg-white/8 py-3 text-center font-semibold text-on-night no-underline ring-1 ring-white/30">
@@ -255,7 +255,7 @@ export default function Site({ lang }: { lang: Lang }) {
                     ))}
                   </ul>
                   <div className="fade-in mt-8 flex flex-wrap gap-3">
-                    <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-copper px-6 py-3.5 font-semibold text-white no-underline btn-copper transition-all hover:-translate-y-0.5 hover:bg-copper-strong">
+                    <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-copper px-6 py-3.5 font-bold text-[#14110a] no-underline btn-copper transition-all hover:-translate-y-0.5 hover:bg-copper-strong">
                       {t(ui.requestConsult)}
                       <span aria-hidden className="transition-transform group-hover:-translate-x-1 ltr:group-hover:translate-x-1">{lang === "ar" ? "←" : "→"}</span>
                     </a>
@@ -279,7 +279,7 @@ export default function Site({ lang }: { lang: Lang }) {
                     <p className="text-[13px] font-medium text-on-night/75">{t(ui.mapsBadge)}</p>
                   </div>
                   <div className="fade-in float-b glass-dark rounded-2xl px-5 py-4">
-                    <p className="text-[12px] font-semibold text-[#bfe3a6]">{t(ui.paperBadge)}</p>
+                    <p className="text-[12px] font-semibold text-sand">{t(ui.paperBadge)}</p>
                     <p className="text-[14px] font-medium" dir="ltr">BMC Ecology &amp; Evolution</p>
                   </div>
                 </div>
@@ -292,7 +292,7 @@ export default function Site({ lang }: { lang: Lang }) {
             </div>
           </div>
         </section>
-        <div aria-hidden className="h-24 bg-gradient-to-b from-[#1b2318] to-paper sm:h-32" />
+        <div aria-hidden className="h-24 bg-gradient-to-b from-[#1b212b] to-paper sm:h-32" />
 
         <div className="graticule">
           {/* 02 About */}
@@ -396,7 +396,7 @@ export default function Site({ lang }: { lang: Lang }) {
               <img key={id} src={`/plants/${id}-band.webp`} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
             ))}
           </div>
-          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141a12]/80 via-[#141a12]/15 to-transparent" />
+          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0b0e12]/80 via-[#0b0e12]/15 to-transparent" />
           <div className="mx-auto flex h-full max-w-6xl items-end px-4 pb-10 sm:px-6">
             <p className="text-3xl font-extrabold text-white [text-shadow:0_2px_16px_rgba(0,0,0,.35)] sm:text-5xl">{t(ui.band)}</p>
           </div>
@@ -410,7 +410,7 @@ export default function Site({ lang }: { lang: Lang }) {
               {services.map((s, k) => (
                 <div key={s.photo} className={`reveal ${k % 3 === 1 ? "d1" : k % 3 === 2 ? "d2" : ""} photo-card group relative isolate aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-night sm:aspect-[4/3]`}>
                   <Photo id={s.photo} alt="" sizes="(min-width:1024px) 380px, 50vw" className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-110" />
-                  <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141a12]/90 via-[#141a12]/35 to-transparent" />
+                  <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0b0e12]/90 via-[#0b0e12]/35 to-transparent" />
                   <span aria-hidden className="absolute start-4 top-4 font-[family-name:Anton] text-lg text-white/70 sm:start-6 sm:top-5">{String(k + 1).padStart(2, "0")}</span>
                   <div className="flex h-full flex-col justify-end p-4 text-white sm:p-6">
                     <h3 className="text-[16px] font-bold leading-snug sm:text-xl">{t(s.title)}</h3>
@@ -563,10 +563,10 @@ export default function Site({ lang }: { lang: Lang }) {
         </div>
 
         {/* 07 Thank you (dark): closing page with every way to reach him */}
-        <div aria-hidden className="h-24 bg-gradient-to-b from-paper to-[#1b2318] sm:h-32" />
-        <section id="contact" className="relative isolate scroll-mt-16 overflow-hidden bg-[#141a12] text-on-night">
+        <div aria-hidden className="h-24 bg-gradient-to-b from-paper to-[#1b212b] sm:h-32" />
+        <section id="contact" className="relative isolate scroll-mt-16 overflow-hidden bg-[#0e1116] text-on-night">
           <img src="/img/mount-b.webp" alt="" width={720} height={1280} loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-30" />
-          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-[#1b2318] via-[#141a12]/70 to-[#141a12]" />
+          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-[#1b212b] via-[#0e1116]/70 to-[#0e1116]" />
           <div aria-hidden className="graticule-dark absolute inset-0 -z-10" />
           <Rings className="pointer-events-none absolute -end-[30%] top-[10%] -z-10 w-[110%] max-w-[1100px] opacity-50 lg:-end-[12%] lg:w-[70%]" />
           <div className="mx-auto max-w-6xl px-5 pb-28 pt-10 sm:px-6 lg:pb-14 lg:pt-16">
@@ -604,7 +604,7 @@ export default function Site({ lang }: { lang: Lang }) {
             </div>
 
             <footer className="mt-20 flex flex-col items-center gap-4 border-t border-on-night/15 pt-8 text-center sm:flex-row sm:text-start">
-              <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-paper p-2">
+              <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-[#f3ecdc] p-2">
                 <img src="/img/logo-mark.webp" alt="ALSUMAIRI" width={240} height={214} loading="lazy" className="h-auto w-full" />
               </span>
               <p className="text-sm text-on-night/75">{t(person.name)}{sep}{t(ui.footer)}</p>

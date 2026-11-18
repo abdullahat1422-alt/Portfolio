@@ -210,7 +210,7 @@ export default function Site({ lang }: { lang: Lang }) {
               <div className="relative mx-auto -mt-[7vw] w-[92%] max-w-[460px]">
                 <Rings className="absolute left-1/2 top-[40%] -z-0 w-[175%] max-w-none -translate-x-1/2 -translate-y-1/2" />
                 <div aria-hidden className="portrait-glow absolute left-1/2 top-[40%] size-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full" />
-                <img src="/img/portrait-760.webp" alt={t(person.name)} width={760} height={760} fetchPriority="high" className="rise depth-portrait relative w-full" />
+                <img src="/img/portrait-cine-760.webp" alt={t(person.name)} width={760} height={760} fetchPriority="high" className="rise depth-portrait relative w-full" />
               </div>
               <div className="relative -mt-14 text-center">
                 <p className="fade-in inline-flex items-center gap-2 rounded-full bg-leaf/25 px-3.5 py-1 text-[13px] font-semibold text-[#bfe3a6] ring-1 ring-[#bfe3a6]/25">
@@ -239,9 +239,9 @@ export default function Site({ lang }: { lang: Lang }) {
             {/* Desktop */}
             <div className="relative hidden h-[100svh] min-h-[720px] max-h-[1000px] lg:block">
               <div aria-hidden className="par-word pointer-events-none absolute inset-x-0 top-[5%]">
-                <p className="word-up depth-word select-none pt-[0.18em] text-center leading-[1] atlas-en text-[min(18vw,16rem)]">{t(ui.atlas)}</p>
+                <p className="word-up depth-word select-none pt-[0.18em] text-center leading-[1] atlas-en text-[min(18vw,16rem,26svh)]">{t(ui.atlas)}</p>
               </div>
-              <div className="absolute inset-0 grid grid-cols-[1fr_min(42vw,74svh,660px)_1fr] items-end gap-6">
+              <div className="absolute inset-0 grid grid-cols-[1fr_min(42vw,66svh,660px)_1fr] items-end gap-6">
                 <div className="relative z-10 pb-14 [text-shadow:0_2px_18px_rgba(20,26,18,.7)]">
                   <p className="fade-in inline-flex items-center gap-2.5 rounded-full bg-leaf/25 px-4 py-1.5 text-[14px] font-semibold text-[#bfe3a6] ring-1 ring-[#bfe3a6]/25">
                     <span aria-hidden className="pulse-dot size-2 rounded-full bg-[#9fe08a] text-[#9fe08a]" />
@@ -270,7 +270,7 @@ export default function Site({ lang }: { lang: Lang }) {
                   </div>
                   <div aria-hidden className="portrait-glow absolute left-1/2 top-[38%] size-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full" />
                   <div className="par-portrait relative">
-                    <img src="/img/portrait.webp" alt={t(person.name)} width={1254} height={1254} fetchPriority="high" className="rise depth-portrait relative w-full" />
+                    <img src="/img/portrait-cine.webp" alt={t(person.name)} width={1254} height={1254} fetchPriority="high" className="rise depth-portrait relative w-full" />
                   </div>
                 </div>
                 <div className="flex flex-col items-end gap-4 pb-24 rtl:items-start">

@@ -84,7 +84,7 @@ export default function Layers({
         aria-controls={`layer-${p.id}`}
         className={`layer-tab group flex w-full items-center gap-3 rounded-2xl px-3.5 py-3 text-start transition-all ${on ? "tab-on bg-ink text-paper" : "tab-off bg-paper text-ink ring-1 ring-line hover:-translate-y-px hover:bg-white"}`}
       >
-        <span aria-hidden className={`grid size-6 shrink-0 place-items-center rounded-md ring-1 ${on ? "ring-paper/40" : "ring-line"}`}>
+        <span aria-hidden className={`grid size-6 shrink-0 place-items-center rounded-md ring-1 ${on ? "ring-[#141a12]/25" : "ring-line"}`}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={on ? "opacity-100" : "opacity-35"}>
             {on ? <path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z M12 9.5a2.5 2.5 0 1 0 0 5a2.5 2.5 0 0 0 0-5z" /> : <path d="M3 3l18 18M10.6 6.1A10 10 0 0 1 12 6c6.5 0 10 6 10 6a17 17 0 0 1-3 3.6M6.2 7.6A17 17 0 0 0 2 12s3.5 6 10 6a9 9 0 0 0 4-.9" />}
           </svg>
@@ -92,9 +92,9 @@ export default function Layers({
         <span aria-hidden className="h-6 w-1.5 shrink-0 rounded-full" style={{ background: swatches[k % swatches.length] }} />
         <span className="min-w-0 flex-1">
           <span className="block truncate pb-0.5 text-[15px] font-semibold leading-[1.7]">{p.title}</span>
-          <span className={`block text-[12px] ${on ? "text-paper/65" : "text-ink-soft"}`}>{p.status}</span>
+          <span className={`block text-[12px] ${on ? "text-[#5d6555]" : "text-ink-soft"}`}>{p.status}</span>
         </span>
-        <span className={`shrink-0 rounded-full px-2 py-0.5 text-[12px] font-semibold tabular-nums ${on ? "bg-paper/15" : "bg-surface"}`} title={mapsWord}>
+        <span className={`shrink-0 rounded-full px-2 py-0.5 text-[12px] font-semibold tabular-nums ${on ? "bg-[#141a12]/10" : "bg-paper"}`} title={mapsWord}>
           {p.images.length}
         </span>
       </button>

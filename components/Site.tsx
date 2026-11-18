@@ -175,7 +175,7 @@ export default function Site({ lang }: { lang: Lang }) {
       <header className="fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:px-6">
         <div className="glass mx-auto flex max-w-6xl items-center gap-3 rounded-full py-2 pe-2 ps-3 sm:ps-4">
           <a href="#top" className="flex items-center gap-2.5 font-semibold no-underline">
-            <img src="/img/logo-mark.webp" alt="" width={240} height={214} className="h-9 w-auto" />
+            <span className="grid size-9 place-items-center rounded-full bg-[#f3ecdc] p-1 shadow-[inset_0_-1px_0_rgba(0,0,0,.15)]"><img src="/img/logo-mark.webp" alt="" width={240} height={214} className="h-auto w-full" /></span>
             <span>{t(person.name)}</span>
           </a>
           <nav className="ms-auto hidden items-center gap-1 md:flex" aria-label={lang === "ar" ? "الأقسام" : "Sections"}>

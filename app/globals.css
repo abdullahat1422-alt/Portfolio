@@ -252,3 +252,76 @@ details[open] .chev {
 @media (prefers-reduced-motion: reduce) {
   .topo, .float-a, .float-b, .marquee-track, .pulse-dot::after { animation: none !important; }
 }
+
+/* ---------- v4 atlas ---------- */
+
+/* dark cover: olive-black with a terrain glow */
+.cover-bg {
+  background:
+    radial-gradient(55% 45% at 50% 100%, rgba(165, 82, 31, .30), transparent 70%),
+    radial-gradient(45% 40% at 50% 38%, rgba(85, 107, 70, .28), transparent 70%),
+    linear-gradient(180deg, #141a12 0%, #1b2318 100%);
+}
+
+/* faint graticule, like the frame of a printed map */
+.graticule {
+  background-image:
+    linear-gradient(to right, rgba(85, 107, 70, .075) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(85, 107, 70, .075) 1px, transparent 1px);
+  background-size: 112px 112px;
+  background-position: center top;
+}
+.graticule-dark {
+  background-image:
+    linear-gradient(to right, rgba(246, 241, 228, .05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(246, 241, 228, .05) 1px, transparent 1px);
+  background-size: 112px 112px;
+  background-position: center top;
+  -webkit-mask-image: radial-gradient(90% 80% at 50% 45%, #000 40%, transparent 95%);
+  mask-image: radial-gradient(90% 80% at 50% 45%, #000 40%, transparent 95%);
+}
+
+/* the giant display word, filled with the hypsometric gradient */
+.atlas-en, .atlas-ar {
+  background: linear-gradient(100deg, #7f9a66 5%, #c9a370 48%, #c4662c 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.atlas-en { font-family: Anton, Impact, "Arial Narrow", sans-serif; font-weight: 400; letter-spacing: .01em; }
+.atlas-ar { font-family: "Noto Kufi Arabic", sans-serif; font-weight: 900; }
+
+/* cover entrance: contours draw in, portrait rises, word fades up */
+.ring { stroke-dasharray: 1; animation: ring-draw 1.9s cubic-bezier(.6, .1, .2, 1) both; }
+@keyframes ring-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.rise { animation: rise 1.1s 150ms cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(48px); } }
+.word-up { animation: word-up 1.4s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes word-up { from { opacity: 0; transform: translateY(36px) scale(.97); } }
+.fade-in { animation: fade-in 900ms 650ms cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes fade-in { from { opacity: 0; transform: translateY(14px); } }
+
+/* project sheet: stacked like layers / pages */
+.sheet {
+  background: #fffdf7;
+  box-shadow:
+    0 0 0 1px var(--line),
+    7px 7px 0 -1px #f4ecdb, 7px 7px 0 0 var(--line),
+    14px 14px 0 -1px #efe5d0, 14px 14px 0 0 var(--line),
+    0 34px 60px -34px rgba(74, 48, 18, .45);
+}
+[dir="rtl"] .sheet {
+  box-shadow:
+    0 0 0 1px var(--line),
+    -7px 7px 0 -1px #f4ecdb, -7px 7px 0 0 var(--line),
+    -14px 14px 0 -1px #efe5d0, -14px 14px 0 0 var(--line),
+    0 34px 60px -34px rgba(74, 48, 18, .45);
+}
+.layer-in { animation: layer-in 480ms cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes layer-in { from { opacity: 0; transform: translateX(28px); } }
+[dir="rtl"] .layer-in { animation-name: layer-in-rtl; }
+@keyframes layer-in-rtl { from { opacity: 0; transform: translateX(-28px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ring, .rise, .word-up, .fade-in, .layer-in { animation: none !important; }
+}

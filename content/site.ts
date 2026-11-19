@@ -324,7 +324,7 @@ export const certifications: { name: T; issuer: string }[] = [
   { name: { ar: "عضو جمعية مختصي الاستدامة", en: "Sustainability Professionals of Saudi Arabia" }, issuer: "Member" },
 ];
 
-export const photoCredits = "Field and plant photos: Abdullah Alsumairi. Landscapes: Unsplash (Rikaz Basyouni, Mustafa Ahmed, Satishaa Javali, Glenov Brankovic, M K, Ayman Mokhtar)";
+export const photoCredits = "Cover and closing: dragon's blood trees, Socotra, by Andrew Svk (Unsplash). Field and plants: Abdullah Alsumairi. Landscapes: Unsplash (Rikaz Basyouni, Mustafa Ahmed, Satishaa Javali, Glenov Brankovic, M K, Ayman Mokhtar)";
 
 export const ui = {
   nav: { maps: { ar: "الأعمال", en: "Work" }, services: { ar: "مجالات التعاون", en: "Collaboration" }, about: { ar: "عني", en: "About" }, contact: { ar: "تواصل", en: "Contact" } },

@@ -353,3 +353,7 @@ figure:hover .tilt-card { transform: rotate(0) translateY(-6px); }
 @keyframes menu-in { from { opacity: 0; transform: translateY(-8px) scale(.98); } }
 .overflow-x-auto::-webkit-scrollbar { display: none; }
 @media (prefers-reduced-motion: reduce) { .menu-in { animation: none !important; } }
+
+/* cover photo: Socotra dragon's blood trees, fading into the page */
+.cover-photo { object-position: center 60%; opacity: .75; filter: saturate(.9) contrast(1.05); }
+.cover-shade { background: linear-gradient(180deg, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, .08) 35%, rgba(15, 21, 16, .65) 72%, #0f1510 100%); }

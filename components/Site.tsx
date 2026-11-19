@@ -192,8 +192,6 @@ export default function Site({ lang }: { lang: Lang }) {
       <main id="main">
         {/* 01 Cover (dark): portrait over the giant word, contour rings behind */}
         <section id="top" className="cover-bg relative isolate overflow-hidden text-on-night">
-          <img src="/img/forest-storm.webp" alt="" width={1072} height={1574} fetchPriority="high" className="cover-photo absolute inset-0 -z-20 h-full w-full object-cover" />
-          <div aria-hidden className="cover-shade absolute inset-0 -z-20" />
           <div aria-hidden className="graticule-dark absolute inset-0 -z-10" />
           <div aria-hidden className="cover-vignette pointer-events-none absolute inset-0 -z-10" />
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -546,8 +544,8 @@ export default function Site({ lang }: { lang: Lang }) {
 
         {/* 07 Thank you (dark): closing page with every way to reach him */}
         <section id="contact" className="relative isolate overflow-hidden bg-[#0f1510] text-on-night">
-          <img src="/img/forest-peaks.webp" alt="" width={1158} height={1710} loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_45%] opacity-60" />
-          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0f1510]/80 via-[#0f1510]/45 to-[#0f1510]" />
+          <img src="/img/mount-b.webp" alt="" width={720} height={1280} loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-30" />
+          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-[#18221a] via-[#0f1510]/70 to-[#0f1510]" />
           <div aria-hidden className="graticule-dark absolute inset-0 -z-10" />
           <Rings className="pointer-events-none absolute -end-[30%] top-[10%] -z-10 w-[110%] max-w-[1100px] opacity-50 lg:-end-[12%] lg:w-[70%]" />
           <div className="mx-auto max-w-6xl px-5 pb-28 pt-10 sm:px-6 lg:pb-14 lg:pt-16">

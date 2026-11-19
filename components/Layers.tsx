@@ -62,7 +62,7 @@ export default function Layers({
           {p.tools.join("  /  ")}
         </p>
         {p.link && (
-          <a href={p.link.href} target="_blank" rel="noopener" className="mt-2 inline-block text-[15px] font-semibold text-copper no-underline hover:underline">
+          <a href={p.link.href} target="_blank" rel="noopener" className="mt-1 inline-block py-2 text-[15px] font-semibold text-copper no-underline hover:underline">
             {p.link.label} ↗
           </a>
         )}
@@ -81,6 +81,15 @@ export default function Layers({
           if (window.innerWidth < 1024) requestAnimationFrame(() => document.getElementById(p.id)?.scrollIntoView({ block: "start" }));
         }}
         aria-expanded={on}
+        onKeyDown={(e) => {
+          const keys: Record<string, number> = { ArrowDown: 1, ArrowUp: -1, Home: -k, End: items.length - 1 - k };
+          if (!(e.key in keys)) return;
+          e.preventDefault();
+          const nk = (k + keys[e.key] + items.length) % items.length;
+          setActive(nk);
+          const scope = (e.currentTarget as HTMLElement).closest("[data-layers]");
+          requestAnimationFrame(() => (scope?.querySelectorAll<HTMLButtonElement>("button.layer-tab")[nk])?.focus());
+        }}
         aria-controls={`layer-${p.id}`}
         className={`layer-tab group flex w-full items-center gap-3 rounded-2xl px-3.5 py-3 text-start transition-all ${on ? "tab-on bg-ink text-paper" : "tab-off bg-paper text-ink ring-1 ring-line hover:-translate-y-px hover:bg-white"}`}
       >
@@ -104,7 +113,7 @@ export default function Layers({
   return (
     <div className="mt-10">
       {/* Desktop: layers panel + sheet */}
-      <div className="hidden gap-8 lg:grid lg:grid-cols-12">
+      <div data-layers className="hidden gap-8 lg:grid lg:grid-cols-12">
         <div className="col-span-4">
           <div className="panel-inset sticky top-24 rounded-[1.75rem] bg-surface p-3 ring-1 ring-line">
             <p className="flex items-center justify-between px-2 pb-3 pt-1 text-[12px] font-semibold uppercase tracking-[0.18em] text-ink-soft">
@@ -124,7 +133,7 @@ export default function Layers({
       </div>
 
       {/* Phone: accordion layers */}
-      <div className="space-y-2 lg:hidden">
+      <div data-layers className="space-y-2 lg:hidden">
         {items.map((p, k) => (
           <div key={p.id} id={p.id} className="scroll-mt-24">
             <Tab p={p} k={k} />

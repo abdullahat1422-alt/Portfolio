@@ -1,6 +1,7 @@
-import MapViewer from "./MapViewer";
 import Effects from "./Effects";
 import Layers from "./Layers";
+import Chrome from "./Chrome";
+import Gallery from "./Gallery";
 import {
   type Lang,
   person,
@@ -171,34 +172,26 @@ export default function Site({ lang }: { lang: Lang }) {
   return (
     <div className="bg-paper">
       <Effects />
-      {/* Header: floating glass pill */}
-      <header className="fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:px-6">
-        <div className="glass mx-auto flex max-w-6xl items-center gap-3 rounded-full py-2 pe-2 ps-3 sm:ps-4">
-          <a href="#top" className="flex items-center gap-2.5 font-semibold no-underline">
-            <span className="grid size-9 place-items-center rounded-full bg-[#f3ecdc] p-1 shadow-[inset_0_-1px_0_rgba(0,0,0,.15)]"><img src="/img/logo-mark.webp" alt="" width={240} height={214} className="h-auto w-full" /></span>
-            <span>{t(person.name)}</span>
-          </a>
-          <nav className="ms-auto hidden items-center gap-1 md:flex" aria-label={lang === "ar" ? "الأقسام" : "Sections"}>
-            {(["about", "maps", "services", "contact"] as const).map((k) => (
-              <a key={k} href={`#${k}`} className="rounded-full px-4 py-1.5 text-[15px] text-ink-soft no-underline transition-colors hover:bg-surface hover:text-ink">
-                {t(ui.nav[k])}
-              </a>
-            ))}
-          </nav>
-          <a
-            href={t(ui.langHref)}
-            hrefLang={other}
-            lang={other}
-            className="ms-auto rounded-full bg-ink px-4 py-1.5 text-sm font-medium text-paper no-underline transition-transform hover:scale-[1.04] md:ms-2"
-          >
-            {t(ui.langSwitch)}
-          </a>
-        </div>
-      </header>
+      <Chrome
+        name={t(person.name)}
+        lang={lang}
+        langHref={t(ui.langHref)}
+        langLabel={t(ui.langSwitch)}
+        labels={{ sections: lang === "ar" ? "الأقسام" : "Sections", menu: t(ui.menu), close: t(ui.close), top: t(ui.backTop), skip: t(ui.skip) }}
+        items={[
+          { id: "top", n: "01", label: lang === "ar" ? "الغلاف" : "Cover" },
+          { id: "about", n: "02", label: t(ui.aboutTitle), inNav: true },
+          { id: "maps", n: "03", label: t(ui.nav.maps), inNav: true },
+          { id: "services", n: "04", label: t(ui.services), inNav: true },
+          { id: "experience", n: "05", label: t(ui.expSkills) },
+          { id: "research", n: "06", label: t(ui.researchCerts) },
+          { id: "contact", n: "07", label: t(ui.nav.contact), inNav: true },
+        ]}
+      />
 
-      <main id="top">
+      <main id="main">
         {/* 01 Cover (dark): portrait over the giant word, contour rings behind */}
-        <section className="cover-bg relative isolate overflow-hidden text-on-night">
+        <section id="top" className="cover-bg relative isolate overflow-hidden text-on-night">
           <div aria-hidden className="graticule-dark absolute inset-0 -z-10" />
           <div aria-hidden className="cover-vignette pointer-events-none absolute inset-0 -z-10" />
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -292,11 +285,10 @@ export default function Site({ lang }: { lang: Lang }) {
             </div>
           </div>
         </section>
-        <div aria-hidden className="h-24 bg-gradient-to-b from-[#1b212b] to-paper sm:h-32" />
 
         <div className="graticule">
           {/* 02 About */}
-          <section id="about" className="mx-auto max-w-6xl scroll-mt-20 px-4 pb-16 pt-6 sm:px-6 lg:pb-24">
+          <section id="about" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
             <Head n="02" o={ui.aboutTitle} />
             <div className="mt-10 grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
               <figure className="reveal relative lg:col-span-5">
@@ -304,7 +296,7 @@ export default function Site({ lang }: { lang: Lang }) {
                 <img src="/img/mount-a.webp" alt="" width={720} height={1280} loading="lazy" className="tilt-card absolute -bottom-8 end-[-0.75rem] hidden aspect-[3/4] w-[38%] rounded-2xl border-4 border-paper object-cover sm:block lg:end-[-2rem]" />
                 <figcaption className="mt-4 flex items-center gap-3 text-[13px] font-semibold text-ink-soft">
                   <span aria-hidden className="h-px w-8 bg-copper" />
-                  {t(ui.band)}
+                  {t(ui.fieldBadge)}
                 </figcaption>
               </figure>
               <div className="lg:col-span-7">
@@ -356,35 +348,23 @@ export default function Site({ lang }: { lang: Lang }) {
           </section>
 
           {/* 03 Selected work: layers */}
-          <section id="maps" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-6 lg:py-24">
+          <section id="maps" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
             <Head n="03" o={ui.maps} />
             <Layers items={layerItems} dir={dir} labels={labels} featured={t(ui.featured)} mapsWord={t(ui.mapsWord)} panelLabel={t(ui.layers)} />
 
-            <div id="gallery" className="mt-24 scroll-mt-20">
+            <div id="gallery" className="mt-24">
               <div className="reveal flex items-end justify-between gap-4 border-b border-ink/10 pb-4">
                 <h3 className="text-2xl font-extrabold sm:text-4xl">{t(ui.gallery)}</h3>
                 <span className="font-[family-name:Anton] text-2xl text-copper">{mapGallery.length}</span>
               </div>
-              <div className="mt-8 grid grid-cols-2 gap-x-5 gap-y-9 sm:gap-x-7 lg:grid-cols-4">
-                {mapGallery.map((g) => (
-                  <figure key={g.thumb} className="reveal">
-                    <MapViewer
-                      dir={dir}
-                      compact
-                      aspect="aspect-square"
-                      sizes="(min-width: 1024px) 270px, 50vw"
-                      title={t(g.caption)}
-                      card={{ src: g.thumb, src720: g.thumb, w: g.tw, h: g.th, alt: t(g.caption) }}
-                      images={[{ src: g.full, w: g.w, h: g.h, caption: t(g.caption) }]}
-                      labels={labels}
-                    />
-                    <figcaption className="mt-3.5">
-                      <span className="block text-[12px] font-semibold text-copper">{t(g.from)}</span>
-                      <span className="block text-[14px] font-medium leading-snug">{t(g.caption)}</span>
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
+              <Gallery
+                items={mapGallery.map((g) => ({ ...g, caption: t(g.caption), from: t(g.from) }))}
+                dir={dir}
+                labels={labels}
+                allLabel={t(ui.all)}
+                moreLabel={t(ui.showAll)}
+                lessLabel={t(ui.showLess)}
+              />
             </div>
           </section>
         </div>
@@ -404,7 +384,7 @@ export default function Site({ lang }: { lang: Lang }) {
 
         <div className="graticule">
           {/* 04 Collaboration */}
-          <section id="services" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-6 lg:py-24">
+          <section id="services" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
             <Head n="04" o={ui.services} />
             <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
               {services.map((s, k) => (
@@ -422,7 +402,7 @@ export default function Site({ lang }: { lang: Lang }) {
           </section>
 
           {/* 05 Experience & skills */}
-          <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:pb-24">
+          <section id="experience" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
             <Head n="05" o={ui.expSkills} />
             <div className="mt-10 grid gap-4 lg:grid-cols-12">
               <div className="spot reveal p-6 sm:p-8 lg:col-span-7">
@@ -479,7 +459,7 @@ export default function Site({ lang }: { lang: Lang }) {
           </section>
 
           {/* 06 Research & certifications */}
-          <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:pb-28">
+          <section id="research" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
             <Head n="06" o={ui.researchCerts} />
             <div className="mt-10 grid gap-4 lg:grid-cols-12">
               <div className="spot reveal p-6 sm:p-8 lg:col-span-7">
@@ -563,8 +543,7 @@ export default function Site({ lang }: { lang: Lang }) {
         </div>
 
         {/* 07 Thank you (dark): closing page with every way to reach him */}
-        <div aria-hidden className="h-24 bg-gradient-to-b from-paper to-[#1b212b] sm:h-32" />
-        <section id="contact" className="relative isolate scroll-mt-16 overflow-hidden bg-[#0e1116] text-on-night">
+        <section id="contact" className="relative isolate overflow-hidden bg-[#0e1116] text-on-night">
           <img src="/img/mount-b.webp" alt="" width={720} height={1280} loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-30" />
           <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-[#1b212b] via-[#0e1116]/70 to-[#0e1116]" />
           <div aria-hidden className="graticule-dark absolute inset-0 -z-10" />

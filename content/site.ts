@@ -369,4 +369,10 @@ export const ui = {
   expSkills: { ar: "الخبرة والمهارات", en: "Experience & skills" },
   researchCerts: { ar: "الأبحاث والشهادات", en: "Research & certifications" },
   thanks: { ar: "شكرًا", en: "Thank you" },
+  menu: { ar: "القائمة", en: "Menu" },
+  backTop: { ar: "إلى الأعلى", en: "Back to top" },
+  skip: { ar: "انتقل إلى المحتوى", en: "Skip to content" },
+  all: { ar: "الكل", en: "All" },
+  showAll: { ar: "عرض كل الخرائط", en: "Show all maps" },
+  showLess: { ar: "عرض أقل", en: "Show less" },
 };

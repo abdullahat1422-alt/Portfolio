@@ -47,7 +47,7 @@
 @layer base {
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem;
+  scroll-padding-top: 5.5rem;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -93,10 +93,6 @@ h3 {
 
 }
 
-/* Hero text sits on the sky of the field photo */
-.hero-veil {
-  background: linear-gradient(to bottom, rgba(25, 34, 22, 0.40) 0%, rgba(25, 34, 22, 0) 45%, rgba(25, 34, 22, 0) 68%, rgba(25, 34, 22, 0.6) 100%);
-}
 
 .viewer-enter {
   animation: viewer-in 180ms ease-out;
@@ -165,20 +161,6 @@ details[open] .chev {
 .fx .reveal.d1 { transition-delay: 80ms; }
 .fx .reveal.d2 { transition-delay: 160ms; }
 .fx .reveal.d3 { transition-delay: 240ms; }
-
-/* topographic contour backdrop */
-.topo {
-  background-image: url("/img/contours.svg");
-  background-size: cover;
-  background-position: center;
-  -webkit-mask-image: radial-gradient(120% 90% at 50% 40%, #000 35%, transparent 80%);
-  mask-image: radial-gradient(120% 90% at 50% 40%, #000 35%, transparent 80%);
-  animation: topo-drift 38s ease-in-out infinite alternate;
-}
-@keyframes topo-drift {
-  from { transform: scale(1.06) translate3d(-1.5%, -1%, 0); }
-  to   { transform: scale(1.12) translate3d(1.5%, 1.2%, 0); }
-}
 
 /* glass pill */
 .glass {
@@ -253,16 +235,8 @@ details[open] .chev {
 [dir="rtl"] .marquee-track { animation-name: marquee-rtl; }
 @keyframes marquee-rtl { from { transform: translateX(0); } to { transform: translateX(50%); } }
 
-/* gradient headline ink, from olive to copper */
-.ink-grad {
-  background: linear-gradient(100deg, #1f281d 10%, #435636 45%, #a5521f 95%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .topo, .float-a, .float-b, .marquee-track, .pulse-dot::after { animation: none !important; }
+  .float-a, .float-b, .marquee-track, .pulse-dot::after { animation: none !important; }
 }
 
 /* ---------- v4 atlas ---------- */
@@ -373,3 +347,9 @@ figure:hover .tilt-card { transform: rotate(0) translateY(-6px); }
 @media (prefers-reduced-motion: reduce) {
   .par-word, .par-rings, .par-portrait { transform: none !important; }
 }
+
+/* phone menu */
+.menu-in { animation: menu-in 260ms cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes menu-in { from { opacity: 0; transform: translateY(-8px) scale(.98); } }
+.overflow-x-auto::-webkit-scrollbar { display: none; }
+@media (prefers-reduced-motion: reduce) { .menu-in { animation: none !important; } }

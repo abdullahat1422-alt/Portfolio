@@ -31,7 +31,7 @@ export default function Gallery({
   const shown = filter || all ? list : list.slice(0, first);
 
   const chip = (on: boolean) =>
-    `shrink-0 rounded-full px-4 py-2 text-[14px] font-medium transition-all ${on ? "tab-on text-[#0e1116]" : "pill-raised bg-surface text-ink-soft ring-1 ring-line hover:text-ink"}`;
+    `shrink-0 rounded-full px-4 py-2 text-[14px] font-medium transition-all ${on ? "tab-on text-[#0f1510]" : "pill-raised bg-surface text-ink-soft ring-1 ring-line hover:text-ink"}`;
 
   return (
     <>

@@ -2,22 +2,22 @@
 
 /* Palette taken from the ALSUMAIRI logo: cream paper, olive tree, sand line, copper title */
 :root {
-  /* midnight gold theme */
-  --paper: #0e1116;
-  --surface: #161b23;
-  --ink: #f2ede3;
-  --ink-soft: #a9adb5;
-  --line: #262d38;
-  --sea: #12161d;
-  --sky: #a9bbd3;
-  --sky-strong: #c9d6e6;
-  --sky-soft: #1c2430;
-  --copper: #d6a548;
-  --copper-strong: #e3b85f;
-  --sand: #e3c27a;
-  --leaf: #9fd0ae;
-  --night: #0b0e12;
-  --on-night: #f6f1e4;
+  /* dragon forest theme: canopy green + storm teal, from the Socotra photos */
+  --paper: #0f1510;
+  --surface: #172019;
+  --ink: #eef0e6;
+  --ink-soft: #a7ae9e;
+  --line: #2a3829;
+  --sea: #131b14;
+  --sky: #7fb3c2;
+  --sky-strong: #a6cbd6;
+  --sky-soft: #1b2a2c;
+  --copper: #b5c25a;
+  --copper-strong: #c7d26e;
+  --sand: #d8cfa8;
+  --leaf: #a8d08d;
+  --night: #0b100c;
+  --on-night: #f2f3ea;
   color-scheme: dark;
 }
 
@@ -70,7 +70,7 @@ h3 {
 
 ::selection {
   background: var(--sand);
-  color: #0e1116;
+  color: #0f1510;
 }
 
 :focus-visible {
@@ -164,7 +164,7 @@ details[open] .chev {
 
 /* glass pill */
 .glass {
-  background: color-mix(in srgb, #161b23 70%, transparent);
+  background: color-mix(in srgb, #172019 70%, transparent);
   -webkit-backdrop-filter: blur(14px) saturate(1.3);
   backdrop-filter: blur(14px) saturate(1.3);
   border: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
@@ -175,7 +175,7 @@ details[open] .chev {
 .spot {
   position: relative;
   isolation: isolate;
-  background: linear-gradient(180deg, #1c222c 0%, var(--surface) 100%);
+  background: linear-gradient(180deg, #1e2a20 0%, var(--surface) 100%);
   border: 1px solid var(--line);
   border-radius: 1.75rem;
   box-shadow:
@@ -244,9 +244,9 @@ details[open] .chev {
 /* dark cover: olive-black with a terrain glow */
 .cover-bg {
   background:
-    radial-gradient(55% 45% at 50% 100%, rgba(214, 165, 72, .22), transparent 70%),
-    radial-gradient(45% 40% at 50% 38%, rgba(80, 100, 140, .25), transparent 70%),
-    linear-gradient(180deg, #0e1116 0%, #1b212b 100%);
+    radial-gradient(55% 45% at 50% 100%, rgba(181, 194, 90, .22), transparent 70%),
+    radial-gradient(45% 40% at 50% 38%, rgba(108, 169, 187, .25), transparent 70%),
+    linear-gradient(180deg, #0f1510 0%, #18221a 100%);
 }
 
 /* faint graticule, like the frame of a printed map */
@@ -269,7 +269,7 @@ details[open] .chev {
 
 /* the giant display word, filled with the hypsometric gradient */
 .atlas-en, .atlas-ar {
-  background: linear-gradient(100deg, #8a6a2b 5%, #f0d89a 48%, #c9963a 92%);
+  background: linear-gradient(100deg, #6e7f2e 5%, #d9de95 48%, #6ca9bb 92%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -289,20 +289,20 @@ details[open] .chev {
 
 /* project sheet: stacked like layers / pages */
 .sheet {
-  background: linear-gradient(180deg, #1c222c, #161b23);
+  background: linear-gradient(180deg, #1e2a20, #172019);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, .07),
     0 0 0 1px var(--line),
-    7px 7px 0 -1px #12161d, 7px 7px 0 0 var(--line),
-    14px 14px 0 -1px #0e1116, 14px 14px 0 0 #222934,
+    7px 7px 0 -1px #131b14, 7px 7px 0 0 var(--line),
+    14px 14px 0 -1px #0f1510, 14px 14px 0 0 #2a3829,
     0 50px 80px -30px rgba(0, 0, 0, .8);
 }
 [dir="rtl"] .sheet {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, .07),
     0 0 0 1px var(--line),
-    -7px 7px 0 -1px #12161d, -7px 7px 0 0 var(--line),
-    -14px 14px 0 -1px #0e1116, -14px 14px 0 0 #222934,
+    -7px 7px 0 -1px #131b14, -7px 7px 0 0 var(--line),
+    -14px 14px 0 -1px #0f1510, -14px 14px 0 0 #2a3829,
     0 50px 80px -30px rgba(0, 0, 0, .8);
 }
 .layer-in { animation: layer-in 480ms cubic-bezier(.2, .7, .2, 1) both; }
@@ -318,14 +318,14 @@ details[open] .chev {
 .cover-vignette { background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(5, 8, 4, .55) 100%); }
 .depth-word { filter: drop-shadow(0 4px 2px rgba(0, 0, 0, .35)) drop-shadow(0 26px 34px rgba(0, 0, 0, .55)); }
 .depth-portrait { filter: drop-shadow(0 -10px 40px rgba(0, 0, 0, .55)) drop-shadow(0 30px 40px rgba(0, 0, 0, .6)); }
-.portrait-glow { background: radial-gradient(closest-side, rgba(227, 194, 122, .26), rgba(214, 165, 72, .10) 55%, transparent 100%); filter: blur(10px); }
+.portrait-glow { background: radial-gradient(closest-side, rgba(201, 210, 122, .26), rgba(181, 194, 90, .10) 55%, transparent 100%); filter: blur(10px); }
 .glass-dark {
   background: linear-gradient(180deg, rgba(255, 255, 255, .11), rgba(255, 255, 255, .04));
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), inset 0 0 0 1px rgba(255, 255, 255, .12), 0 24px 48px -20px rgba(0, 0, 0, .75);
 }
-.btn-copper { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), inset 0 -2px 0 rgba(0, 0, 0, .18), 0 14px 30px -10px rgba(214, 165, 72, .45), 0 4px 10px -4px rgba(0, 0, 0, .4); }
+.btn-copper { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), inset 0 -2px 0 rgba(0, 0, 0, .18), 0 14px 30px -10px rgba(181, 194, 90, .45), 0 4px 10px -4px rgba(0, 0, 0, .4); }
 .btn-cream { box-shadow: inset 0 -2px 0 rgba(74, 48, 18, .12), 0 20px 40px -16px rgba(0, 0, 0, .7); }
 .h-depth { text-shadow: 0 2px 0 rgba(0, 0, 0, .35), 0 18px 34px rgba(0, 0, 0, .55); }
 .photo-depth { box-shadow: 0 2px 4px rgba(0, 0, 0, .35), 0 24px 40px -16px rgba(0, 0, 0, .6), 0 60px 90px -36px rgba(0, 0, 0, .75); }
@@ -335,9 +335,9 @@ figure:hover .tilt-card { transform: rotate(0) translateY(-6px); }
 .photo-card { box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 2px 4px rgba(0, 0, 0, .35), 0 26px 50px -20px rgba(0, 0, 0, .8); transition: transform 400ms cubic-bezier(.2, .7, .2, 1), box-shadow 400ms ease; }
 .photo-card:hover { transform: translateY(-5px); box-shadow: inset 0 0 0 1px rgba(255,255,255,.1), 0 4px 8px rgba(0, 0, 0, .4), 0 44px 76px -24px rgba(0, 0, 0, .9); }
 .pill-raised { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07), 0 4px 10px -4px rgba(0, 0, 0, .5); }
-.panel-inset { background: #0a0d11 !important; box-shadow: inset 0 3px 12px rgba(0, 0, 0, .55), inset 0 1px 2px rgba(0, 0, 0, .4), 0 1px 0 rgba(255, 255, 255, .05); }
-.tab-off { background: linear-gradient(180deg, #1d232d, #161b23) !important; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07), 0 1px 2px rgba(0, 0, 0, .35), 0 10px 18px -10px rgba(0, 0, 0, .7); }
-.tab-on { background: linear-gradient(180deg, #f6efdf, #e6dbc3) !important; color: #0e1116 !important; box-shadow: inset 0 1px 0 #fff, 0 6px 10px -4px rgba(0, 0, 0, .45), 0 24px 40px -14px rgba(0, 0, 0, .8), 0 0 0 1px rgba(214, 165, 72, .55); transform: translateY(-1px); }
+.panel-inset { background: #0b100c !important; box-shadow: inset 0 3px 12px rgba(0, 0, 0, .55), inset 0 1px 2px rgba(0, 0, 0, .4), 0 1px 0 rgba(255, 255, 255, .05); }
+.tab-off { background: linear-gradient(180deg, #1f2a21, #172019) !important; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07), 0 1px 2px rgba(0, 0, 0, .35), 0 10px 18px -10px rgba(0, 0, 0, .7); }
+.tab-on { background: linear-gradient(180deg, #f6efdf, #e6dbc3) !important; color: #0f1510 !important; box-shadow: inset 0 1px 0 #fff, 0 6px 10px -4px rgba(0, 0, 0, .45), 0 24px 40px -14px rgba(0, 0, 0, .8), 0 0 0 1px rgba(181, 194, 90, .55); transform: translateY(-1px); }
 
 /* cover parallax: layers move at different speeds with the pointer and scroll */
 .par-word, .par-rings, .par-portrait { transition: transform 700ms cubic-bezier(.2, .7, .2, 1); will-change: transform; }
@@ -353,3 +353,7 @@ figure:hover .tilt-card { transform: rotate(0) translateY(-6px); }
 @keyframes menu-in { from { opacity: 0; transform: translateY(-8px) scale(.98); } }
 .overflow-x-auto::-webkit-scrollbar { display: none; }
 @media (prefers-reduced-motion: reduce) { .menu-in { animation: none !important; } }
+
+/* cover photo: forest under a storm sky, fading into the page */
+.cover-photo { object-position: center 58%; opacity: .8; filter: saturate(.95) contrast(1.05); }
+.cover-shade { background: linear-gradient(180deg, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, .05) 35%, rgba(15, 21, 16, .6) 72%, #0f1510 100%); }

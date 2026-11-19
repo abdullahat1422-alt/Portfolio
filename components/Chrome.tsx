@@ -127,13 +127,13 @@ export default function Chrome({
           </button>
           {/* reading progress */}
           <div aria-hidden className="absolute inset-x-6 bottom-0 h-[2px] overflow-hidden rounded-full">
-            <div ref={bar} className="h-full w-full origin-left bg-gradient-to-r from-[#8a6a2b] via-[#f0d89a] to-[#c9963a] rtl:origin-right" style={{ transform: "scaleX(0)" }} />
+            <div ref={bar} className="h-full w-full origin-left bg-gradient-to-r from-[#6e7f2e] via-[#d9de95] to-[#6ca9bb] rtl:origin-right" style={{ transform: "scaleX(0)" }} />
           </div>
         </div>
 
         {/* Phone menu: atlas index */}
         {open && (
-          <nav id="phone-menu" aria-label={labels.sections} className="menu-in mx-auto mt-2 max-w-6xl rounded-[1.75rem] bg-[#161b23]/[.97] p-2 shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-line backdrop-blur-xl md:hidden">
+          <nav id="phone-menu" aria-label={labels.sections} className="menu-in mx-auto mt-2 max-w-6xl rounded-[1.75rem] bg-[#172019]/[.97] p-2 shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-line backdrop-blur-xl md:hidden">
             <ul>
               {items.map((i) => (
                 <li key={i.id}>
@@ -177,7 +177,7 @@ export default function Chrome({
       <a
         href="#top"
         aria-label={labels.top}
-        className={`fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom))] end-4 z-30 grid size-11 bg-[#161b23]/90 ring-1 ring-line shadow-[0_12px_30px_-10px_rgba(0,0,0,.8)] backdrop-blur place-items-center rounded-full text-ink no-underline transition-all duration-300 lg:bottom-6 lg:end-6 ${past ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`}
+        className={`fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom))] end-4 z-30 grid size-11 bg-[#172019]/90 ring-1 ring-line shadow-[0_12px_30px_-10px_rgba(0,0,0,.8)] backdrop-blur place-items-center rounded-full text-ink no-underline transition-all duration-300 lg:bottom-6 lg:end-6 ${past ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`}
         tabIndex={past ? 0 : -1}
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>

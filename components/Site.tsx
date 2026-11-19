@@ -118,7 +118,7 @@ function Rings({ className }: { className?: string }) {
           pathLength={1}
           className="ring"
           style={{ animationDelay: `${300 + i * 110}ms` }}
-          stroke={i % 4 === 3 ? "#d6a548" : "#e3c27a"}
+          stroke={i % 4 === 3 ? "#7fb3c2" : "#c9d27a"}
           strokeWidth={i % 4 === 3 ? 2.2 : 1.1}
           strokeOpacity={i % 4 === 3 ? 0.75 : 0.42 - i * 0.025}
         />
@@ -192,6 +192,8 @@ export default function Site({ lang }: { lang: Lang }) {
       <main id="main">
         {/* 01 Cover (dark): portrait over the giant word, contour rings behind */}
         <section id="top" className="cover-bg relative isolate overflow-hidden text-on-night">
+          <img src="/img/forest-storm.webp" alt="" width={1072} height={1574} fetchPriority="high" className="cover-photo absolute inset-0 -z-20 h-full w-full object-cover" />
+          <div aria-hidden className="cover-shade absolute inset-0 -z-20" />
           <div aria-hidden className="graticule-dark absolute inset-0 -z-10" />
           <div aria-hidden className="cover-vignette pointer-events-none absolute inset-0 -z-10" />
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -376,7 +378,7 @@ export default function Site({ lang }: { lang: Lang }) {
               <img key={id} src={`/plants/${id}-band.webp`} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
             ))}
           </div>
-          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0b0e12]/80 via-[#0b0e12]/15 to-transparent" />
+          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0b100c]/80 via-[#0b100c]/15 to-transparent" />
           <div className="mx-auto flex h-full max-w-6xl items-end px-4 pb-10 sm:px-6">
             <p className="text-3xl font-extrabold text-white [text-shadow:0_2px_16px_rgba(0,0,0,.35)] sm:text-5xl">{t(ui.band)}</p>
           </div>
@@ -390,7 +392,7 @@ export default function Site({ lang }: { lang: Lang }) {
               {services.map((s, k) => (
                 <div key={s.photo} className={`reveal ${k % 3 === 1 ? "d1" : k % 3 === 2 ? "d2" : ""} photo-card group relative isolate aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-night sm:aspect-[4/3]`}>
                   <Photo id={s.photo} alt="" sizes="(min-width:1024px) 380px, 50vw" className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-110" />
-                  <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0b0e12]/90 via-[#0b0e12]/35 to-transparent" />
+                  <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0b100c]/90 via-[#0b100c]/35 to-transparent" />
                   <span aria-hidden className="absolute start-4 top-4 font-[family-name:Anton] text-lg text-white/70 sm:start-6 sm:top-5">{String(k + 1).padStart(2, "0")}</span>
                   <div className="flex h-full flex-col justify-end p-4 text-white sm:p-6">
                     <h3 className="text-[16px] font-bold leading-snug sm:text-xl">{t(s.title)}</h3>
@@ -543,9 +545,9 @@ export default function Site({ lang }: { lang: Lang }) {
         </div>
 
         {/* 07 Thank you (dark): closing page with every way to reach him */}
-        <section id="contact" className="relative isolate overflow-hidden bg-[#0e1116] text-on-night">
-          <img src="/img/mount-b.webp" alt="" width={720} height={1280} loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-30" />
-          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-[#1b212b] via-[#0e1116]/70 to-[#0e1116]" />
+        <section id="contact" className="relative isolate overflow-hidden bg-[#0f1510] text-on-night">
+          <img src="/img/forest-peaks.webp" alt="" width={1158} height={1710} loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_45%] opacity-60" />
+          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0f1510]/80 via-[#0f1510]/45 to-[#0f1510]" />
           <div aria-hidden className="graticule-dark absolute inset-0 -z-10" />
           <Rings className="pointer-events-none absolute -end-[30%] top-[10%] -z-10 w-[110%] max-w-[1100px] opacity-50 lg:-end-[12%] lg:w-[70%]" />
           <div className="mx-auto max-w-6xl px-5 pb-28 pt-10 sm:px-6 lg:pb-14 lg:pt-16">

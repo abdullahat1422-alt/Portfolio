@@ -37,7 +37,7 @@ export default function Layers({
   panelLabel: string;
 }) {
   const [active, setActive] = useState(0);
-  const swatches = ["#d6a548", "#a9bbd3", "#e3c27a", "#9fd0ae", "#c9963a", "#7f93b0", "#f0d89a"];
+  const swatches = ["#b5c25a", "#7fb3c2", "#d8cfa8", "#a8d08d", "#6e7f2e", "#5b8fa0", "#c9d27a"];
 
   const Panel = ({ p, k, big }: { p: LayerItem; k: number; big?: boolean }) => (
     <div key={p.id} className="layer-in">

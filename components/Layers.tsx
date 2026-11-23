@@ -114,7 +114,7 @@ export default function Layers({
         </span>
         <span aria-hidden className="h-6 w-1.5 shrink-0 rounded-full" style={{ background: swatches[k % swatches.length] }} />
         <span className="min-w-0 flex-1">
-          <span className="block truncate pb-0.5 text-[15px] font-semibold leading-[1.7]">{p.title}</span>
+          <span className="block line-clamp-2 pb-0.5 text-[15px] font-semibold leading-[1.55]">{p.title}</span>
           <span className={`block text-[12px] ${on ? "text-[#5d6555]" : "text-ink-soft"}`}>{p.status}</span>
         </span>
         <span className={`shrink-0 rounded-full px-2 py-0.5 text-[12px] font-semibold tabular-nums ${on ? "bg-[#141a12]/10" : "bg-paper"}`} title={mapsWord}>

@@ -165,6 +165,17 @@ export default function Site({ lang }: { lang: Lang }) {
     credit: p.credit ? t(p.credit) : undefined,
     card: { ...p.card, alt: t(p.card.alt) },
     images: p.gallery.map((g) => ({ src: g.src, w: g.w, h: g.h, caption: t(g.caption) })),
+    aspect: p.card.aspect,
+    details: p.details
+      ? {
+          fullTitle: t(p.details.fullTitle),
+          meta: p.details.meta.map((m) => t(m)),
+          metrics: p.details.metrics.map((m) => ({ value: m.value, label: t(m.label) })),
+          sections: p.details.sections.map((x) => ({ title: t(x.title), body: x.body ? t(x.body) : undefined, list: x.list ? x.list[lang] : undefined })),
+          download: p.details.download ? { href: p.details.download.href, size: p.details.download.size, label: t(p.details.download.label) } : undefined,
+          credits: p.details.credits,
+        }
+      : undefined,
   }));
 
   const btnGhostDark = "glass-dark flex items-center gap-3 rounded-2xl px-5 py-4 font-semibold no-underline transition-all hover:-translate-y-0.5 hover:bg-white/15";
@@ -361,7 +372,7 @@ export default function Site({ lang }: { lang: Lang }) {
           {/* 03 Selected work: layers */}
           <section id="maps" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
             <Head n="03" o={ui.maps} />
-            <Layers items={layerItems} dir={dir} labels={labels} featured={t(ui.featured)} mapsWord={t(ui.mapsWord)} panelLabel={t(ui.layers)} />
+            <Layers items={layerItems} dir={dir} labels={labels} featured={t(ui.featured)} mapsWord={t(ui.mapsWord)} panelLabel={t(ui.layers)} detailsLabel={t(ui.details)} creditsLabel={t(ui.dataCredits)} />
 
             <div id="gallery" className="mt-24">
               <div className="reveal flex items-end justify-between gap-4 border-b border-ink/10 pb-4">

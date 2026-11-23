@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { TransformWrapper, TransformComponent, type ReactZoomPanPinchRef } from "react-zoom-pan-pinch";
 
 type Img = { src: string; caption: string; w: number; h: number };
@@ -96,7 +97,7 @@ export default function MapViewer({ images, title, labels, dir, card, aspect = "
         </span>
       </button>
 
-      {open && (
+      {open && createPortal(
         <div
           ref={dialogRef}
           role="dialog"
@@ -159,7 +160,8 @@ export default function MapViewer({ images, title, labels, dir, card, aspect = "
               </div>
             )}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

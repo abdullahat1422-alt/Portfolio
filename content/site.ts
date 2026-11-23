@@ -53,13 +53,72 @@ export type Project = {
   line: T;
   highlight?: T;
   tools: string[];
-  card: { src: string; src720: string; w: number; h: number; alt: T };
+  card: { src: string; src720: string; w: number; h: number; alt: T; aspect?: string };
   gallery: MapImage[];
   link?: { href: string; label: T };
   credit?: T;
+  details?: {
+    fullTitle: T;
+    meta: T[];
+    metrics: { value: string; label: T }[];
+    sections: { title: T; body?: T; list?: { ar: string[]; en: string[] } }[];
+    download?: { href: string; size: string; label: T };
+    credits?: string;
+  };
 };
 
 export const projects: Project[] = [
+  {
+    id: "remote-sensing-3d-terrain-shada",
+    title: { ar: "الاستشعار عن بعد والخرائط ثلاثية الأبعاد", en: "Remote Sensing & 3D Terrain Mapping" },
+    status: { ar: "2026", en: "2026" },
+    line: { ar: "بيانات أقمار صناعية وارتفاعات مفتوحة تحوّلت إلى خرائط علمية ثنائية الأبعاد ومناظر ثلاثية الأبعاد من أربع زوايا لدعم القرار وتخطيط المسوحات الميدانية.", en: "Open satellite and elevation data turned into 2D scientific maps and four-direction 3D views that support decisions and field survey planning." },
+    highlight: { ar: "12 خريطة و44 منظرًا ثلاثي الأبعاد", en: "12 maps, 44 3D views" },
+    tools: ["Sentinel-2", "Copernicus DEM", "QGIS", "Python", "Blender"],
+    card: { src: "/projects/remote-sensing-3d-terrain-shada/cover.webp", src720: "/projects/remote-sensing-3d-terrain-shada/cover-800.webp", w: 1600, h: 724, alt: { ar: "مجسم ثلاثي الأبعاد لمحمية جبل شدا الأعلى مغطى بصورة Sentinel-2 بألوان طبيعية", en: "3D model of Jabal Shada al-A'la Reserve draped with Sentinel-2 true-colour imagery" }, aspect: "aspect-[16/9]" },
+    gallery: [
+      { src: "/projects/remote-sensing-3d-terrain-shada/3d-poster.webp", w: 1400, h: 1674, caption: { ar: "ملصق ثلاثي الأبعاد: الألوان الطبيعية والغطاء الأرضي والخضرة", en: "3D poster — true colour, land cover and vegetation greenness" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/3d-views-slope.webp", w: 1800, h: 1306, caption: { ar: "الانحدار من أربع زوايا: المناطق الشديدة لتخطيط وصول آمن", en: "Slope from four directions — steep zones for safe access planning" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/3d-views-aspect.webp", w: 1800, h: 1306, caption: { ar: "اتجاه المنحدرات: أيها يواجه الشمال أو الشرق أو الجنوب أو الغرب", en: "Aspect — which slopes face north, east, south or west" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/3d-views-elevation.webp", w: 1800, h: 1306, caption: { ar: "الارتفاع من 447 إلى 2,148 م من أربع زوايا", en: "Elevation 447–2,148 m from four directions" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/3d-views-ndvi.webp", w: 1800, h: 1306, caption: { ar: "NDVI: الغطاء النباتي يتركز على كتلة الجبل وعلى امتداد الأودية", en: "NDVI — vegetation concentrates on the massif and along wadis" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/3d-views-change.webp", w: 1800, h: 1306, caption: { ar: "التغير 2018→2026: مواقع ذات أولوية للتحقق الميداني", en: "Change 2018→2026 — hotspots for ground verification" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/3d-views-drainage.webp", w: 1800, h: 1306, caption: { ar: "التصريف المحسوب: الأودية كطرق وصول وممرات", en: "Modelled drainage — wadis as access routes and corridors" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/3d-views-landcover.webp", w: 1800, h: 1306, caption: { ar: "الغطاء الأرضي (مرجع 2021)", en: "Land cover (2021 reference)" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/3d-views-contours.webp", w: 1800, h: 1306, caption: { ar: "كنتور كل 50 م على التضاريس ثلاثية الأبعاد", en: "Contours every 50 m on the 3D terrain" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/3d-views-truecolour.webp", w: 1800, h: 1306, caption: { ar: "ألوان طبيعية، Sentinel-2، 24 سبتمبر 2026", en: "True colour, Sentinel-2, 24 Sep 2026" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/3d-all-maps-contact-sheet.webp", w: 1800, h: 1742, caption: { ar: "كل الخرائط ثلاثية الأبعاد: نظرة عامة", en: "All maps in 3D — overview" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/map-elevation.webp", w: 1800, h: 1272, caption: { ar: "الارتفاع والتظليل", en: "Elevation and shaded relief" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/map-slope.webp", w: 1800, h: 1272, caption: { ar: "الانحدار (درجات)", en: "Slope (degrees)" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/map-ndvi.webp", w: 1800, h: 1272, caption: { ar: "NDVI: 24 سبتمبر 2026", en: "NDVI — 24 Sep 2026" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/map-landcover.webp", w: 1800, h: 1272, caption: { ar: "الغطاء الأرضي (2021)", en: "Land cover (2021)" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/map-change.webp", w: 1800, h: 1272, caption: { ar: "تغير الغطاء النباتي 2018→2026", en: "Vegetation change 2018→2026" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/map-drainage.webp", w: 1800, h: 1272, caption: { ar: "التصريف المحتمل (محسوب)", en: "Potential drainage (modelled)" } },
+      { src: "/projects/remote-sensing-3d-terrain-shada/map-truecolour.webp", w: 1800, h: 1272, caption: { ar: "ألوان طبيعية، Sentinel-2", en: "True colour, Sentinel-2" } },
+    ],
+    details: {
+      fullTitle: { ar: "الاستشعار عن بعد والخرائط ثلاثية الأبعاد لدعم القرار والمسوحات الميدانية — محمية جبل شدا الأعلى", en: "Remote Sensing & 3D Terrain Mapping for Field Survey Planning — Jabal Shada al-A'la Reserve" },
+      meta: [{ ar: "الاستشعار عن بعد", en: "Remote Sensing" }, { ar: "منطقة الباحة، المملكة العربية السعودية", en: "Al-Baha Region, Saudi Arabia" }, { ar: "محلل منفرد: جمع البيانات والمعالجة والإخراج الخرائطي والتمثيل ثلاثي الأبعاد", en: "Sole analyst: data acquisition, processing, cartography and 3D visualization" }],
+      metrics: [
+        { value: "12", label: { ar: "منتجاً خرائطياً", en: "map products" } },
+        { value: "44", label: { ar: "منظراً ثلاثي الأبعاد (11 خريطة × 4 اتجاهات)", en: "3D views (11 maps × 4 directions)" } },
+        { value: "26", label: { ar: "صفحة في الأطلس مع المنهج والحدود", en: "page atlas with methods and limits" } },
+        { value: "37%", label: { ar: "من المحمية بانحدار أكبر من 30°", en: "of the reserve on slopes > 30°" } },
+        { value: "≈4 m", label: { ar: "تطابق الصورة مع التضاريس", en: "image–terrain co-registration" } },
+      ],
+      sections: [
+        { title: { ar: "نظرة عامة", en: "Overview" }, body: { ar: "مسار عمل قابل لإعادة التطبيق مبني في QGIS وPython، مع إظهار ثلاثي الأبعاد مبرمج في Blender. طُبّق أولاً على محمية جبل شدا الأعلى (77.7 كم²، فئة IUCN الثانية)، وينتج خرائط التضاريس والغطاء النباتي والغطاء الأرضي والتغير والتصريف، ثم يحوّل كل خريطة إلى مجسم ثلاثي الأبعاد يُرى من الشمال والشرق والجنوب والغرب.", en: "A reproducible remote-sensing workflow built in QGIS and Python, with 3D rendering scripted in Blender. Piloted on Jabal Shada al-A'la Reserve (77.7 km², IUCN II), it produces terrain, vegetation, land-cover, change and drainage maps, then renders every map as a 3D terrain model seen from north, east, south and west." } },
+        { title: { ar: "التحدي", en: "Challenge" }, body: { ar: "المحميات الجبلية صعبة القراءة على الخرائط المسطحة: الجروف الحادة والأودية العميقة واتجاه المنحدرات تؤثر بقوة على الغطاء النباتي وسهولة الوصول والسلامة، ومع ذلك تخطط الفرق الميدانية غالباً من خرائط ثنائية الأبعاد.", en: "Mountain reserves are hard to read on flat maps: steep escarpments, deep wadis and slope orientation strongly shape vegetation, access and safety, yet field teams usually plan from 2D maps." } },
+        { title: { ar: "المنهج", en: "Approach" }, list: { ar: ["جمع بيانات مفتوحة: نموذج الارتفاع Copernicus DEM GLO-30، وصور Sentinel-2 L2A (24 سبتمبر 2026 و21 سبتمبر 2018 في نفس الموسم)، وESA WorldCover 2021.", "اختيار مشاهد خالية من السحب بقياس السحب والظلال داخل منطقة الدراسة نفسها (0.0%)، وليس من بيانات المشهد العامة.", "اشتقاق الارتفاع والانحدار والاتجاه والكنتور وNDVI وSAVI وNDMI والغطاء الأرضي وتغير الغطاء النباتي وشبكة تصريف محسوبة.", "إخراج خرائط A4 جاهزة للطباعة (300 dpi) بمفاتيح ومقياس رسم وشمال حقيقي وخريطة موقع وحدود علمية معلنة.", "تمثيل كل خريطة ثلاثياً من أربع زوايا في Blender، مع اتجاهات N/E/S/W محسوبة من الإحداثيات الحقيقية."], en: ["Acquired open data: Copernicus DEM GLO-30, Sentinel-2 L2A (24 Sep 2026 and 21 Sep 2018, same season) and ESA WorldCover 2021.", "Selected cloud-free scenes by measuring cloud and shadow inside the study area itself (0.0%), not tile-level metadata.", "Derived elevation, slope, aspect, contours, NDVI, SAVI, NDMI, land cover, vegetation change and a modelled drainage network.", "Produced print-ready A4 maps (300 dpi) with legends, scale, true north, locator and stated limitations.", "Rendered every map in 3D from four directions with Blender, with N/E/S/W labels projected from real coordinates."] } },
+        { title: { ar: "لماذا ثلاثي الأبعاد للميدان", en: "Why 3D for the field" }, list: { ar: ["يكشف ما تخفيه الخريطة المسطحة: حوالي 37% من المحمية بانحدار أكبر من 30°، وهذا مهم لسلامة الوصول وتصميم المسح.", "يساعد في توزيع مواقع العينات والمقاطع عبر تدرجات الغطاء النباتي ونطاقات الارتفاع والمنحدرات الشمالية والجنوبية.", "يوضح مسارات الأودية والمجاري، وهي دليل عملي لطرق الوصول والممرات النباتية.", "يحدد مناطق التغير بين 2018 و2026 كأولويات للتحقق الميداني."], en: ["Reveals terrain that a flat map hides — about 37% of the reserve lies on slopes steeper than 30°, which matters for safe access and survey design.", "Helps place survey plots and transects across vegetation gradients, elevation bands and north- vs south-facing slopes.", "Shows where wadis and modelled channels run — a practical guide to access routes and vegetated corridors.", "Flags 2018–2026 change hotspots as priority sites for ground verification."] } },
+        { title: { ar: "أبرز النتائج", en: "Key findings" }, list: { ar: ["الارتفاع من 447 إلى 2,148 م (فرق 1,701 م)، ومتوسط الانحدار 25.8°.", "الغطاء الأرضي 2021: شجيرات 40%، وأرض جرداء أو نبات متفرق 37%، وأعشاب 22%، وغطاء شجري 0.8%.", "الخضرة تزيد مع الارتفاع: NDVI حوالي 0.15 تحت 1,000 م، وحوالي 0.25 بين 1,250 و1,500 م.", "بين 2018 و2026 (نفس الموسم): زيادة قابلة للرصد في NDVI على 19% من المحمية، وانخفاض على 12%، ولا تغير قابل للرصد على 69% (عتبة ±0.05 من ضجيج مقاس)."], en: ["Elevation 447–2,148 m (1,701 m relief); mean slope 25.8°.", "Land cover 2021: shrubland 40%, bare/sparse vegetation 37%, grassland 22%, tree cover 0.8%.", "Vegetation greenness rises with elevation, from NDVI ≈ 0.15 below 1,000 m to ≈ 0.25 at 1,250–1,500 m.", "2018→2026 (same season): detectable NDVI increase on 19% of the reserve, decrease on 12%, no detectable change on 69% (threshold ±0.05 from measured noise)."] } },
+        { title: { ar: "المعايير العلمية", en: "Scientific standards" }, body: { ar: "مصادر بيانات موثقة؛ نموذج الارتفاع مُتحقق منه مقابل Copernicus GLO-30 الرسمي (RMSE 0.49 م)؛ تطابق الصورة مع التضاريس بحدود 4 م مُتحقق منه؛ التغير يُعلن فقط فوق عتبة ضجيج مقاسة؛ المبالغة الرأسية (×1.5) معلنة على كل منظر ثلاثي الأبعاد؛ وكل خطوة معالجة مسجّلة بفحوص PASS/WARNING/FAIL.", en: "Documented data provenance; DEM validated against official Copernicus GLO-30 (RMSE 0.49 m); ≈4 m image–terrain co-registration verified by phase correlation; change reported only above a measured noise threshold; vertical exaggeration (×1.5) stated on every 3D view; every processing step logged with PASS/WARNING/FAIL checks." } },
+        { title: { ar: "حدود الدراسة", en: "Limitations" }, body: { ar: "مؤشرات NDVI وSAVI وNDMI مؤشرات طيفية وليست أنواعاً نباتية أو كتلة حيوية؛ خريطة التغير تقارن تاريخين ولا تنسب أسباباً؛ والتصريف شبكة محتملة محسوبة وليست أودية مسوحة أو خطر سيول.", en: "NDVI/SAVI/NDMI are spectral indicators, not species or biomass; the change map compares two dates and does not attribute causes; drainage is a modelled potential network, not surveyed wadis or flood risk." } },
+      ],
+      download: { href: "/projects/remote-sensing-3d-terrain-shada/atlas-jabal-shada-2d-3d.pdf", size: "5.3 MB", label: { ar: "تحميل أطلس الخرائط (PDF، 26 صفحة)", en: "Download the map atlas (PDF, 26 pages)" } },
+      credits: "Contains modified Copernicus Sentinel data 2018, 2026. Copernicus DEM GLO-30 \u00a9 DLR e.V. 2010\u20132014 and \u00a9 Airbus Defence and Space GmbH 2014\u20132018, provided under COPERNICUS by the EU and ESA. ESA WorldCover 2021 v200 (CC BY 4.0). Natural Earth (public domain).",
+    },
+  },
   {
     id: "tuwaiq-reserve",
     title: { ar: "دراسة محمية طويق", en: "Tuwaiq Reserve Study" },
@@ -229,6 +288,7 @@ export const services: { title: T; line: T; photo: string }[] = [
 
 export const skills: { group: T; tools: string[]; usedIn: T; href?: string }[] = [
   { group: { ar: "GIS والاستشعار عن بعد", en: "GIS and remote sensing" }, tools: ["QGIS", "Google Earth Engine", "Sentinel-2", "MODIS"], usedIn: { ar: "طويق، الاخضرار", en: "Tuwaiq, greening" } },
+  { group: { ar: "التمثيل ثلاثي الأبعاد", en: "3D visualization" }, tools: ["Blender (Cycles)", "GDAL", "NumPy"], usedIn: { ar: "جبل شدا ثلاثي الأبعاد", en: "Jabal Shada 3D" } },
   { group: { ar: "التضاريس والهيدرولوجيا", en: "Terrain and hydrology" }, tools: ["Geomorphons", "TPI", "HAND", "Flow routing"], usedIn: { ar: "وحدات المشهد", en: "Landscape units" } },
   { group: { ar: "نمذجة الأنواع والمناخ", en: "Species and climate modeling" }, tools: ["MaxEnt", "CMIP6", "WorldClim", "CHELSA"], usedIn: { ar: "ملاجئ الحافات", en: "Escarpment refugia" } },
   { group: { ar: "البرمجة والإحصاء", en: "Programming and statistics" }, tools: ["R", "Python", "Mann–Kendall", "Theil–Sen"], usedIn: { ar: "كل المشاريع", en: "All projects" } },
@@ -366,6 +426,8 @@ export const ui = {
   atlas: { ar: "PORTFOLIO", en: "PORTFOLIO" },
   layers: { ar: "الطبقات", en: "Layers" },
   mapsWord: { ar: "خرائط", en: "maps" },
+  details: { ar: "تفاصيل المشروع", en: "Project details" },
+  dataCredits: { ar: "مصادر البيانات", en: "Data credits" },
   expSkills: { ar: "الخبرة والمهارات", en: "Experience & skills" },
   researchCerts: { ar: "الأبحاث والشهادات", en: "Research & certifications" },
   thanks: { ar: "شكرًا", en: "Thank you" },

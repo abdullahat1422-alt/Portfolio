@@ -305,7 +305,7 @@ details[open] .chev {
     -14px 14px 0 -1px #0f1510, -14px 14px 0 0 #2a3829,
     0 50px 80px -30px rgba(0, 0, 0, .8);
 }
-.layer-in { animation: layer-in 480ms cubic-bezier(.2, .7, .2, 1) both; }
+.layer-in { animation: layer-in 480ms cubic-bezier(.2, .7, .2, 1) backwards; }
 @keyframes layer-in { from { opacity: 0; transform: translateX(28px); } }
 [dir="rtl"] .layer-in { animation-name: layer-in-rtl; }
 @keyframes layer-in-rtl { from { opacity: 0; transform: translateX(-28px); } }

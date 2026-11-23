@@ -14,6 +14,15 @@ export type LayerItem = {
   link?: { href: string; label: string };
   credit?: string;
   card: { src: string; src720: string; w: number; h: number; alt: string };
+  aspect?: string;
+  details?: {
+    fullTitle: string;
+    meta: string[];
+    metrics: { value: string; label: string }[];
+    sections: { title: string; body?: string; list?: string[] }[];
+    download?: { href: string; size: string; label: string };
+    credits?: string;
+  };
   images: { src: string; w: number; h: number; caption: string }[];
 };
 
@@ -28,6 +37,8 @@ export default function Layers({
   featured,
   mapsWord,
   panelLabel,
+  detailsLabel,
+  creditsLabel,
 }: {
   items: LayerItem[];
   dir: "rtl" | "ltr";
@@ -35,6 +46,8 @@ export default function Layers({
   featured: string;
   mapsWord: string;
   panelLabel: string;
+  detailsLabel: string;
+  creditsLabel: string;
 }) {
   const [active, setActive] = useState(0);
   const swatches = ["#b5c25a", "#7fb3c2", "#d8cfa8", "#a8d08d", "#6e7f2e", "#5b8fa0", "#c9d27a"];
@@ -44,7 +57,7 @@ export default function Layers({
       <MapViewer
         dir={dir}
         title={p.title}
-        aspect={big ? "aspect-[5/4]" : "aspect-[4/3]"}
+        aspect={p.aspect ?? (big ? "aspect-[5/4]" : "aspect-[4/3]")}
         sizes={big ? "(min-width: 1024px) 720px, 100vw" : "100vw"}
         card={p.card}
         images={p.images}
@@ -67,6 +80,7 @@ export default function Layers({
           </a>
         )}
         {p.credit && <p className="mt-1 text-[11px] text-ink-soft/70">{p.credit}</p>}
+        {p.details && <Details d={p.details} big={big} label={detailsLabel} creditsLabel={creditsLabel} />}
       </div>
     </div>
   );
@@ -145,6 +159,63 @@ export default function Layers({
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+// Optional long-form details for a project: stat chips always visible, the write-up folds open.
+function Details({ d, big, label, creditsLabel }: { d: NonNullable<LayerItem["details"]>; big?: boolean; label: string; creditsLabel: string }) {
+  return (
+    <div className="mt-5">
+      <ul className={`grid gap-2 ${big ? "grid-cols-3 sm:grid-cols-5" : "grid-cols-2"}`}>
+        {d.metrics.map((m, i) => (
+          <li key={i} className="rounded-2xl bg-paper px-3 py-3 ring-1 ring-line">
+            <p className="font-[family-name:var(--font-display)] text-xl font-extrabold leading-none text-copper" dir="ltr" style={{ textAlign: "start" }}>{m.value}</p>
+            <p className="mt-1.5 text-[12px] leading-snug text-ink-soft">{m.label}</p>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        {d.download && (
+          <a href={d.download.href} download className="btn-copper inline-flex items-center gap-2 rounded-full bg-copper px-5 py-2.5 text-[15px] font-bold text-[#14110a] no-underline transition-transform hover:-translate-y-0.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M12 3v12M7 10l5 5 5-5M5 21h14" /></svg>
+            {d.download.label}
+            <span className="font-medium opacity-70" dir="ltr">{d.download.size}</span>
+          </a>
+        )}
+      </div>
+      <details className="group mt-4 rounded-2xl bg-paper/60 ring-1 ring-line">
+        <summary className="flex items-center justify-between gap-3 px-4 py-3 font-semibold">
+          {label}
+          <svg className="chev transition-transform" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden><path d="M6 9l6 6 6-6" /></svg>
+        </summary>
+        <div className="space-y-5 px-4 pb-5">
+          <p className="text-[15px] font-semibold leading-relaxed text-ink">{d.fullTitle}</p>
+          <p className="text-[13px] text-sky">{d.meta.join("  ·  ")}</p>
+          {d.sections.map((s, i) => (
+            <div key={i}>
+              <h4 className="text-[15px] font-bold text-copper">{s.title}</h4>
+              {s.body && <p className="mt-1.5 text-[15px] leading-relaxed text-ink-soft">{s.body}</p>}
+              {s.list && (
+                <ul className="mt-2 space-y-1.5">
+                  {s.list.map((li, j) => (
+                    <li key={j} className="flex gap-2.5 text-[15px] leading-relaxed text-ink-soft">
+                      <span aria-hidden className="mt-[0.7em] size-1.5 shrink-0 rounded-full bg-copper/70" />
+                      <span>{li}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+          {d.credits && (
+            <p className="border-t border-line pt-4 text-[11.5px] leading-relaxed text-ink-soft/80" dir="ltr" lang="en" style={{ textAlign: "start" }}>
+              <span className="font-semibold">{creditsLabel}: </span>
+              {d.credits}
+            </p>
+          )}
+        </div>
+      </details>
     </div>
   );
 }

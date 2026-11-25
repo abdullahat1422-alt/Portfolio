@@ -225,7 +225,7 @@ export default function Site({ lang }: { lang: Lang }) {
               <div className="relative mx-auto -mt-[7vw] w-[92%] max-w-[460px]">
                 <Rings className="absolute left-1/2 top-[40%] -z-0 w-[175%] max-w-none -translate-x-1/2 -translate-y-1/2" />
                 <div aria-hidden className="portrait-glow absolute left-1/2 top-[40%] size-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full" />
-                <img src="/img/portrait-cine-760.webp" alt={t(person.name)} width={760} height={760} fetchPriority="high" className="rise depth-portrait relative w-full" />
+                <img src="/img/portrait-760.webp" alt={t(person.name)} width={760} height={760} fetchPriority="high" className="rise depth-portrait relative w-full" />
               </div>
               <div className="relative -mt-14 text-center">
                 <p className="fade-in inline-flex items-center gap-2 rounded-full bg-leaf/25 px-3.5 py-1 text-[13px] font-semibold text-[#bfe3a6] ring-1 ring-[#bfe3a6]/25">
@@ -285,7 +285,7 @@ export default function Site({ lang }: { lang: Lang }) {
                   </div>
                   <div aria-hidden className="portrait-glow absolute left-1/2 top-[38%] size-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full" />
                   <div className="par-portrait relative">
-                    <img src="/img/portrait-cine.webp" alt={t(person.name)} width={1254} height={1254} fetchPriority="high" className="rise depth-portrait relative w-full" />
+                    <img src="/img/portrait.webp" alt={t(person.name)} width={1254} height={1254} fetchPriority="high" className="rise depth-portrait relative w-full" />
                   </div>
                 </div>
                 <div className="flex flex-col items-end gap-4 pb-24 rtl:items-start">

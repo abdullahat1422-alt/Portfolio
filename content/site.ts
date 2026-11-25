@@ -338,21 +338,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "native-by-region",
-    title: { ar: "محلي في محله", en: "Native by Region" },
-    status: { ar: "مقترح تحت الدراسة", en: "Proposal under review" },
-    line: {
-      ar: "مرجع لاختيار النباتات المحلية المناسبة لكل منطقة، مبني على وحدات المشهد الطبيعي والمجتمعات النباتية، يغني مشاريع التشجير والتنسيق وإعادة التأهيل عن تكرار دراسات اختيار النباتات لكل مشروع.",
-      en: "A reference for choosing the right native plants for each region, built on landscape units and plant communities, so greening, landscaping and rehabilitation projects no longer repeat plant-selection studies each time.",
-    },
-    tools: ["Landscape units", "Plant communities", "R", "QGIS"],
-    card: { src: "/maps/native-identity.webp", src720: "/maps/native-identity-720.webp", w: 924, h: 693, alt: { ar: "شعار المشروع ونبات الصبار في موطنه", en: "Project identity with aloe in its native habitat" } },
-    gallery: [
-      { src: "/maps/native-identity.webp", w: 924, h: 693, caption: { ar: "هوية المشروع", en: "Project identity" } },
-      { src: "/maps/native-riyadh-full.webp", w: 2417, h: 2400, caption: { ar: "منطقة الرياض: وحدات المشهد الطبيعي", en: "Riyadh region: landscape units" } },
-    ],
-  },
-  {
     id: "jabal-shada",
     title: { ar: "محمية جبل شدا الأعلى", en: "Jabal Shada al-A'la Protected Area" },
     status: { ar: "2026", en: "2026" },
@@ -369,60 +354,6 @@ export const projects: Project[] = [
       { src: "/maps/shada-units.webp", w: 3000, h: 2250, caption: { ar: "وحدات نباتية استكشافية", en: "Exploratory vegetation units" } },
       { src: "/maps/shada-ndvi.webp", w: 3000, h: 2057, caption: { ar: "الاخضرار حسب الارتفاع والموسم", en: "Greenness by elevation and season" } },
       { src: "/maps/shada-elevation.webp", w: 1826, h: 2420, caption: { ar: "أحزمة الارتفاع على الظل التضاريسي", en: "Elevation strata on hillshade" } },
-    ],
-  },
-  {
-    id: "landscape-units",
-    title: { ar: "وحدات المشهد الطبيعي في المملكة", en: "National Landscape Units" },
-    status: { ar: "2026", en: "2026" },
-    line: {
-      ar: "خريطة على مستوى المملكة لـ 11 وحدة مشهد طبيعي، بمعالجة نموذج ارتفاع Copernicus عبر 870 مربعاً باستخدام geomorphons وTPI متعدد المقاييس.",
-      en: "A Kingdom-wide map of 11 landscape units, processing the Copernicus DEM across 870 tiles with geomorphon and multiscale TPI analysis.",
-    },
-    highlight: { ar: "تغطية وطنية بدقة 30 م", en: "National, 30 m terrain" },
-    tools: ["R", "QGIS", "Copernicus DEM"],
-    card: { src: "/maps/landscape-card.webp", src720: "/maps/landscape-card-720.webp", w: 1400, h: 1372, alt: { ar: "خريطة وحدات المشهد الطبيعي", en: "Landscape units map" } },
-    gallery: [
-      { src: "/maps/landscape-full.webp", w: 3600, h: 2543, caption: { ar: "الخريطة الكاملة", en: "Full map" } },
-      { src: "/maps/landscape-sw-full.webp", w: 2600, h: 3020, caption: { ar: "تفاصيل الجنوب الغربي", en: "Southwest detail" } },
-    ],
-  },
-  {
-    id: "plant-communities",
-    title: { ar: "أطلس المجتمعات النباتية", en: "Plant Communities Atlas" },
-    status: { ar: "2026", en: "2026" },
-    line: {
-      ar: "تجميع 30 دراسة نباتية سعودية منشورة (240 مجتمعاً مصدرياً) في 26 نوع مجتمع مصنّف حسب قوة الدليل، مع خريطة لفجوات المعرفة.",
-      en: "30 published Saudi vegetation studies (240 source communities) synthesized into 26 evidence-graded community types, with a knowledge-gap map.",
-    },
-    highlight: { ar: "26 مجتمعاً بدقة 250 م", en: "26 communities, 250 m" },
-    tools: ["R", "QGIS", "CHELSA", "SoilGrids"],
-    card: { src: "/maps/communities-card.webp", src720: "/maps/communities-card-720.webp", w: 1400, h: 1181, alt: { ar: "خريطة المجتمعات النباتية", en: "Plant communities map" } },
-    gallery: [
-      { src: "/maps/communities-full.webp", w: 3600, h: 2544, caption: { ar: "جميع المجتمعات", en: "All communities" } },
-      { src: "/maps/communities-t01.webp", w: 3000, h: 2123, caption: { ar: "غابات العرعر", en: "Juniper woodland" } },
-      { src: "/maps/communities-t13.webp", w: 3000, h: 2123, caption: { ar: "المانجروف", en: "Mangrove" } },
-      { src: "/maps/communities-t21.webp", w: 3000, h: 2123, caption: { ar: "الغضا", en: "Haloxylon shrubland" } },
-      { src: "/maps/communities-t04.webp", w: 3000, h: 2123, caption: { ar: "غابات السلم الجبلية", en: "Acacia asak woodland" } },
-      { src: "/maps/communities-t22.webp", w: 3000, h: 2123, caption: { ar: "نباتات السبخات", en: "Inland sabkha halophytes" } },
-    ],
-  },
-  {
-    id: "sgi-greening",
-    title: { ar: "رصد الاخضرار الوطني", en: "National Greening Monitor" },
-    status: { ar: "قيد النشر", en: "In preparation" },
-    line: {
-      ar: "تقييم وطني لتغيّر الاخضرار 2016–2025 حول مبادرة السعودية الخضراء من أرشيف MODIS NDVI وأمطار ERA5، مع فصل أثر الأمطار بتحليل RESTREND.",
-      en: "A national assessment of greenness change 2016–2025 around the Saudi Green Initiative from MODIS NDVI and ERA5, separating rainfall effects with RESTREND.",
-    },
-    highlight: { ar: "الاخضرار يفوق التراجع 4.3 مرة", en: "Greening outpaces browning 4.3×" },
-    tools: ["MODIS NDVI", "ERA5", "R"],
-    card: { src: "/maps/sgi-card.webp", src720: "/maps/sgi-card-720.webp", w: 1400, h: 1141, alt: { ar: "خريطة اتجاه الاخضرار", en: "Greening trend map" } },
-    gallery: [
-      { src: "/maps/sgi-trend.webp", w: 2250, h: 1950, caption: { ar: "الاخضرار والتراجع", en: "Greening and browning" } },
-      { src: "/maps/sgi-change.webp", w: 2100, h: 1800, caption: { ar: "التغيّر بين الفترتين", en: "Change between periods" } },
-      { src: "/maps/sgi-theilsen.webp", w: 2100, h: 1800, caption: { ar: "ميل الاتجاه", en: "Trend slope" } },
-      { src: "/maps/sgi-annual.webp", w: 1283, h: 770, caption: { ar: "المتوسط السنوي", en: "Annual mean" } },
     ],
   },
   {
@@ -453,17 +384,9 @@ export const mapGallery: { thumb: string; full: string; w: number; h: number; tw
   { thumb: "/maps/g-shada-units.webp", full: "/maps/shada-units.webp", w: 3000, h: 2250, tw: 720, th: 581, caption: { ar: "وحدات نباتية استكشافية", en: "Exploratory vegetation units" }, from: { ar: "جبل شدا", en: "Jabal Shada" } },
   { thumb: "/maps/g-tuwaiq-h04.webp", full: "/maps/tuwaiq-h04.webp", w: 3000, h: 2120, tw: 720, th: 673, caption: { ar: "تقاطعات الأودية مع الطرق", en: "Wadi-road crossings and dams" }, from: { ar: "طويق", en: "Tuwaiq" } },
   { thumb: "/maps/g-catchment.webp", full: "/maps/tuwaiq-catchment.webp", w: 1344, h: 1080, tw: 720, th: 579, caption: { ar: "الحوض المغذي لمحمية طويق", en: "Catchment feeding the Tuwaiq Reserve" }, from: { ar: "طويق", en: "Tuwaiq" } },
-  { thumb: "/maps/g-t21.webp", full: "/maps/communities-t21.webp", w: 3000, h: 2123, tw: 720, th: 802, caption: { ar: "مجتمع الغضا في الكثبان", en: "Haloxylon persicum dune shrubland" }, from: { ar: "الأطلس", en: "Atlas" } },
-  { thumb: "/maps/g-sgichange.webp", full: "/maps/sgi-change.webp", w: 2100, h: 1800, tw: 720, th: 617, caption: { ar: "تغيّر NDVI بين الفترتين", en: "NDVI change between periods" }, from: { ar: "الاخضرار", en: "Greening" } },
-  { thumb: "/maps/g-lsw.webp", full: "/maps/landscape-sw-full.webp", w: 2600, h: 3020, tw: 720, th: 836, caption: { ar: "الحافات والحرات في الجنوب الغربي", en: "Southwest escarpments and harrat" }, from: { ar: "المشهد", en: "Landscape" } },
   { thumb: "/maps/g-wadis.webp", full: "/maps/tuwaiq-wadis.webp", w: 1320, h: 1170, tw: 720, th: 638, caption: { ar: "الأودية والأحواض المغلقة قرب ضرما", en: "Wadis and closed basins near Duruma" }, from: { ar: "طويق", en: "Tuwaiq" } },
-  { thumb: "/maps/g-t04.webp", full: "/maps/communities-t04.webp", w: 3000, h: 2123, tw: 720, th: 802, caption: { ar: "غابات السلم على المنحدرات", en: "Acacia asak rocky-slope woodland" }, from: { ar: "الأطلس", en: "Atlas" } },
-  { thumb: "/maps/g-sgibase.webp", full: "/maps/sgi-baseline.webp", w: 1027, h: 880, tw: 720, th: 617, caption: { ar: "متوسط NDVI قبل المبادرة", en: "Mean NDVI before the initiative" }, from: { ar: "الاخضرار", en: "Greening" } },
   { thumb: "/maps/g-greenness.webp", full: "/maps/tuwaiq-greenness.webp", w: 1582, h: 1402, tw: 720, th: 638, caption: { ar: "التعافي والتراجع في طويق", en: "Recovery and decline at Tuwaiq" }, from: { ar: "طويق", en: "Tuwaiq" } },
-  { thumb: "/maps/g-t22.webp", full: "/maps/communities-t22.webp", w: 3000, h: 2123, tw: 720, th: 802, caption: { ar: "نباتات السبخات الداخلية", en: "Inland sabkha halophytes" }, from: { ar: "الأطلس", en: "Atlas" } },
-  { thumb: "/maps/g-sgitheil.webp", full: "/maps/sgi-theilsen.webp", w: 2100, h: 1800, tw: 720, th: 617, caption: { ar: "ميل اتجاه الاخضرار", en: "Greening trend slope" }, from: { ar: "الاخضرار", en: "Greening" } },
   { thumb: "/maps/g-summary.webp", full: "/maps/tuwaiq-summary.webp", w: 1582, h: 1402, tw: 720, th: 638, caption: { ar: "ملخص نتائج طويق", en: "Tuwaiq summary map" }, from: { ar: "طويق", en: "Tuwaiq" } },
-  { thumb: "/maps/g-t01.webp", full: "/maps/communities-t01.webp", w: 3000, h: 2123, tw: 720, th: 802, caption: { ar: "غابات العرعر الجبلية", en: "Juniper montane woodland" }, from: { ar: "الأطلس", en: "Atlas" } },
 ];
 
 export const services: { title: T; line: T; photo: string }[] = [
@@ -476,11 +399,11 @@ export const services: { title: T; line: T; photo: string }[] = [
 ];
 
 export const skills: { group: T; tools: string[]; usedIn: T; href?: string }[] = [
-  { group: { ar: "GIS والاستشعار عن بعد", en: "GIS and remote sensing" }, tools: ["QGIS", "Google Earth Engine", "Sentinel-2", "MODIS", "STAC (Earth Search)"], usedIn: { ar: "طويق، الاخضرار", en: "Tuwaiq, greening" } },
+  { group: { ar: "GIS والاستشعار عن بعد", en: "GIS and remote sensing" }, tools: ["QGIS", "Google Earth Engine", "Sentinel-2", "MODIS", "STAC (Earth Search)"], usedIn: { ar: "طويق، محمية الإمام عبدالرحمن", en: "Tuwaiq, Imam Abdulrahman Reserve" } },
   { group: { ar: "التمثيل ثلاثي الأبعاد", en: "3D visualization" }, tools: ["Blender (Cycles)", "GDAL", "NumPy", "Matplotlib"], usedIn: { ar: "جبل شدا وطويق ثلاثي الأبعاد", en: "Jabal Shada and Tuwaiq 3D" } },
   { group: { ar: "بيانات المناخ والشبكات المكانية", en: "Climate data and spatial grids" }, tools: ["CHIRPS v3", "H3 hexagons", "EPSG:6933 equal-area", "WMO 1991–2020 normals"], usedIn: { ar: "أمطار الرياض", en: "Riyadh rainfall" }, href: "https://riyadh-rainfall-dynamics.vercel.app" },
   { group: { ar: "الإرجاع الجغرافي وتقدير الدقة", en: "Georeferencing and accuracy" }, tools: ["Affine georeferencing", "NCC terrain matching", "Uncertainty budget", "Bootstrap / leave-one-out"], usedIn: { ar: "محمية الإمام عبدالرحمن", en: "Imam Abdulrahman Reserve" } },
-  { group: { ar: "التضاريس والهيدرولوجيا", en: "Terrain and hydrology" }, tools: ["Geomorphons", "TPI", "HAND", "Flow routing", "D8 / Strahler"], usedIn: { ar: "وحدات المشهد", en: "Landscape units" } },
+  { group: { ar: "التضاريس والهيدرولوجيا", en: "Terrain and hydrology" }, tools: ["Geomorphons", "TPI", "HAND", "Flow routing", "D8 / Strahler"], usedIn: { ar: "محمية الإمام عبدالرحمن، طويق", en: "Imam Abdulrahman Reserve, Tuwaiq" } },
   { group: { ar: "نمذجة الأنواع والمناخ", en: "Species and climate modeling" }, tools: ["MaxEnt", "CMIP6", "WorldClim", "CHELSA"], usedIn: { ar: "ملاجئ الحافات", en: "Escarpment refugia" } },
   { group: { ar: "البرمجة والإحصاء", en: "Programming and statistics" }, tools: ["R", "Python", "GeoPandas", "rasterio", "SciPy", "scikit-image", "OpenCV", "Numba", "pandas / Parquet", "pytest", "Mann–Kendall", "Theil–Sen"], usedIn: { ar: "كل المشاريع", en: "All projects" } },
   { group: { ar: "الميدان", en: "Fieldwork" }, tools: ["مسوحات التنوع الحيوي|Biodiversity surveys", "الدرون (GACA)|Drone (GACA)"], usedIn: { ar: "الحياة الفطرية", en: "NCW" } },

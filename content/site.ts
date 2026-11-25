@@ -115,7 +115,6 @@ export const projects: Project[] = [
         { title: { ar: "المعايير العلمية", en: "Scientific standards" }, body: { ar: "مصادر بيانات موثقة؛ نموذج الارتفاع مُتحقق منه مقابل Copernicus GLO-30 الرسمي (RMSE 0.49 م)؛ تطابق الصورة مع التضاريس بحدود 4 م مُتحقق منه؛ التغير يُعلن فقط فوق عتبة ضجيج مقاسة؛ المبالغة الرأسية (×1.5) معلنة على كل منظر ثلاثي الأبعاد؛ وكل خطوة معالجة مسجّلة بفحوص PASS/WARNING/FAIL.", en: "Documented data provenance; DEM validated against official Copernicus GLO-30 (RMSE 0.49 m); ≈4 m image–terrain co-registration verified by phase correlation; change reported only above a measured noise threshold; vertical exaggeration (×1.5) stated on every 3D view; every processing step logged with PASS/WARNING/FAIL checks." } },
         { title: { ar: "حدود الدراسة", en: "Limitations" }, body: { ar: "مؤشرات NDVI وSAVI وNDMI مؤشرات طيفية وليست أنواعاً نباتية أو كتلة حيوية؛ خريطة التغير تقارن تاريخين ولا تنسب أسباباً؛ والتصريف شبكة محتملة محسوبة وليست أودية مسوحة أو خطر سيول.", en: "NDVI/SAVI/NDMI are spectral indicators, not species or biomass; the change map compares two dates and does not attribute causes; drainage is a modelled potential network, not surveyed wadis or flood risk." } },
       ],
-      download: { href: "/projects/remote-sensing-3d-terrain-shada/atlas-jabal-shada-2d-3d.pdf", size: "5.3 MB", label: { ar: "تحميل أطلس الخرائط (PDF، 26 صفحة)", en: "Download the map atlas (PDF, 26 pages)" } },
       credits: "Contains modified Copernicus Sentinel data 2018, 2026. Copernicus DEM GLO-30 \u00a9 DLR e.V. 2010\u20132014 and \u00a9 Airbus Defence and Space GmbH 2014\u20132018, provided under COPERNICUS by the EU and ESA. ESA WorldCover 2021 v200 (CC BY 4.0). Natural Earth (public domain).",
     },
   },
@@ -166,8 +165,62 @@ export const projects: Project[] = [
         { title: { ar: "المعايير العلمية", en: "Scientific standards" }, body: { ar: "مصادر بيانات موثقة؛ نموذج الارتفاع مُتحقق منه مقابل Copernicus GLO-30 الرسمي (RMSE 0.10 م)؛ تطابق الصورة مع التضاريس مُتحقق منه بالارتباط الطوري (1.7 م و0.7 م)؛ التغير يُعلن فقط فوق عتبة ضجيج مقاسة (σ = 0.0074 من 17.4 مليون بكسل ثابت)؛ اتجاهات المناظر الثلاثية محسوبة من الإحداثيات الحقيقية ومختبرة؛ المبالغة الرأسية والتنعيم معلنان على كل منظر؛ وكل خطوة مسجّلة بفحوص PASS/WARNING/FAIL.", en: "Documented data provenance; DEM checked against official Copernicus GLO-30 (RMSE 0.10 m); image–terrain co-registration verified by phase correlation (1.7 m and 0.7 m); change reported only above a measured noise threshold (σ = 0.0074 from 17.4 million invariant pixels); 3D direction labels computed from real coordinates and self-tested; vertical exaggeration and display smoothing stated on every 3D view; every step logged with PASS/WARNING/FAIL checks." } },
         { title: { ar: "حدود الدراسة", en: "Limitations" }, body: { ar: "حدود منطقة الدراسة محددة من قبلي وليست الحدود الرسمية. المبالغة الرأسية ×10 للوضوح فقط. مؤشرات NDVI وSAVI وNDMI طيفية وليست أنواعاً نباتية أو كتلة حيوية؛ خريطة التغير تقارن تاريخين ولا تنسب أسباباً؛ والتصريف شبكة محتملة محسوبة من نموذج 30 م وليست أودية مسوحة أو خطر سيول.", en: "Study-area boundary defined by the author — not the official boundary. ×10 vertical exaggeration is for readability only. NDVI/SAVI/NDMI are spectral indicators, not species or biomass; the change map compares two dates and does not attribute causes; drainage is a modelled potential network (30 m DSM), not surveyed wadis or flood risk." } },
       ],
-      download: { href: "/projects/remote-sensing-3d-terrain-tuwaiq/atlas-tuwaiq-2d-3d.pdf", size: "5.8 MB", label: { ar: "تحميل أطلس الخرائط (PDF، 23 صفحة)", en: "Download the map atlas (PDF, 23 pages)" } },
       credits: "Contains modified Copernicus Sentinel data 2018, 2026. Copernicus DEM GLO-30 © DLR e.V. 2010–2014 and © Airbus Defence and Space GmbH 2014–2018, provided under COPERNICUS by the EU and ESA. ESA WorldCover 2021 v200 (CC BY 4.0).",
+    },
+  },
+  {
+    id: "riyadh-rainfall-dynamics",
+    title: { ar: "ديناميكيات الأمطار في منطقة الرياض (⁦1981–2025⁩)", en: "Riyadh Rainfall Dynamics (1981–2025)" },
+    status: { ar: "2026 · تطبيق مباشر", en: "2026 · Live app" },
+    line: {
+      ar: "خريطة ثلاثية الأبعاد تفاعلية لأمطار منطقة الرياض على مدى 45 عاماً، مبنية من 540 شبكة شهرية لبيانات الأمطار (أقمار صناعية ومحطات)، مع عرض سنوي وفصلي.",
+      en: "An interactive 3D map of 45 years of rainfall across the Riyadh Region, built from 540 monthly satellite-and-station rainfall grids, with yearly and seasonal views.",
+    },
+    highlight: { ar: "1,629 سداسياً · 45 عاماً", en: "1,629 hexagons · 45 years" },
+    tools: ["CHIRPS v3", "Python", "H3", "deck.gl", "Next.js", "TypeScript"],
+    link: { href: "https://riyadh-rainfall-dynamics.vercel.app", label: { ar: "افتح التطبيق المباشر", en: "Open the live app" } },
+    card: { src: "/projects/riyadh-rainfall-dynamics/hero_desktop_en_1997.webp", src720: "/projects/riyadh-rainfall-dynamics/hero-800.webp", w: 1600, h: 1000, alt: { ar: "خريطة سداسيات ثلاثية الأبعاد لمنطقة الرياض تعرض أمطار عام 1997؛ الأعمدة الزرقاء الطويلة تمثل مناطق أرطب بكثير من معدلها للفترة ⁦1991–2020⁩.", en: "3D hexagon map of the Riyadh Region showing annual rainfall in 1997; tall blue columns mark areas much wetter than their 1991–2020 normal." }, aspect: "aspect-[16/10]" },
+    gallery: [
+      { src: "/projects/riyadh-rainfall-dynamics/hero_desktop_en_1997.webp", w: 1600, h: 1000, caption: { ar: "العرض السنوي، 1997 (الواجهة الإنجليزية)", en: "Annual view, 1997 (English interface)" } },
+      { src: "/projects/riyadh-rainfall-dynamics/desktop_ar_winter_2018.webp", w: 1600, h: 1000, caption: { ar: "الواجهة العربية: شتاء 2018 (ديسمبر 2017 – فبراير 2018)", en: "Arabic interface: winter 2018 (Dec 2017 – Feb 2018)" } },
+      { src: "/projects/riyadh-rainfall-dynamics/desktop_en_spring_1997_cell.webp", w: 1600, h: 1000, caption: { ar: "عرض الربيع مع سداسي محدد وسجله على 45 عاماً", en: "Spring view with a selected hexagon and its 45-year history" } },
+      { src: "/projects/riyadh-rainfall-dynamics/mobile_en_2016.webp", w: 780, h: 1688, caption: { ar: "تصميم الجوال، الواجهة الإنجليزية (2016)", en: "Phone layout, English (2016)" } },
+      { src: "/projects/riyadh-rainfall-dynamics/mobile_ar_1997.webp", w: 780, h: 1688, caption: { ar: "تصميم الجوال، الواجهة العربية (1997)", en: "Phone layout, Arabic (1997)" } },
+    ],
+    details: {
+      fullTitle: { ar: "ديناميكيات الأمطار في منطقة الرياض (⁦1981–2025⁩)", en: "Riyadh Rainfall Dynamics (1981–2025)" },
+      meta: [
+        { ar: "بيانات المناخ · GIS والتحليل المكاني · تمثيل بيانات تفاعلي ثلاثي الأبعاد", en: "Climate data · GIS / spatial analysis · Interactive 3D data visualization" },
+        { ar: "نوفمبر 2026", en: "November 2026" },
+        { ar: "المؤلف الوحيد: مسار البيانات، والتحليل المكاني، وضمان الجودة، وتصميم الويب وتطويره", en: "Sole author: data pipeline, spatial analysis, quality assurance, web design and development" },
+      ],
+      metrics: [
+        { value: "45", label: { ar: "عاماً (⁦1981–2025⁩)", en: "years (1981–2025)" } },
+        { value: "540", label: { ar: "شبكة أمطار شهرية", en: "monthly rainfall grids" } },
+        { value: "1,629", label: { ar: "سداسي H3", en: "H3 hexagons" } },
+        { value: "375,553", label: { ar: "كم² مساحة المنطقة", en: "km² region area" } },
+        { value: "11/11", label: { ar: "فحص جودة آلي ناجح", en: "automated QA checks passing" } },
+      ],
+      sections: [
+        { title: { ar: "الفكرة", en: "Overview" }, body: { ar: "يرتفع كل سداسي على الخريطة بمقدار مطره، ويصبح أزرق حين تكون السنة أو الفصل أرطب من معدله للفترة ⁦1991–2020⁩، وبنياً حين يكون أجف. يتضمن التطبيق عرض الشتاء والربيع والصيف والخريف، وحركة سلسة بين السنوات، ودعماً كاملاً للعربية والإنجليزية.", en: "Each hexagon on the map rises with its rainfall and turns blue when a year or season is wetter than its own 1991–2020 normal, brown when drier. Includes winter, spring, summer and autumn views, smooth year-to-year animation, and full Arabic/English support." } },
+        { title: { ar: "السؤال", en: "The question" }, body: { ar: "كيف تغيّرت الأمطار عبر منطقة الرياض الإدارية كاملة (وليس المدينة فقط) خلال 45 عاماً، وأي المناطق والفصول كانت أرطب أو أجف من المعتاد؟", en: "How has rainfall changed across the whole Riyadh Administrative Region (not just the city) over 45 years, and which areas and seasons were wetter or drier than normal?" } },
+        { title: { ar: "البيانات", en: "The data" }, body: { ar: "أمطار CHIRPS الإصدار 3.0 الشهرية النهائية (مركز Climate Hazards، جامعة كاليفورنيا سانتا باربرا؛ شبكة بدقة 5 كم تقريباً) من يناير 1981 إلى ديسمبر 2025: 540 ملفاً شهرياً، كل ملف موثّق برابط مصدره ورمز التحقق، ولا تُستخدم البيانات الأولية أبداً. منطقة الدراسة هي مضلع geoBoundaries ADM1 لمنطقة الرياض (SA-01، بمساحة 375,553 كم²).", en: "CHIRPS v3.0 final monthly rainfall (Climate Hazards Center, UC Santa Barbara; about 5 km grid) for January 1981 to December 2025: 540 monthly files. Every file is logged with its source URL and checksum, and preliminary data is never used. The study area is the geoBoundaries ADM1 polygon for the Riyadh Region (ISO 3166-2 SA-01, 375,553 km²)." } },
+        { title: { ar: "المنهج", en: "Method" }, list: {
+          ar: ["المجموع السنوي لكل خلية هو مجموع القيم الشهرية الاثنتي عشرة، والخلية الناقصة في أي شهر تُعامل كقيمة مفقودة وليس صفراً.", "1,629 سداسي H3 (الدقة 5، نحو 253 كم² لكل سداسي) تغطي المنطقة، وسداسيات الأطراف مقصوصة بدقة على الحدود.", "قيمة كل سداسي متوسط موزون بالمساحة للخلايا داخله، محسوب في إسقاط متساوي المساحة (EPSG:6933).", "الانحراف يُقاس مقابل معدل كل سداسي نفسه للفترة ⁦1991–2020⁩ (الفترة المعيارية للمنظمة العالمية للأرصاد الجوية).", "الأرقام الإقليمية متوسطات موزونة بالمساحة، وليست مجموع الملليمترات عبر السداسيات.", "الفصول: الشتاء ديسمبر–فبراير (يُنسب لسنة يناير، ⁦1982–2025⁩)، والربيع مارس–مايو، والصيف يونيو–أغسطس، والخريف سبتمبر–نوفمبر، ولكل فصل معدله الخاص. وحين يقل المعدل الفصلي عن 10 مم (أغلب الصيف) لا تُعرض النسب المئوية لأنها غير ذات معنى."],
+          en: ["Annual totals per pixel are the sum of the 12 monthly values. A pixel missing in any month is treated as missing, never as zero.", "1,629 H3 hexagons (resolution 5, about 253 km² each) cover the region. Edge hexagons are clipped exactly to the boundary.", "Each hexagon's value is an area-weighted mean of the pixels inside it, computed in an equal-area projection (EPSG:6933).", "Anomalies are measured against each hexagon's own 1991–2020 normal (the WMO standard period).", "Regional figures are area-weighted means, never sums of millimetres across hexagons.", "Seasons: winter = December–February (labelled by the January year, 1982–2025), spring = March–May, summer = June–August, autumn = September–November. Each season has its own normal. Where a seasonal normal is under 10 mm (almost all of summer), percentages are suppressed as not meaningful."],
+        } },
+        { title: { ar: "ضمان الجودة", en: "Quality assurance" }, list: {
+          ar: ["540 طبقة شهرية نهائية بالضبط، مع رموز التحقق.", "لا فجوات ولا تكرار في شبكة السداسيات.", "إعادة اشتقاق المجاميع السنوية بشكل مستقل من البيانات الشهرية.", "إعادة حساب سداسيات وسنوات عشوائية بأوزان مساحة جيوديسية (تطابق ضمن 0.001 مم).", "متوسط الانحراف للفترة ⁦1991–2020⁩ يساوي صفراً.", "المجاميع الفصلية تتطابق تماماً مع المجاميع السنوية.", "قيم ملفات الويب تطابق الجداول الرئيسية."],
+          en: ["Exactly 540 final monthly layers, with checksums.", "No gaps or double-counting in the hexagon grid.", "Annual sums re-derived independently from the monthly data.", "Random hexagon-years recomputed independently with geodesic area weights (agreement within 0.001 mm).", "The 1991–2020 mean anomaly equal to zero.", "Seasonal totals reconciling exactly with annual totals.", "Delivered web values matching the master tables."],
+        } },
+        { title: { ar: "المنتج", en: "The product" }, list: {
+          ar: ["أعمدة سداسية منفصلة بتضاريس واضحة، والارتفاع = الأمطار (بحد أقصى 400 مم للرسم فقط، والقيمة الحقيقية تظهر دائماً).", "فئات ألوان ثابتة للانحراف عن المعدل.", "خط زمني سداسي لـ45 عاماً مع تشغيل وخمس سرعات وسحب للتنقل.", "تبديل بين العرض السنوي والشتاء والربيع والصيف والخريف مع أشهر كل فصل.", "بوصلة تتبع دوران الخريطة، ولوحة لكل سداسي بسجله على 45 عاماً.", "روابط قابلة للمشاركة، وواجهة عربية (من اليمين لليسار) وإنجليزية، وتصميم خاص بالجوال، وخيار لتقليل الحركة."],
+          en: ["Separate hexagonal columns with clear relief, height = rainfall (capped at 400 mm for drawing only; the true value is always shown).", "Fixed colour classes for the departure from normal.", "A hexagon timeline (45 years) with play, five speeds and drag-to-scrub.", "A switch between annual, winter, spring, summer and autumn, showing each season's months.", "A compass that follows the map rotation, and a cell panel with the cell's own 45-year history.", "Shareable links, Arabic (RTL) and English, a dedicated phone layout, and a reduced-motion option."],
+        } },
+        { title: { ar: "الهندسة البرمجية", en: "Engineering" }, body: { ar: "حركة مستمرة تعتمد على ساعة سنوات كسرية. تُعاد رسم الخريطة ومؤشر التشغيل فقط في كل إطار، دون حجز ذاكرة لكل إطار ودون انتقاء عبر المعالج الرسومي أثناء تحريك الخريطة، فيعمل التطبيق بسلاسة على الحواسيب والجوالات.", en: "Continuous animation driven by a fractional-year clock. Only the map and the playhead re-render per frame, with no per-frame memory allocation and no GPU picking while the map moves. The result plays smoothly on laptops and phones." } },
+        { title: { ar: "حدود الدراسة", en: "Limitations" }, body: { ar: "تدمج CHIRPS تقديرات الأقمار الصناعية مع سجلات محطات متفرقة، فهي تقديرات وليست قراءات مقاييس مطر. التفاصيل المكانية الحقيقية هي شبكة المصدر بدقة 5 كم تقريباً. الحدود مجموعة بيانات مفتوحة حديثة ثابتة لكل السنوات. الألوان تعرض الانحراف عن المعدل، وليست شدة جفاف أو خطر سيول، والارتفاعات ليست عمق ماء.", en: "CHIRPS blends satellite estimates with sparse station records, so these are estimates, not gauge readings. The real spatial detail is the ~5 km source grid. The boundary is a modern open dataset held fixed for all years. Colours show departures from normal, not drought severity or flood hazard. Heights are not water depth." } },
+      ],
+      credits: "Rainfall: CHIRPS v3.0 final monthly, Climate Hazards Center, UC Santa Barbara, CC BY 4.0 (Climate Hazards Center, CHIRPS v3, Scientific Data, 2026). Boundary: geoBoundaries gbOpen SAU ADM1 (OpenStreetMap / Wambacher), ODbL 1.0. Normal period: WMO standard 1991–2020.",
     },
   },
   {
@@ -340,12 +393,13 @@ export const services: { title: T; line: T; photo: string }[] = [
 export const skills: { group: T; tools: string[]; usedIn: T; href?: string }[] = [
   { group: { ar: "GIS والاستشعار عن بعد", en: "GIS and remote sensing" }, tools: ["QGIS", "Google Earth Engine", "Sentinel-2", "MODIS"], usedIn: { ar: "طويق، الاخضرار", en: "Tuwaiq, greening" } },
   { group: { ar: "التمثيل ثلاثي الأبعاد", en: "3D visualization" }, tools: ["Blender (Cycles)", "GDAL", "NumPy", "Matplotlib"], usedIn: { ar: "جبل شدا وطويق ثلاثي الأبعاد", en: "Jabal Shada and Tuwaiq 3D" } },
+  { group: { ar: "بيانات المناخ والشبكات المكانية", en: "Climate data and spatial grids" }, tools: ["CHIRPS v3", "H3 hexagons", "EPSG:6933 equal-area", "WMO 1991–2020 normals"], usedIn: { ar: "أمطار الرياض", en: "Riyadh rainfall" }, href: "https://riyadh-rainfall-dynamics.vercel.app" },
   { group: { ar: "التضاريس والهيدرولوجيا", en: "Terrain and hydrology" }, tools: ["Geomorphons", "TPI", "HAND", "Flow routing"], usedIn: { ar: "وحدات المشهد", en: "Landscape units" } },
   { group: { ar: "نمذجة الأنواع والمناخ", en: "Species and climate modeling" }, tools: ["MaxEnt", "CMIP6", "WorldClim", "CHELSA"], usedIn: { ar: "ملاجئ الحافات", en: "Escarpment refugia" } },
-  { group: { ar: "البرمجة والإحصاء", en: "Programming and statistics" }, tools: ["R", "Python", "Mann–Kendall", "Theil–Sen"], usedIn: { ar: "كل المشاريع", en: "All projects" } },
+  { group: { ar: "البرمجة والإحصاء", en: "Programming and statistics" }, tools: ["R", "Python", "GeoPandas", "rasterio", "pandas / Parquet", "pytest", "Mann–Kendall", "Theil–Sen"], usedIn: { ar: "كل المشاريع", en: "All projects" } },
   { group: { ar: "الميدان", en: "Fieldwork" }, tools: ["مسوحات التنوع الحيوي|Biodiversity surveys", "الدرون (GACA)|Drone (GACA)"], usedIn: { ar: "الحياة الفطرية", en: "NCW" } },
   { group: { ar: "الامتثال البيئي", en: "Compliance" }, tools: ["EIA", "NCEC", "ISO 14001", "ISO 45001"], usedIn: { ar: "Environmental Way", en: "Environmental Way" } },
-  { group: { ar: "الويب", en: "Web" }, tools: ["Next.js", "React", "Vercel"], usedIn: { ar: "نباتات المملكة", en: "Saudi Native Flora" }, href: "https://saudi-native-flora.netlify.app/" },
+  { group: { ar: "الويب", en: "Web" }, tools: ["Next.js", "React", "TypeScript", "deck.gl (WebGL)", "Vercel"], usedIn: { ar: "نباتات المملكة، أمطار الرياض", en: "Saudi Native Flora, Riyadh rainfall" }, href: "https://saudi-native-flora.netlify.app/" },
 ];
 
 export const languages: { name: T; level: T }[] = [

@@ -71,8 +71,9 @@ export default function MapViewer({ images, title, labels, dir, card, aspect = "
           setI(0);
           setOpen(true);
         }}
-        className="map-frame group block w-full text-start"
+        className="map-frame no-save group block w-full text-start"
         aria-label={`${labels.open}: ${title}`}
+        onContextMenu={(e) => e.preventDefault()}
       >
         <span className={`map-neatline relative block ${aspect} overflow-hidden`}>
           <img
@@ -84,6 +85,7 @@ export default function MapViewer({ images, title, labels, dir, card, aspect = "
             alt={card.alt}
             loading={eager ? "eager" : "lazy"}
             decoding="async"
+            draggable={false}
             className={`h-full w-full transition-transform duration-700 group-hover:scale-[1.04] ${compact ? "object-cover" : "object-contain p-2"}`}
           />
           <span className={`absolute bottom-2.5 end-2.5 inline-flex items-center gap-1.5 rounded-full bg-night/85 font-medium text-on-night backdrop-blur ${compact ? "px-2 py-1 text-[11px]" : "px-3 py-1.5 text-[13px]"}`}>
@@ -99,6 +101,7 @@ export default function MapViewer({ images, title, labels, dir, card, aspect = "
 
       {open && createPortal(
         <div
+          onContextMenu={(e) => e.preventDefault()}
           ref={dialogRef}
           role="dialog"
           aria-modal="true"
@@ -131,7 +134,7 @@ export default function MapViewer({ images, title, labels, dir, card, aspect = "
             </button>
           </div>
 
-          <div className="relative min-h-0 flex-1" dir="ltr">
+          <div className="no-save relative min-h-0 flex-1" dir="ltr">
             <TransformWrapper ref={zoomRef} minScale={1} maxScale={8} centerOnInit doubleClick={{ mode: "toggle", step: 2.5 }} wheel={{ step: 0.15 }}>
               <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%" }}>
                 <img

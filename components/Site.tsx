@@ -429,7 +429,7 @@ export default function Site({ lang }: { lang: Lang }) {
           <section id="experience" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
             <Head n="05" o={ui.expSkills} />
             <div className="mt-10 grid gap-4 lg:grid-cols-12">
-              <div className="spot reveal p-6 sm:p-8 lg:col-span-7">
+              <div className="spot reveal p-6 sm:p-8 lg:col-span-5">
                 <h3 className="text-xl font-bold">{t(ui.experience)}</h3>
                 <ol className="mt-8 space-y-7 border-s-2 border-sky/25 ps-6">
                   {experience.map((e, k) => (
@@ -451,9 +451,9 @@ export default function Site({ lang }: { lang: Lang }) {
                 </ol>
               </div>
 
-              <div className="spot reveal d1 p-6 sm:p-8 lg:col-span-5">
+              <div className="spot reveal d1 p-6 sm:p-8 lg:col-span-7">
                 <h3 className="text-xl font-bold">{t(ui.skills)}</h3>
-                <ul className="mt-8 space-y-5">
+                <ul className="mt-8 gap-x-8 sm:columns-2 [&>li]:mb-5 [&>li]:break-inside-avoid">
                   {skills.map((s, k) => (
                     <li key={k}>
                       <p className="flex flex-wrap items-baseline justify-between gap-2">

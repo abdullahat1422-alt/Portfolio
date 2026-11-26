@@ -15,6 +15,7 @@ export type LayerItem = {
   credit?: string;
   card: { src: string; src720: string; w: number; h: number; alt: string };
   aspect?: string;
+  related?: { id: string; label: string };
   details?: {
     fullTitle: string;
     meta: string[];
@@ -39,6 +40,7 @@ export default function Layers({
   panelLabel,
   detailsLabel,
   creditsLabel,
+  relatedLabel,
 }: {
   items: LayerItem[];
   dir: "rtl" | "ltr";
@@ -48,6 +50,7 @@ export default function Layers({
   panelLabel: string;
   detailsLabel: string;
   creditsLabel: string;
+  relatedLabel: string;
 }) {
   const [active, setActive] = useState(0);
   const swatches = ["#b5c25a", "#7fb3c2", "#d8cfa8", "#a8d08d", "#6e7f2e", "#5b8fa0", "#c9d27a"];
@@ -79,7 +82,25 @@ export default function Layers({
             {p.link.label} ↗
           </a>
         )}
-        {p.credit && <p className="mt-1 text-[11px] text-ink-soft/70">{p.credit}</p>}
+        {p.related && (
+          <button
+            type="button"
+            onClick={() => {
+              const nk = items.findIndex((x) => x.id === p.related!.id);
+              if (nk < 0) return;
+              setActive(nk);
+              requestAnimationFrame(() => document.getElementById(window.innerWidth < 1024 ? items[nk].id : "maps")?.scrollIntoView({ block: "start" }));
+            }}
+            className="mt-3 flex w-full items-center gap-3 rounded-2xl bg-paper/70 px-4 py-3 text-start ring-1 ring-line transition-colors hover:ring-copper/60"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0 text-copper"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7" /></svg>
+            <span className="min-w-0">
+              <span className="block text-[12px] font-semibold text-copper">{relatedLabel}</span>
+              <span className="block text-[14.5px] font-medium leading-snug">{p.related.label}</span>
+            </span>
+          </button>
+        )}
+        {p.credit && <p className="mt-2 text-[11.5px] leading-relaxed text-ink-soft/80">{p.credit}</p>}
         {p.details && <Details d={p.details} big={big} label={detailsLabel} creditsLabel={creditsLabel} />}
       </div>
     </div>

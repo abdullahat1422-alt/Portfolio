@@ -166,6 +166,7 @@ export default function Site({ lang }: { lang: Lang }) {
     card: { ...p.card, alt: t(p.card.alt) },
     images: p.gallery.map((g) => ({ src: g.src, w: g.w, h: g.h, caption: t(g.caption) })),
     aspect: p.card.aspect,
+    related: p.related ? { id: p.related.id, label: t(p.related.label) } : undefined,
     details: p.details
       ? {
           fullTitle: t(p.details.fullTitle),
@@ -372,7 +373,7 @@ export default function Site({ lang }: { lang: Lang }) {
           {/* 03 Selected work: layers */}
           <section id="maps" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
             <Head n="03" o={ui.maps} />
-            <Layers items={layerItems} dir={dir} labels={labels} featured={t(ui.featured)} mapsWord={t(ui.mapsWord)} panelLabel={t(ui.layers)} detailsLabel={t(ui.details)} creditsLabel={t(ui.dataCredits)} />
+            <Layers items={layerItems} dir={dir} labels={labels} featured={t(ui.featured)} mapsWord={t(ui.mapsWord)} panelLabel={t(ui.layers)} detailsLabel={t(ui.details)} relatedLabel={t(ui.related)} creditsLabel={t(ui.dataCredits)} />
 
             <div id="gallery" className="mt-24">
               <div className="reveal flex items-end justify-between gap-4 border-b border-ink/10 pb-4">

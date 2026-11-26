@@ -15,6 +15,7 @@ export type LayerItem = {
   credit?: string;
   card: { src: string; src720: string; w: number; h: number; alt: string };
   aspect?: string;
+  category?: string;
   related?: { id: string; label: string };
   details?: {
     fullTitle: string;
@@ -157,7 +158,16 @@ export default function Layers({
             </p>
             <div className="space-y-1.5" role="tablist" aria-orientation="vertical">
               {items.map((p, k) => (
-                <Tab key={p.id} p={p} k={k} />
+                <div key={p.id}>
+                  {p.category && p.category !== items[k - 1]?.category && (
+                    <p className={`flex items-center gap-2 px-2 pb-1.5 text-[12px] font-bold tracking-wide text-copper ${k ? "pt-4" : "pt-1"}`}>
+                      <span aria-hidden className="h-px w-3 bg-copper/60" />
+                      {p.category}
+                      <span className="ms-auto rounded-full bg-paper px-2 text-[11px] font-semibold text-ink-soft tabular-nums">{items.filter((x) => x.category === p.category).length}</span>
+                    </p>
+                  )}
+                  <Tab p={p} k={k} />
+                </div>
               ))}
             </div>
           </div>
@@ -171,6 +181,12 @@ export default function Layers({
       <div data-layers className="space-y-2 lg:hidden">
         {items.map((p, k) => (
           <div key={p.id} id={p.id} className="scroll-mt-24">
+            {p.category && p.category !== items[k - 1]?.category && (
+              <p className={`flex items-center gap-2 px-1 pb-1 text-[13px] font-bold text-copper ${k ? "pt-5" : ""}`}>
+                <span aria-hidden className="h-px w-3 bg-copper/60" />
+                {p.category}
+              </p>
+            )}
             <Tab p={p} k={k} />
             {k === active && (
               <div id={`layer-${p.id}`} className="sheet mt-2 rounded-[1.5rem] p-3">

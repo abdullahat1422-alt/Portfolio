@@ -166,6 +166,7 @@ export default function Site({ lang }: { lang: Lang }) {
     card: { ...p.card, alt: t(p.card.alt) },
     images: p.gallery.map((g) => ({ src: g.src, w: g.w, h: g.h, caption: t(g.caption) })),
     aspect: p.card.aspect,
+    category: t(ui.cats[p.category]),
     related: p.related ? { id: p.related.id, label: t(p.related.label) } : undefined,
     details: p.details
       ? {

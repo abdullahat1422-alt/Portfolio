@@ -175,6 +175,7 @@ export default function Site({ lang }: { lang: Lang }) {
           metrics: p.details.metrics.map((m) => ({ value: m.value, label: t(m.label) })),
           sections: p.details.sections.map((x) => ({ title: t(x.title), body: x.body ? t(x.body) : undefined, list: x.list ? x.list[lang] : undefined })),
           download: p.details.download ? { href: p.details.download.href, size: p.details.download.size, label: t(p.details.download.label) } : undefined,
+          video: p.details.video ? { src: p.details.video.src, poster: p.details.video.poster, caption: t(p.details.video.caption) } : undefined,
           credits: p.details.credits,
         }
       : undefined,

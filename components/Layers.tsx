@@ -23,6 +23,7 @@ export type LayerItem = {
     metrics: { value: string; label: string }[];
     sections: { title: string; body?: string; list?: string[] }[];
     download?: { href: string; size: string; label: string };
+    video?: { src: string; poster: string; caption: string };
     credits?: string;
   };
   images: { src: string; w: number; h: number; caption: string }[];
@@ -204,6 +205,12 @@ export default function Layers({
 function Details({ d, big, label, creditsLabel }: { d: NonNullable<LayerItem["details"]>; big?: boolean; label: string; creditsLabel: string }) {
   return (
     <div className="mt-5">
+      {d.video && (
+        <figure className="mb-4 overflow-hidden rounded-2xl bg-ink ring-1 ring-line">
+          <video src={d.video.src} poster={d.video.poster} controls playsInline preload="none" controlsList="nodownload" onContextMenu={(e) => e.preventDefault()} className="block aspect-video w-full" />
+          <figcaption className="px-4 py-2 text-[13px] text-ink-soft bg-paper">{d.video.caption}</figcaption>
+        </figure>
+      )}
       <ul className={`grid gap-2 ${big ? "grid-cols-3 sm:grid-cols-5" : "grid-cols-2"}`}>
         {d.metrics.map((m, i) => (
           <li key={i} className="rounded-2xl bg-paper px-3 py-3 ring-1 ring-line">

@@ -268,6 +268,7 @@ export const projects: Project[] = [
     highlight: { ar: "12 مرحلة · 32 صورة", en: "12 phases · 32 images" },
     tools: ["Python", "GDAL", "GeoPandas", "SciPy", "Blender", "QGIS"],
     related: { id: "imam-abdulrahman-reserve", label: { ar: "محمية الإمام عبدالرحمن: إعادة بناء الحدود", en: "Imam Abdulrahman Reserve: boundary reconstruction" } },
+    link: { href: "/reserve-3d/", label: { ar: "افتح النموذج ثلاثي الأبعاد التفاعلي", en: "Open the interactive 3D viewer" } },
     credit: { ar: "حدود تقريبية أعيد بناؤها من خريطة الهيئة الملكية لمدينة الرياض، وليست الحدود الرسمية، ولا تُستخدم لأغراض قانونية أو مساحية أو تنظيمية. مخرجات الملاءمة استكشافية وليست تقسيماً إدارياً، ومواقع المسح مختارة مكتبياً.", en: "Approximate boundary reconstructed from the RCRC official map – not the official boundary; not for legal, cadastral or regulatory use. Suitability outputs are exploratory and not management zoning; survey plots are desk-selected." },
     card: { src: "/projects/ecological-landscape-baseline/cover.webp", src720: "/projects/ecological-landscape-baseline/cover.webp", w: 1800, h: 1271, alt: { ar: "غلاف تقرير خط الأساس للمشهد البيئي لمحمية الإمام عبدالرحمن بن فيصل", en: "Cover of the Ecological Landscape Baseline Report for Imam Abdulrahman bin Faisal Reserve" }, aspect: "aspect-[1800/1271]" },
     gallery: [

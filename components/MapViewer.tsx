@@ -61,9 +61,27 @@ export default function MapViewer({ images, title, labels, dir, card, aspect = "
       }
     };
     window.addEventListener("keydown", onKey);
+    // A trackpad pinch arrives as ctrl+wheel. Outside the image it would zoom the whole page
+    // (and Edge/Chrome remember that zoom for the site), so catch it everywhere and zoom the map.
+    const onWheel = (e: WheelEvent) => {
+      if (!e.ctrlKey && !e.metaKey) return;
+      e.preventDefault();
+      const inside = (e.target as HTMLElement | null)?.closest?.(".react-transform-wrapper");
+      if (!inside) {
+        if (e.deltaY < 0) zoomRef.current?.zoomIn(0.25);
+        else zoomRef.current?.zoomOut(0.25);
+      }
+    };
+    const onGesture = (e: Event) => e.preventDefault(); // Safari pinch
+    window.addEventListener("wheel", onWheel, { passive: false, capture: true });
+    window.addEventListener("gesturestart", onGesture);
+    window.addEventListener("gesturechange", onGesture);
     return () => {
       document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKey);
+      window.removeEventListener("wheel", onWheel, { capture: true } as EventListenerOptions);
+      window.removeEventListener("gesturestart", onGesture);
+      window.removeEventListener("gesturechange", onGesture);
     };
   }, [open, close, go, dir, images.length]);
 
@@ -121,13 +139,17 @@ export default function MapViewer({ images, title, labels, dir, card, aspect = "
           className="viewer-enter fixed inset-0 z-50 flex flex-col bg-[#101416] text-[#eef2f1] outline-none"
           dir={dir}
         >
-          <div className="flex items-center gap-3 px-4 py-3">
+          <div className="relative z-10 flex items-center gap-3 px-4 py-3">
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-medium">{title}</p>
               <p className="truncate text-xs text-[#a6b1b3]">
                 {img.caption}
                 {images.length > 1 ? `  ${i + 1}/${images.length}` : ""}
               </p>
+            </div>
+            <div className="flex items-center rounded-md bg-white/10" dir="ltr">
+              <button type="button" aria-label="Zoom out" onClick={() => zoomRef.current?.zoomOut(0.5)} className="grid size-9 place-items-center rounded-md text-lg hover:bg-white/15">−</button>
+              <button type="button" aria-label="Zoom in" onClick={() => zoomRef.current?.zoomIn(0.5)} className="grid size-9 place-items-center rounded-md text-lg hover:bg-white/15">+</button>
             </div>
             <button
               type="button"
@@ -139,13 +161,14 @@ export default function MapViewer({ images, title, labels, dir, card, aspect = "
             <button
               type="button"
               onClick={close}
-              className="rounded-md bg-white/10 px-3 py-2 text-sm font-medium hover:bg-white/20"
+              className="flex items-center gap-1.5 rounded-md bg-[#eef2f1] px-3.5 py-2 text-sm font-bold text-[#101416] hover:bg-white"
             >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" aria-hidden><path d="M6 6l12 12M18 6L6 18" /></svg>
               {labels.close}
             </button>
           </div>
 
-          <div className="no-save relative min-h-0 flex-1" dir="ltr">
+          <div className="no-save relative z-0 min-h-0 flex-1 overflow-hidden" dir="ltr">
             <TransformWrapper ref={zoomRef} minScale={1} maxScale={8} centerOnInit doubleClick={{ mode: "toggle", step: 2.5 }} wheel={{ step: 0.15 }}>
               <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%" }}>
                 <img
@@ -161,7 +184,7 @@ export default function MapViewer({ images, title, labels, dir, card, aspect = "
             </TransformWrapper>
           </div>
 
-          <div className="flex items-center justify-between gap-3 px-4 pb-[max(env(safe-area-inset-bottom),12px)] pt-2">
+          <div className="relative z-10 flex items-center justify-between gap-3 px-4 pb-[max(env(safe-area-inset-bottom),12px)] pt-2">
             <p className="text-xs text-[#a6b1b3]">{labels.hint}</p>
             {images.length > 1 && (
               <div className="flex gap-2">

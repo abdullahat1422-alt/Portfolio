@@ -116,11 +116,19 @@ footer b{font:600 13px "Barlow Condensed",sans-serif;color:var(--ink)}
  #legendSlot #legendBox{display:block;position:static;width:auto;max-height:none;border:0;padding:6px 0;background:none;backdrop-filter:none}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* back to portfolio */
+.back{display:inline-flex;align-items:center;gap:8px;margin:0 0 8px;padding:6px 14px 6px 10px;border-radius:999px;background:#1f281d;color:#f3ecdc;font:600 13px/1.2 'Barlow',system-ui,sans-serif;text-decoration:none;box-shadow:0 6px 16px -8px rgba(0,0,0,.5)}
+.back:hover{background:#2c3a29}.back:focus-visible{outline:2px solid #c2402f;outline-offset:2px}
+.back svg{width:16px;height:16px;flex:none}.back .ar{font-family:'Noto Kufi Arabic',sans-serif;font-weight:600;opacity:.8}
+html{overflow-x:hidden}
+@media(max-width:760px){.back{margin:0;padding:8px 10px;flex:none}.back .lbl{display:none}header>div:first-child{display:flex;align-items:center;gap:10px}}
 </style>
 </head>
 <body>
 <header>
  <div>
+  <a class="back" id="back" href="/#maps" aria-label="Back to portfolio / العودة إلى البورتفوليو"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span class="lbl">Portfolio <span class="ar" lang="ar">· البورتفوليو</span></span></a>
   <p class="kick">ECOLOGICAL LANDSCAPE BASELINE · INTERACTIVE 3D</p>
   <h1>Imam Abdulrahman bin Faisal Reserve</h1>
   <p class="sub">Terrain and baseline layers you can turn, tilt and switch</p>
@@ -4016,5 +4024,5 @@ three/build/three.module.js:
    *)
 */
 </script>
-</body>
+<script>(function(){var a=document.getElementById('back');if(!a)return;var r=document.referrer||'',q=location.search;var en=/[?&]lang=en/.test(q)||/\/en\//.test(r);a.href=(en?'/en/':'/')+'#maps';a.addEventListener('click',function(e){try{if(r&&new URL(r).origin===location.origin&&history.length>1){e.preventDefault();history.back();}}catch(_){}});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!document.querySelector('[open].modal,dialog[open]')){}});})();</script></body>
 </html>

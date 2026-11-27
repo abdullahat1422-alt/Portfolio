@@ -80,8 +80,8 @@ export default function Layers({
           {p.tools.join("  /  ")}
         </p>
         {p.link && (
-          <a href={p.link.href} target="_blank" rel="noopener" className="mt-1 inline-block py-2 text-[15px] font-semibold text-copper no-underline hover:underline">
-            {p.link.label} ↗
+          <a href={p.link.href.startsWith("/") && dir === "ltr" ? `${p.link.href}?lang=en` : p.link.href} {...(p.link.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})} className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-copper/10 px-4 py-2 text-[15px] font-semibold text-copper no-underline ring-1 ring-copper/30 transition-colors hover:bg-copper/20">
+            {p.link.label} {p.link.href.startsWith("http") ? "↗" : dir === "rtl" ? "←" : "→"}
           </a>
         )}
         {p.related && (

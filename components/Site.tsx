@@ -460,7 +460,7 @@ export default function Site({ lang }: { lang: Lang }) {
                       <p className="flex flex-wrap items-baseline justify-between gap-2">
                         <span className="font-semibold">{t(s.group)}</span>
                         {s.href ? (
-                          <a href={s.href} target="_blank" rel="noopener" className="text-[13px] font-medium text-sky underline decoration-sky/40 underline-offset-4 hover:decoration-sky">{t(s.usedIn)} ↗</a>
+                          <a href={s.href} target="_blank" rel="noopener" className="-my-2 inline-block py-2 text-[13px] font-medium text-sky underline decoration-sky/40 underline-offset-4 hover:decoration-sky">{t(s.usedIn)} ↗</a>
                         ) : (
                           <span className="text-[13px] text-sky">{t(s.usedIn)}</span>
                         )}

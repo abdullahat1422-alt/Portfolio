@@ -25,10 +25,21 @@ export default function MapViewer({ images, title, labels, dir, card, aspect = "
   const triggerRef = useRef<HTMLButtonElement>(null);
   const zoomRef = useRef<ReactZoomPanPinchRef>(null);
 
+  // The open viewer owns one history entry, so the phone/browser Back button closes it
+  // instead of leaving the site.
   const close = useCallback(() => {
-    setOpen(false);
+    if (history.state && history.state.mapViewer) history.back();
+    else setOpen(false);
     triggerRef.current?.focus();
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    history.pushState({ ...(history.state || {}), mapViewer: true }, "");
+    const onPop = () => setOpen(false);
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, [open]);
 
   const go = useCallback(
     (d: number) => setI((v) => (v + d + images.length) % images.length),
